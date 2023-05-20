@@ -27,11 +27,8 @@ config_file=$mixnodes_dir/$mix_node/config/config.toml
 
 wallet_address=$(grep "wallet_address" "$config_file" | awk -F "'" '{print $2}')
 
-# Extract the id value using grep and awk
-node_id=$(grep "id" "$config_file" | awk -F "'" '{print $2}')
-
 # Download the releases page as text and extract the latest release tag
-latest_release=$(curl -s "https://github.com/nymtech/nym/releases/" | grep -oEm 1 "nym-binaries-v[0-9]+\.[0-9]+\.[0-9]+")
+latest_release=$(curl -s "https://github.com/nymtech/nym/releases/" | grep -oEm 1 "nym-binaries-v[0-9]+\.[0-9]+\.[0-9]+" 2>/dev/null)
 
 mixnode_url="https://github.com/nymtech/nym/releases/download/$latest_release/nym-mixnode"
 
@@ -46,7 +43,7 @@ chmod u+x "$nym_destination"
 
 announce_host=$(curl ifconfig.me) > '/dev/null' 2>&1
 
-nym-mixnode init --id $node_id --host $(hostname -I | awk '{print $1}') --announce-host $announce_host --wallet-address $wallet_address
+nym-mixnode init --id $mix_node --host $(hostname -I | awk '{print $1}') --announce-host $announce_host --wallet-address $wallet_address
 
 sudo systemctl restart nym-mixnode
 
