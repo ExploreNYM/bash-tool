@@ -57,7 +57,7 @@ These scripts are only tested on ubuntu 20.04
 
 Copy and paste this code into the terminal.
  ```sh
-   wget -O en-tool.sh https://github.com/ExploreNYM/bash-tool/blob/main/en-tool.sh && chmod +x en-tool.sh &&  . ~/en-tool.sh
+   wget -O en-tool.sh https://github.com/ExploreNYM/bash-tool/raw/main/en-tool.sh && chmod +x en-tool.sh &&  . ~/en-tool.sh
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

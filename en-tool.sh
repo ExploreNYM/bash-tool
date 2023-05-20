@@ -45,12 +45,12 @@ case "$(groups)" in
     echo
     ;;
   *root*)
-    echo -e "\xE2\x9C\x97 Root user."
+    echo -e "\xE2\x9C\x97 Sudo user."
     echo
-    read -p "We advise you make a user for nym Y to continue or n to use root user (Y/n) " root_p
+    read -p "We advise you make a sudo user for nym Y to continue or n to use root user (Y/n) " root_p
     if [[ "$root_p" == "Y" || "$root_p" == "y" || "$root_p" == "" ]]; then
    
-    wget -O en-new-user.sh https://github.com/ExploreNYM/bash-tool/blob/main/scripts/user-ssh/en-new-user.sh && chmod +x en-new-user.sh &&  . ~/en-new-user.sh
+    wget -O en-new-user.sh https://github.com/ExploreNYM/bash-tool/raw/main/scripts/user-ssh/en-new-user.sh && chmod +x en-new-user.sh &&  . ~/en-new-user.sh
     return
     fi
     ;;
@@ -61,6 +61,7 @@ case "$(groups)" in
     ;;
 esac
 sudo apt upgrade -y -qq > '/dev/null' 2>&1
+echo
 echo -e "\xE2\x9C\x93 Server up to date."
 echo
 
@@ -80,7 +81,7 @@ mix_node=$(find "$mixnodes_dir" -mindepth 1 -maxdepth 1 -type d -printf "%f\n" 2
 
     case $choice in
         1)
-            wget -O en-mix-install.sh https://github.com/ExploreNYM/bash-tool/blob/main/scripts/mixnode/en-mix-install.sh && chmod +x en-mix-install.sh &&  . ~/en-mix-install.sh
+            wget -O en-mix-install.sh https://github.com/ExploreNYM/bash-tool/raw/main/scripts/mixnode/en-mix-install.sh && chmod +x en-mix-install.sh &&  . ~/en-mix-install.sh
             return
             ;;
         2)
@@ -89,7 +90,7 @@ mix_node=$(find "$mixnodes_dir" -mindepth 1 -maxdepth 1 -type d -printf "%f\n" 2
             ;;
         3)
             # Disabled
-            #wget -O en-node-exporter.sh https://github.com/explorenym/en-node-exporter.sh && chmod +x en-node-exporter.sh &&  . ~/en-node-exporter.sh
+            #wget -O en-node-exporter.sh https://github.com/ExploreNYM/bash-tool/raw/main/scripts/monitor/en-node-exporter.sh && chmod +x en-node-exporter.sh &&  . ~/en-node-exporter.sh
             return
             ;;
         4)
@@ -114,16 +115,16 @@ else
 
     case $choice in
         1)
-            wget -O en-mix-update.sh https://github.com/ExploreNYM/bash-tool/blob/main/scripts/mixnode/en-mix-update.sh && chmod +x en-mix-update.sh &&  . ~/en-mix-update.sh
+            wget -O en-mix-update.sh https://github.com/ExploreNYM/bash-tool/raw/main/scripts/mixnode/en-mix-update.sh && chmod +x en-mix-update.sh &&  . ~/en-mix-update.sh
             return
             ;;
         2)
-            wget -O en-mix-back.sh https://github.com/ExploreNYM/bash-tool/blob/main/scripts/mixnode/en-mix-back.sh && chmod +x en-mix-back.sh &&  . ~/en-mix-back.sh
+            wget -O en-mix-back.sh https://github.com/ExploreNYM/bash-tool/raw/main/scripts/mixnode/en-mix-back.sh && chmod +x en-mix-back.sh &&  . ~/en-mix-back.sh
             return
             ;;
         3)
             # Disabled
-            #wget -O en-node-exporter.sh https://github.com/ExploreNYM/bash-tool/blob/main/scripts/monitor/en-node-exporter.sh && chmod +x en-node-exporter.sh &&  . ~/en-node-exporter.sh
+            #wget -O en-node-exporter.sh https://github.com/ExploreNYM/bash-tool/raw/main/scripts/monitor/en-node-exporter.sh && chmod +x en-node-exporter.sh &&  . ~/en-node-exporter.sh
             return
             ;;
         4)

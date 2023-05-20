@@ -37,13 +37,13 @@ while true; do
         1)
             echo "Paste this code in your local terminal:"
             echo
-            echo "wget -O en-new-ssh-bash.sh https://github.com/ExploreNYM/bash-tool/blob/main/scripts/user-ssh/en-new-ssh-bash.sh && chmod +x en-new-ssh-bash.sh && . ~/en-new-ssh-bash.sh $new_user@$public_ip"
+            echo "wget -O en-new-ssh-bash.sh https://github.com/ExploreNYM/bash-tool/raw/main/scripts/user-ssh/en-new-ssh-bash.sh && chmod +x en-new-ssh-bash.sh && . ~/en-new-ssh-bash.sh $new_user@$public_ip"
             return
             ;;
         2)
             echo "Paste this code in your local Powershell:"
             echo
-            echo "Invoke-WebRequest \"https://github.com/ExploreNYM/bash-tool/blob/main/scripts/user-ssh/en-new-ssh-shell.ps1\" -OutFile \"en-new-ssh-shell.ps1\"
+            echo "Invoke-WebRequest \"https://github.com/ExploreNYM/bash-tool/raw/main/scripts/user-ssh/en-new-ssh-shell.ps1\" -OutFile \"en-new-ssh-shell.ps1\"
             Set-ExecutionPolicy -Scope CurrentUser Unrestricted -Force
             .\en-new-ssh-shell.ps1  -arg1 \"$new_user@$public_ip\""
 
