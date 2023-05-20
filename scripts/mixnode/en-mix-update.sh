@@ -37,7 +37,7 @@ mixnode_url="https://github.com/nymtech/nym/releases/download/$latest_release/ny
 
 sudo systemctl stop nym-mixnode
 
-if curl --fail --silent --show-error --location "$mixnode_url" --output "/usr/local/bin";
+if curl --fail --silent --show-error --location "$mixnode_url" --output "/usr/local/bin/nym-mixnode";
 then
 
 chmod u+x nym-mixnode
