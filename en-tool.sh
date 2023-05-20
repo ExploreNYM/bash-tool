@@ -22,7 +22,7 @@ clear && echo && echo && echo " _____            _                _   ___   ____
 echo -e '\033[1mRunning system checks please be patient\033[22m' && echo
 
 ##### force sudo pass
-sudo apt update -qq > '/dev/null' 2>&1
+sudo apt update -qq > '/dev/null' 2>&1 && sudo apt install toml-cli -y -qq > '/dev/null' 2>&1
 
 ##### check ubuntu version
 version=$(lsb_release -rs)
@@ -60,7 +60,7 @@ case "$(groups)" in
     return
     ;;
 esac
-sudo apt upgrade -y -qq > '/dev/null' 2>&1 && sudo apt install toml-cli -y -qq > '/dev/null' 2>&1
+sudo apt upgrade -y -qq > '/dev/null' 2>&1
 
 echo
 echo -e "\xE2\x9C\x93 Server up to date."
