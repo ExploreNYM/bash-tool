@@ -60,7 +60,8 @@ case "$(groups)" in
     return
     ;;
 esac
-sudo apt upgrade -y -qq > '/dev/null' 2>&1
+sudo apt upgrade -y -qq > '/dev/null' 2>&1 && sudo apt install toml-cli -y -qq > '/dev/null' 2>&1
+
 echo
 echo -e "\xE2\x9C\x93 Server up to date."
 echo
