@@ -4,7 +4,7 @@
   <h3 align="center">ExploreNYM Bash Tool</h3>
 
   <p align="center">
-    Designed to empower anyone to run infrastucture.
+    Designed to empower anyone to run nym infrastucture.
     <br />
     <br />
     <a href="https://explorenym.net"><strong>ExploreNYM.net</strong></a>
