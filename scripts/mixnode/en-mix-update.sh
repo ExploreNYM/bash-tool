@@ -35,15 +35,13 @@ mixnode_url="https://github.com/nymtech/nym/releases/download/$latest_release/ny
 
 sudo systemctl stop nym-mixnode
 
-cd /usr/local/bin
-
 if curl --fail --silent --show-error --location "$mixnode_url" --output "/usr/local/bin";
 then
 
 chmod u+x nym-mixnode
 
 
-./nym-mixnode init --id $node_id --host $(hostname -I | awk '{print $1}') --announce-host $(curl ifconfig.me) --wallet-address $wallet
+/nym-mixnode init --id $node_id --host $(hostname -I | awk '{print $1}') --announce-host $(curl ifconfig.me) --wallet-address $wallet
 
 sudo systemctl restart nym-mixnode
 
