@@ -52,6 +52,8 @@ sleep 1
 if [[ `service nym-mixnode status | grep active` =~ "running" ]]; then
   mixnode_version=$(grep "version" "$config_file" | awk -F "'" '{print $2}')
   echo
+  sudo systemctl status $mix_node
+  echo
   echo -e "nym-mixnode updated to version: $mixnode_version, remember update the version in your wallet!"
   echo
   echo -e "Server Restart Initiated"
