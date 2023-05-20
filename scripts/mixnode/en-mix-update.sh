@@ -39,13 +39,14 @@ nym_destination="/usr/local/bin/nym-mixnode"
 
 sudo systemctl stop nym-mixnode
 
-if wget "$mixnode_url" -O "$nym_destination";
+if wget -q "$mixnode_url" -O "$nym_destination";
 then
 
 chmod u+x "$nym_destination"
 
+announce_host=$(curl ifconfig.me)
 
-nym-mixnode init --id $node_id --host $(hostname -I | awk '{print $1}') --announce-host $(curl ifconfig.me) --wallet-address $wallet
+nym-mixnode init --id $node_id --host $(hostname -I | awk '{print $1}') --announce-host $announce_host --wallet-address $wallet
 
 sudo systemctl restart nym-mixnode
 
