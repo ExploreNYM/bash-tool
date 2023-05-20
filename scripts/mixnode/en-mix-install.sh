@@ -5,6 +5,7 @@ function cleanup {
     unset mixnode_url
     unset wallet
     unset announce_host
+    unset permission
 }
 trap cleanup RETURN
 clear && echo && echo && echo " _____            _                _   ___   ____  __ " \
@@ -45,13 +46,13 @@ EOF
 sudo sh -c 'echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf'
 sudo systemctl daemon-reload && sudo systemctl enable nym-mixnode && sudo systemctl restart nym-mixnode
 if [[ `service nym-mixnode status | grep active` =~ "running" ]]; then
-
-
-nym-mixnode describe --id nym-mixnode < /dev/tty > /dev/null
-
-sudo systemctl restart nym-mixnode
-
 echo -e "\xE2\x9C\x93 nym-mixnode installed and running you can now bond from your wallet with the details above!"
+echo
+read -p "Do you want to update name/link/location of your new node? (Y/n) " permission
+if [[ "$permission" == "Y" || "$permission" == "y" || "$permission" == "" ]]; then
+nym-mixnode describe --id nym-mixnode
+fi
+sudo systemctl restart nym-mixnode
 
 
   
