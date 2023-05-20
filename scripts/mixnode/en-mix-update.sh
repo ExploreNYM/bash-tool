@@ -25,8 +25,10 @@ mix_node=$(find "$mixnodes_dir" -mindepth 1 -maxdepth 1 -type d -printf "%f\n" 2
 
 config_file=$mixnodes_dir/$mix_node/config/config.toml
 
-wallet=$(python3 -c "import toml; print(toml.load('$config_file')['wallet_address'])")
-node_id=$(python3 -c "import toml; print(toml.load('$config_file')['id'])")
+wallet_address=$(grep "wallet_address" "$config_file" | awk -F "'" '{print $2}')
+
+# Extract the id value using grep and awk
+node_id=$(grep "id" "$config_file" | awk -F "'" '{print $2}')
 
 # Download the releases page as text and extract the latest release tag
 latest_release=$(curl -s "https://github.com/nymtech/nym/releases/" | grep -oEm 1 "nym-binaries-v[0-9]+\.[0-9]+\.[0-9]+")
@@ -48,7 +50,7 @@ sudo systemctl restart nym-mixnode
 sleep 1
 
 if [[ `service nym-mixnode status | grep active` =~ "running" ]]; then
-  mixnode_version=$(python3 -c "import toml; print(toml.load('$config_file')['version'])")
+  mixnode_version=$(grep "version" "$config_file" | awk -F "'" '{print $2}')
   echo
   echo -e "nym-mixnode updated to version: $mixnode_version, remember update the version in your wallet!"
   echo

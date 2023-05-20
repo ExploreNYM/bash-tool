@@ -61,9 +61,7 @@ case "$(groups)" in
     ;;
 esac
 sudo apt upgrade -y -qq > '/dev/null' 2>&1
-sudo apt install python3 -y -qq > '/dev/null' 2>&1
-sudo apt install python3-pip -y -qq > '/dev/null' 2>&1
-sudo pip3 install toml > -y -qq '/dev/null' 2>&1
+
 
 
 
