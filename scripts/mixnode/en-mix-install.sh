@@ -14,7 +14,7 @@ clear && echo && echo && echo " _____            _                _   ___   ____
 echo -e '\033[1mInstalling nym-mixnode you will need your wallet address.\033[22m' && echo
 latest_release=$(curl -s "https://github.com/nymtech/nym/releases/" | grep -oEm 1 "nym-binaries-v[0-9]+\.[0-9]+\.[0-9]+")
 mixnode_url="https://github.com/nymtech/nym/releases/download/$latest_release/nym-mixnode"
-wget -O nym-mixnode "$mixnode_url" -qq && chmod u+x nym-mixnode && sudo mv nym-mixnode /usr/local/bin
+wget -q -O nym-mixnode "$mixnode_url" -qq && chmod u+x nym-mixnode && sudo mv nym-mixnode /usr/local/bin
 read -p "Enter wallet Address: " wallet
 announce_host=$(curl ifconfig.me 2>/dev/null)
 nym-mixnode init --id nym-mixnode --host $(hostname -I | awk '{print $1}') --announce-host "$announce_host" --wallet-address "$wallet" > /dev/null

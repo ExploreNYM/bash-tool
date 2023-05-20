@@ -24,7 +24,7 @@ ssh-keygen -f $sshkey_filename 2> /dev/null \
 && echo "Testing connect via ssh key" \
 && ssh $1@$2 \
 && sleep 1 \
-&& wget -O en-ssh-secure.sh https://github.com/ExploreNYM/bash-tool/raw/main/scripts/user-ssh/en-ssh-secure.sh && chmod +x en-ssh-secure.sh && . ~/en-ssh-secure.sh \
+&& wget -q -O en-ssh-secure.sh https://github.com/ExploreNYM/bash-tool/raw/main/scripts/user-ssh/en-ssh-secure.sh && chmod +x en-ssh-secure.sh && . ~/en-ssh-secure.sh \
 || echo error
 exit
 else
