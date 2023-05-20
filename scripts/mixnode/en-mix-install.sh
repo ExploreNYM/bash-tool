@@ -54,7 +54,9 @@ nym-mixnode describe --id nym-mixnode
 fi
 sudo systemctl restart nym-mixnode
 
+sleep 2
 
+sudo systemctl status nym-mixnode --no-pager
   
 else
   echo
