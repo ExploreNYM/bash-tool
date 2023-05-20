@@ -47,12 +47,12 @@ nym-mixnode init --id $mix_node --host $(hostname -I | awk '{print $1}') --annou
 
 sudo systemctl restart nym-mixnode
 
-sleep 1
+sleep 2
 
 if [[ `service nym-mixnode status | grep active` =~ "running" ]]; then
   mixnode_version=$(grep "version" "$config_file" | awk -F "'" '{print $2}')
   echo
-  sudo systemctl status $mix_node
+  sudo systemctl status $mix_node --no-pager
   echo
   echo -e "nym-mixnode updated to version: $mixnode_version, remember update the version in your wallet!"
   echo
