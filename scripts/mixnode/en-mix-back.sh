@@ -17,7 +17,7 @@ mixnodes_dir=$(find / -type d -name mixnodes 2>/dev/null | grep '/\.nym/mixnodes
 # -z is false not -n is true
 if [ -z "$mixnodes_dir" ]; then
   echo "Error: /.nym/mixnodes directory not found."
-  exit 1
+  return
 fi
 
 # Get the folder name within the mixnodes directory
@@ -26,15 +26,16 @@ folder_name=$(find "$mixnodes_dir" -mindepth 1 -maxdepth 1 -type d -printf "%f\n
 # Check if a folder was found
 if [ -z "$folder_name" ]; then
   echo "No folder found in $mixnodes_dir"
-  exit 1
+  return
 else
   echo "nym-mixnode found : $folder_name"
 
 fi
 
-pub_host=$(curl ifconfig.me)
+pub_host=$(curl ifconfig.me > '/dev/null' 2>&1)
 
-echo "Now copy this script and paste it in your local terminal to pull a backup of your node at anytime."
-echo ''
-echo "scp -r $USER@$pub_host:$mixnodes_dir/$folder_name ~/$folder_name-backup"
-echo ' '
+echo "Now copy this script and paste it in your local terminal to pull a backup of your mixnode."
+echo 
+echo "scp -r $USER@$pub_host:$mixnodes_dir/$folder_name ~/$folder_name"
+echo 
+return
