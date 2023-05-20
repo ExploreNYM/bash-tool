@@ -35,12 +35,14 @@ latest_release=$(curl -s "https://github.com/nymtech/nym/releases/" | grep -oEm 
 
 mixnode_url="https://github.com/nymtech/nym/releases/download/$latest_release/nym-mixnode"
 
+nym_destination="/usr/local/bin/nym-mixnode"
+
 sudo systemctl stop nym-mixnode
 
-if curl --fail --silent --show-error --location "$mixnode_url" --output "/usr/local/bin/nym-mixnode";
+if wget "$mixnode_url" -O "$nym_destination";
 then
 
-chmod u+x nym-mixnode
+chmod u+x "$nym_destination"
 
 
 /nym-mixnode init --id $node_id --host $(hostname -I | awk '{print $1}') --announce-host $(curl ifconfig.me) --wallet-address $wallet
