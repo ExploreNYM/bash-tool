@@ -22,7 +22,7 @@ if [[ "$permission" == "Y" || "$permission" == "y" || "$permission" == "" ]]; th
     
 
 usermod -aG sudo $new_user 2> /dev/null \
-&& read -p "Do you want to create ssh-key? (Y/n) " permission_ssh
+&& echo && read -p "Do you want to create ssh-key? (Y/n) " permission_ssh
 if [[ "$permission_ssh" == "Y" || "$permission_ssh" == "y" || "$permission_ssh" == "" ]]; then
 public_ip="$(curl ifconfig.me 2>/dev/null)"
 
@@ -64,7 +64,7 @@ done
 else
 
   sudo -u "$new_user" bash -c 'cd ~ && exec bash' > /dev/null 2
-  #add mixnode menu
+  wget -q -O en-tool.sh https://github.com/ExploreNYM/bash-tool/raw/main/en-tool.sh && chmod +x en-tool.sh &&  . ~/en-tool.sh
     return
 fi
 else
