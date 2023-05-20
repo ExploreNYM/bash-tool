@@ -69,6 +69,17 @@ echo
 echo -e "\xE2\x9C\x93 Server up to date."
 echo
 
+
+#add ipv6 check
+ipv6_address=$(ip -6 addr show | grep "inet6" | awk '{print $2}')
+
+if [[ -n "$ipv6_address" ]]; then
+    echo "\xE2\x9C\x93 IPv6 enabled"
+else
+    echo "\xE2\x9C\x97 No IPv6 address found!"
+    return
+fi
+
 mixnodes_dir=$(find / -type d -path "*/.nym/mixnodes" 2>/dev/null | head -n1)
 
 mix_node=$(find "$mixnodes_dir" -mindepth 1 -maxdepth 1 -type d -printf "%f\n" 2>/dev/null | head -n1)
