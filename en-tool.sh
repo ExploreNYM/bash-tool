@@ -63,7 +63,7 @@ esac
 sudo apt upgrade -y -qq > '/dev/null' 2>&1
 
 
-
+enable_ipv6
 
 echo
 echo -e "\xE2\x9C\x93 Server up to date."
@@ -76,7 +76,7 @@ ipv6_address=$(ip -6 addr show | grep "inet6" | awk '{print $2}')
 if [[ -n "$ipv6_address" ]]; then
     echo -e "\xE2\x9C\x93 IPv6 enabled"
 else
-    echo "\xE2\x9C\x97 No IPv6 address found!"
+    echo -e "\xE2\x9C\x97 No IPv6 address found!"
     return
 fi
 
