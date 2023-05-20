@@ -33,9 +33,9 @@ if ($permission -eq "Y" -or $permission -eq "") {
     Write-Host "Testing connect via ssh key"
     ssh $args[0]
     Start-Sleep -Seconds 1
-    Invoke-WebRequest -OutFile en-new-ssh.sh https://github.com/explorenym/en-new-ssh.sh
+    Invoke-WebRequest -OutFile en-ssh-secure.sh https://github.com/ExploreNYM/bash-tool/blob/main/scripts/user-ssh/en-ssh-secure.sh
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force
-    ./en-new-ssh.sh
+    ./en-ssh-secure.sh
 }
 else {
     Write-Host "Exiting Script."
