@@ -32,7 +32,7 @@ else
 
 fi
 
-pub_host=$(curl ifconfig.me > '/dev/null' 2>&1)
+pub_host=$(curl ifconfig.me)
 
 echo "Now copy this script and paste it in your local terminal to pull a backup of your mixnode."
 echo 
