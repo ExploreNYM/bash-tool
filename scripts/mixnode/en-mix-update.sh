@@ -45,7 +45,7 @@ then
 chmod u+x "$nym_destination"
 
 
-/nym-mixnode init --id $node_id --host $(hostname -I | awk '{print $1}') --announce-host $(curl ifconfig.me) --wallet-address $wallet
+nym-mixnode init --id $node_id --host $(hostname -I | awk '{print $1}') --announce-host $(curl ifconfig.me) --wallet-address $wallet
 
 sudo systemctl restart nym-mixnode
 
