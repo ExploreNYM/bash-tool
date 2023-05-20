@@ -74,7 +74,7 @@ echo
 ipv6_address=$(ip -6 addr show | grep "inet6" | awk '{print $2}')
 
 if [[ -n "$ipv6_address" ]]; then
-    echo "\xE2\x9C\x93 IPv6 enabled"
+    echo -e "\xE2\x9C\x93 IPv6 enabled"
 else
     echo "\xE2\x9C\x97 No IPv6 address found!"
     return

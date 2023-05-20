@@ -36,10 +36,10 @@ nym_destination="/usr/local/bin/nym-mixnode"
 
 sudo systemctl stop nym-mixnode
 
-if wget -q "$mixnode_url" -O "$nym_destination";
+if sudo wget -q "$mixnode_url" -O "$nym_destination";
 then
 
-chmod u+x "$nym_destination"
+sudo chmod u+x "$nym_destination"
 
 announce_host=$(curl ifconfig.me > '/dev/null' 2>&1)
 
@@ -52,7 +52,7 @@ sleep 2
 if [[ `service nym-mixnode status | grep active` =~ "running" ]]; then
   mixnode_version=$(grep "version" "$config_file" | awk -F "'" '{print $2}')
   echo
-  sudo systemctl status $mix_node --no-pager
+  sudo systemctl status nym-mixnode --no-pager
   echo
   echo -e "nym-mixnode updated to version: $mixnode_version, remember update the version in your wallet!"
   echo
