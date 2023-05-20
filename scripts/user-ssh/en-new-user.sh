@@ -63,8 +63,11 @@ done
 
 else
 
-  sudo -u "$new_user" bash -c 'cd ~ && exec bash' > /dev/null 2
-  wget -q -O en-tool.sh https://github.com/ExploreNYM/bash-tool/raw/main/en-tool.sh && chmod +x en-tool.sh &&  . ~/en-tool.sh
+  echo "close terminal and reconnect with the new user command below."
+  echo
+  announce_host=$(curl ifconfig.me 2>/dev/null)
+  echo "ssh $new_user@$announce_host"
+
     return
 fi
 else
