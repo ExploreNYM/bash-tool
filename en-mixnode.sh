@@ -323,7 +323,7 @@ EOF
                 sleep 1
                 sudo systemctl status nym-mixnode --no-pager
                 echo
-                echo -e "nym-mixnode installed version, remember to bond your node in your wallet details above!"
+                echo -e "nym-mixnode installed, remember to bond your node in your wallet details above!"
                 echo
                 echo -e "Server Restart Initiated"
                 sudo reboot
@@ -341,7 +341,7 @@ EOF
             sudo mv "$nym_path" "$HOME/"
             echo "Folder moved successfully to $HOME"
             sudo chown -R $USER:$USER $HOME/.nym
-            return
+            
             else
             echo "Folder not found."
             exit
