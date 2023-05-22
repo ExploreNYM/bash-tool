@@ -173,7 +173,7 @@ while true; do
                 grep -E 'Identity Key|Sphinx Key|Host|Version|Mix Port|Verloc port|Http Port|bonding to wallet address' ne-output.txt
                 echo
                 echo
-                echo -e "Server Restart Initiated"
+                echo -e "Server Restart Initiated everything updated and running cya next update :)"
                 sudo reboot
             else
             echo -e "nym-mixnode was not updated correctly, please re-update."
