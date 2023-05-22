@@ -122,14 +122,13 @@ node_path="$nym_path/mixnodes"
     echo "Cant find config.toml"
     exit 1
     fi
-echo $nym_config_file
+
 
 # variables from config
 wallet_address=$(grep "wallet_address" "$nym_config_file" | awk -F "'" '{print $2}')
 nym_version=$(grep "version" "$nym_config_file" | awk -F "'" '{print $2}')
 
-echo "$wallet_address"
-echo "$nym_version"
+
 
 # say current version
 echo
@@ -159,8 +158,6 @@ while true; do
             # Init new binary
             nym-mixnode init --id $nym_node_id --host $bind_ip --announce-host $announce_ip --wallet-address $wallet_address  > ne-output.txt
             sudo systemctl restart nym-mixnode
-            
-            sleep 5
 
             if [[ `service nym-mixnode status | grep active` =~ "running" ]]; then
 
@@ -172,6 +169,7 @@ while true; do
 
                 echo -e "\033[1mMixnode updated to version: $nym_version and running, remember update the version in your wallet!.\033[22m" && echo
                 echo
+                sleep 1
                 grep -E 'Identity Key|Sphinx Key|Host|Version|Mix Port|Verloc port|Http Port|bonding to wallet address' ne-output.txt
                 echo
                 echo
