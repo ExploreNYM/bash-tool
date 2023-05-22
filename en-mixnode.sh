@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function cleanup {
     sudo rm "$HOME/en-mixnode.sh" > /dev/null 2>&1
     sudo rm "/root/en-mixnode.sh" > /dev/null 2>&1
@@ -147,8 +149,7 @@ while true; do
     case $old_nym_menu_choice in
         1)
             # UPDATE NODE
-
-
+            
             # Download latest binary
             wget -q -O $nym_binary_name "$nym_release_url/$nym_binary_name"
             chmod u+x $nym_binary_name
@@ -157,15 +158,53 @@ while true; do
 
             # Init new binary
             nym-mixnode init --id $nym_node_id --host $bind_ip --announce-host $announce_ip --wallet-address $wallet_address  > ne-output.txt
+
+            # check system ctl is running from /usr/local/bin/
+            file_path="/etc/systemd/system/nym-mixnode.service"
+            if [ -f "$file_path" ]; then
+                search_pattern="ExecStart="
+                replace_line="ExecStart=/usr/local/bin/nym-mixnode run --id $nym_node_id"
+                sed -i "/$search_pattern/c $replace_line" "/etc/systemd/system/nym-mixnode.service"
+                echo "Line replaced successfully."
+            else
+                echo "File does not exist."
+                echo "Storage=persistent" | sudo tee /etc/systemd/journald.conf >/dev/null
+            sudo systemctl restart systemd-journald
+
+            sudo tee /etc/systemd/system/nym-mixnode.service >/dev/null <<EOF
+            [Unit]
+            Description=Nym Mixnode
+
+            [Service]
+            User=$USER
+            ExecStart=/usr/local/bin/nym-mixnode run --id $nym_node_id
+            KillSignal=SIGINT
+            Restart=on-failure
+            RestartSec=30
+            StartLimitInterval=350
+            StartLimitBurst=10
+            LimitNOFILE=65535
+
+            [Install]
+            WantedBy=multi-user.target
+EOF
+
+
+            sudo sh -c 'echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf'
+
+            
+            fi
+
+
             sudo systemctl restart nym-mixnode
 
             if [[ `service nym-mixnode status | grep active` =~ "running" ]]; then
 
                 
                 clear && echo && echo && echo " _____            _                _   ___   ____  __ " \
-                            && echo -e "| ____|_  ___ __ | | ___  _ __ ___| \ | \ \ / /  \/  |" && echo -e "|  _| \ \/ / '_ \| |/ _ \| '__/ _ \  \| |\ V /| |\/| |" \
-                            && echo -e "| |___ >  <| |_) | | (_) | | |  __/ |\  | | | | |  | |" && echo -e "|_____/_/\_\ .__/|_|\___/|_|  \___|_| \_| |_| |_|  |_|" \
-                            && echo -e "           |_| \033[4mhttps://explorenym.net/official-links\033[0m" && echo
+                && echo -e "| ____|_  ___ __ | | ___  _ __ ___| \ | \ \ / /  \/  |" && echo -e "|  _| \ \/ / '_ \| |/ _ \| '__/ _ \  \| |\ V /| |\/| |" \
+                && echo -e "| |___ >  <| |_) | | (_) | | |  __/ |\  | | | | |  | |" && echo -e "|_____/_/\_\ .__/|_|\___/|_|  \___|_| \_| |_| |_|  |_|" \
+                && echo -e "           |_| \033[4mhttps://explorenym.net/official-links\033[0m" && echo
 
                 echo -e "\033[1mMixnode updated to version: $nym_version and running, remember update the version in your wallet!.\033[22m" && echo
                 echo
