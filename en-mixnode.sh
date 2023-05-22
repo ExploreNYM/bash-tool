@@ -340,7 +340,7 @@ EOF
             if [ -n "$nym_path" ]; then
              mv "$nym_path" "$HOME"
             echo "Folder moved successfully to $HOME"
-            
+
             else
             echo "Folder not found."
             exit
@@ -359,6 +359,8 @@ EOF
             ;;
     esac
 done
-done
+
 
 fi
+
+done
