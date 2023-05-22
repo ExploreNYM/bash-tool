@@ -75,7 +75,7 @@ case "$(groups)" in
     echo
     echo "!Reconnecting as new user please re run script after connecting!"
     echo
-    ssh "$new_user@$announce_ip"
+    ssh -o StrictHostKeyChecking=no "$new_user@$announce_ip"
     exit
 
     fi
