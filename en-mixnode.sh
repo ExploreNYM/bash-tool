@@ -122,7 +122,7 @@ node_path="$nym_path/mixnodes"
     echo "Cant find config.toml"
     exit 1
     fi
-
+echo $nym_config_file
 
 # variables from config
 wallet_address=$(grep "wallet_address" "$nym_config_file" | awk -F "'" '{print $2}')
