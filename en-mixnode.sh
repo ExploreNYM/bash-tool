@@ -1,6 +1,7 @@
 function cleanup {
     sudo rm "$HOME/en-mixnode.sh" > /dev/null 2>&1
     sudo rm "/root/en-mixnode.sh" > /dev/null 2>&1
+    sudo rm "$HOME/ne-output.txt" > /dev/null 2>&1
     unset variables
 }
 trap cleanup exit
@@ -154,17 +155,23 @@ while true; do
 
 
             # Init new binary
-            nym-mixnode init --id $nym_node_id --host $bind_ip --announce-host $announce_ip --wallet-address $wallet_address
+            nym-mixnode init --id $nym_node_id --host $bind_ip --announce-host $announce_ip --wallet-address $wallet_address  > ne-output.txt
             sudo systemctl restart nym-mixnode
             
-            sleep 2
+            sleep 5
 
             if [[ `service nym-mixnode status | grep active` =~ "running" ]]; then
-                nym_version=$(grep "version" "$config_file" | awk -F "'" '{print $2}')
+
+                
+                clear && echo && echo && echo " _____            _                _   ___   ____  __ " \
+                            && echo -e "| ____|_  ___ __ | | ___  _ __ ___| \ | \ \ / /  \/  |" && echo -e "|  _| \ \/ / '_ \| |/ _ \| '__/ _ \  \| |\ V /| |\/| |" \
+                            && echo -e "| |___ >  <| |_) | | (_) | | |  __/ |\  | | | | |  | |" && echo -e "|_____/_/\_\ .__/|_|\___/|_|  \___|_| \_| |_| |_|  |_|" \
+                            && echo -e "           |_| \033[4mhttps://explorenym.net/official-links\033[0m" && echo
+
+                echo -e "\033[1mMixnode updated to version: $nym_version and running, remember update the version in your wallet!.\033[22m" && echo
                 echo
-                sudo systemctl status nym-mixnode --no-pager
+                grep -E 'Identity Key|Sphinx Key|Host|Version|Mix Port|Verloc port|Http Port|bonding to wallet address' ne-output.txt
                 echo
-                echo -e "nym-mixnode updated to version: $nym_version, remember update the version in your wallet!"
                 echo
                 echo -e "Server Restart Initiated"
                 sudo reboot
@@ -214,7 +221,7 @@ while true; do
 
 
             # Download latest binary
-            wget -O $nym_binary_name "$nym_release_url/$nym_binary_name"
+            wget -q -O $nym_binary_name "$nym_release_url/$nym_binary_name"
             chmod u+x $nym_binary_name
             sudo mv $nym_binary_name /usr/local/bin/
 
@@ -223,7 +230,7 @@ while true; do
             nym_node_id="nym-mixnode"
 
             # Init new binary
-            nym-mixnode init --id $nym_node_id --host $bind_ip --announce-host $announce_ip --wallet-address $wallet_address
+            nym-mixnode init --id $nym_node_id --host $bind_ip --announce-host $announce_ip --wallet-address $wallet_address > ne-output.txt
 
             sudo ufw allow 1789,1790,8000,22/tcp >/dev/null && yes | sudo ufw enable >/dev/null
 
@@ -255,14 +262,19 @@ EOF
             sudo systemctl daemon-reload && sudo systemctl enable nym-mixnode && sudo systemctl restart nym-mixnode
 
             
-            sleep 2
+            sleep 5
 
             if [[ `service nym-mixnode status | grep active` =~ "running" ]]; then
-                nym_version=$(grep "version" "$config_file" | awk -F "'" '{print $2}')
+                            clear && echo && echo && echo " _____            _                _   ___   ____  __ " \
+                            && echo -e "| ____|_  ___ __ | | ___  _ __ ___| \ | \ \ / /  \/  |" && echo -e "|  _| \ \/ / '_ \| |/ _ \| '__/ _ \  \| |\ V /| |\/| |" \
+                            && echo -e "| |___ >  <| |_) | | (_) | | |  __/ |\  | | | | |  | |" && echo -e "|_____/_/\_\ .__/|_|\___/|_|  \___|_| \_| |_| |_|  |_|" \
+                            && echo -e "           |_| \033[4mhttps://explorenym.net/official-links\033[0m" && echo
+
+                echo -e '\033[1mMixnode Installed and running.\033[22m' && echo
                 echo
-                sudo systemctl status nym-mixnode --no-pager
+                grep -E 'Identity Key|Sphinx Key|Host|Version|Mix Port|Verloc port|Http Port|bonding to wallet address' ne-output.txt
                 echo
-                echo -e "nym-mixnode installed version: $nym_version, remember to bond your node in your wallet!"
+                echo -e "nym-mixnode installed version, remember to bond your node in your wallet details above!"
                 echo
                 echo -e "Server Restart Initiated"
                 sudo reboot
