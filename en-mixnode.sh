@@ -105,6 +105,8 @@ nym_release=$(curl -s "https://github.com/nymtech/nym/releases/" | grep -oEm 1 "
 nym_release_url="https://github.com/nymtech/nym/releases/download/$nym_release"
 
 
+while true; do
+
 # Check for .nym folder
 nym_path=$(find / -type d -name ".nym" 2>/dev/null)
 
@@ -334,7 +336,16 @@ EOF
         2)
             # MIGRATE SECTION
             
+            nym_path=$(sudo find / -type d -name ".nym" 2>/dev/null)
+            if [ -n "$nym_path" ]; then
+             mv "$nym_path" "$HOME"
+            echo "Folder moved successfully to $HOME"
+            else
+            echo "Folder not found."
+            exit
+            fi
 
+            # now run updater
 
 
             ;;
@@ -346,6 +357,7 @@ EOF
             echo -e "\xE2\x9C\x97 Invalid option, please try again."
             ;;
     esac
+done
 done
 
 fi
