@@ -83,21 +83,24 @@ These scripts are only tested on ubuntu 20.04
 
 ## Usage
 
-  
+### Mixnode Tool 
 
  1. Open a terminal
  2. Connect to your server via ssh using your username and i.p **example** below.
 ```sh
-ssh username@i.p
+ssh <username>@<i.p>
 ```
  3. Copy and paste the script below into the server.
 
 ```sh
-wget -q -O en-tool.sh https://github.com/ExploreNYM/bash-tool/raw/main/en-tool.sh && chmod +x en-tool.sh && . ~/en-tool.sh
+wget -q -O en-mixnode.sh https://github.com/ExploreNYM/bash-tool/raw/main/en-mixnode.sh && chmod +x en-mixnode.sh && ./en-mixnode.sh
 ```
-4. You can run this script as much as you need.
 
-  
+### Gateway Tool
+coming soon
+
+### Net-requester Tool
+coming soon
 
 <p  align="right">(<a  href="#readme-top">back to top</a>)</p>
 
