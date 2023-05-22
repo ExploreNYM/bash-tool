@@ -104,7 +104,7 @@ echo 'Updating server please be patient...'
 nym_release=$(curl -s "https://github.com/nymtech/nym/releases/" | grep -oEm 1 "nym-binaries-v[0-9]+\.[0-9]+\.[0-9]+")
 nym_release_url="https://github.com/nymtech/nym/releases/download/$nym_release"
 
-
+nym_migrate="incomplete"
 until [ "$nym_migrate" == "complete" ]; do
 
 # Check for .nym folder
