@@ -168,10 +168,12 @@ while true; do
                 user_search_pattern="User="
                 user_replace_line="User=$USER"
                 sudo sed -i "/$user_search_pattern/c $user_replace_line" "/etc/systemd/system/nym-mixnode.service"
-
+                sudo systemctl daemon-reload
                 search_pattern="ExecStart="
                 replace_line="ExecStart=/usr/local/bin/nym-mixnode run --id $nym_node_id"
                 sudo sed -i "/$search_pattern/c $replace_line" "/etc/systemd/system/nym-mixnode.service"
+                sudo systemctl daemon-reload
+                
                 echo "Line replaced successfully."
             else
                 echo "File does not exist."
