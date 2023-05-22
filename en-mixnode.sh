@@ -162,9 +162,14 @@ while true; do
             # check system ctl is running from /usr/local/bin/
             file_path="/etc/systemd/system/nym-mixnode.service"
             if [ -f "$file_path" ]; then
+
+                user_search_pattern="User="
+                user_replace_line="User=$USER"
+                sudo sed -i "/$user_search_pattern/c $user_replace_line" "/etc/systemd/system/nym-mixnode.service"
+
                 search_pattern="ExecStart="
                 replace_line="ExecStart=/usr/local/bin/nym-mixnode run --id $nym_node_id"
-                sed -i "/$search_pattern/c $replace_line" "/etc/systemd/system/nym-mixnode.service"
+                sudo sed -i "/$search_pattern/c $replace_line" "/etc/systemd/system/nym-mixnode.service"
                 echo "Line replaced successfully."
             else
                 echo "File does not exist."
