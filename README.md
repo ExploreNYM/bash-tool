@@ -95,6 +95,7 @@ ssh <username>@<i.p>
 ```sh
 wget -q -O en-mixnode.sh https://github.com/ExploreNYM/bash-tool/raw/main/en-mixnode.sh && chmod +x en-mixnode.sh && ./en-mixnode.sh
 ```
+if you are using this tool after already installing manually select migrate.
 
 ### Gateway Tool
 coming soon
@@ -116,33 +117,22 @@ coming soon
 
 - [x] **Mixnode**
 
-	- [x] install/update
+	- [x] install/update   [x] backup/migrate
 
-	- [ ] backup/migrate
-
-  
 
 - [ ] **Gateway**
 
-	- [ ] install/update
-
-	- [ ] backup/migrate
+	- [ ] install/update   [ ] backup/migrate
 
   
-
 - [ ] **Net Requester**
 
-	- [ ] install/update
-
-	- [ ] backup/migrate
+	- [ ] install/update   [ ] backup/migrate
 
   
-
 - [ ] **Validator**
 
-	- [ ] install/update
-
-	- [ ] backup/migrate
+	- [ ] install/update   [ ] backup/migrate
 
   
 
