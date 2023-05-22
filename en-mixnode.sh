@@ -105,7 +105,7 @@ nym_release=$(curl -s "https://github.com/nymtech/nym/releases/" | grep -oEm 1 "
 nym_release_url="https://github.com/nymtech/nym/releases/download/$nym_release"
 
 
-while true; do
+until [ "$nym_migrate" == "complete" ]; do
 
 # Check for .nym folder
 nym_path=$(find / -type d -name ".nym" 2>/dev/null)
@@ -340,6 +340,7 @@ EOF
             if [ -n "$nym_path" ]; then
              mv "$nym_path" "$HOME"
             echo "Folder moved successfully to $HOME"
+            
             else
             echo "Folder not found."
             exit
