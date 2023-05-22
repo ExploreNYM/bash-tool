@@ -17,6 +17,7 @@ clear && echo && echo && echo " _____            _                _   ___   ____
 # Ipv6 check
 if ip -6 addr show | grep -q "inet6"; then
     echo -e "\xE2\x9C\x93 IPv6 enabled"
+    echo
 else
     echo -e "\xE2\x9C\x97 No IPv6 address found!"
     echo
@@ -124,8 +125,8 @@ node_path="$nym_path/mixnodes"
 
 
 # variables from config
-nym_wallet_address=$(grep "wallet_address" "$nym_config_file" | awk -F "'" '{print $2}')
-    nym_version=$(grep "version" "$nym_config_file" | awk -F "'" '{print $2}')
+wallet_address=$(grep "wallet_address" "$nym_config_file" | awk -F "'" '{print $2}')
+nym_version=$(grep "version" "$nym_config_file" | awk -F "'" '{print $2}')
 
 # say current version
 echo
