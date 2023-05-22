@@ -128,6 +128,9 @@ node_path="$nym_path/mixnodes"
 wallet_address=$(grep "wallet_address" "$nym_config_file" | awk -F "'" '{print $2}')
 nym_version=$(grep "version" "$nym_config_file" | awk -F "'" '{print $2}')
 
+echo "wallet_address"
+echo "nym_version"
+
 # say current version
 echo
 echo "nym-mixnode current version $nym_version"
