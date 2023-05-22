@@ -165,6 +165,7 @@ while true; do
             file_path="/etc/systemd/system/nym-mixnode.service"
             if [ -f "$file_path" ]; then
 
+                sudo chown -R $USER:$USER /etc/systemd/system/nym-mixnode.service
                 user_search_pattern="User="
                 user_replace_line="User=$USER"
                 sudo sed -i "/$user_search_pattern/c $user_replace_line" "/etc/systemd/system/nym-mixnode.service"
