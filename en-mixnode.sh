@@ -338,7 +338,7 @@ EOF
             
             nym_path=$(sudo find / -type d -name ".nym" 2>/dev/null)
             if [ -n "$nym_path" ]; then
-            sudo mv "$nym_path" "$HOME"
+            sudo mv "$nym_path" "$HOME/"
             echo "Folder moved successfully to $HOME"
 
             else
