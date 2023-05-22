@@ -12,9 +12,9 @@ function cleanup {
 }
 trap cleanup RETURN
 
-# Explorenym logo
+# Explorenym logo + link
 clear && echo && echo && echo " _____            _                _   ___   ____  __ " \
-&& echo -e "| ____|_  ___ __ | | ___  _ __ ___| \ | \ \ / /  \/  |" && echo -e "|  _| \ \/ / '_ \| |/ _ \| '__/ _ \  \| |\ V /| |\/| |" \
+&& echo -e "| ____|_  ___ __ | | ___  _ __ ___| \ | \ \ / /  \/  |" \&& echo -e "|  _| \ \/ / '_ \| |/ _ \| '__/ _ \  \| |\ V /| |\/| |" \
 && echo -e "| |___ >  <| |_) | | (_) | | |  __/ |\  | | | | |  | |" && echo -e "|_____/_/\_\ .__/|_|\___/|_|  \___|_| \_| |_| |_|  |_|" \
 && echo -e "           |_| \033[4mhttps://explorenym.net/official-links\033[0m" && echo
 

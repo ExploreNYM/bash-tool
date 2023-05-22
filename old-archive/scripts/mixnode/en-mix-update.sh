@@ -1,6 +1,6 @@
 #!/bin/bash
 function cleanup {
-    rm "$BASH_SOURCE"
+    sudo rm "$BASH_SOURCE"
     unset mixnodes_dir
     unset mix_node
     unset config_file
