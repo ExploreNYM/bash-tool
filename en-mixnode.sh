@@ -208,6 +208,8 @@ EOF
 
             sudo systemctl restart nym-mixnode
 
+            nym_version=$(grep "version" "$nym_config_file" | awk -F "'" '{print $2}')
+
             if [[ `service nym-mixnode status | grep active` =~ "running" ]]; then
 
                 
