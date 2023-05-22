@@ -340,7 +340,8 @@ EOF
             if [ -n "$nym_path" ]; then
             sudo mv "$nym_path" "$HOME/"
             echo "Folder moved successfully to $HOME"
-
+            sudo chown -R $USER:$USER $HOME/.nym
+            return
             else
             echo "Folder not found."
             exit
