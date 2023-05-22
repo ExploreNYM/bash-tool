@@ -89,6 +89,7 @@ esac
 
 
 # Update server
+echo
 echo 'Updating server please be patient...'
     sudo apt update -qq > '/dev/null' 2>&1
     sudo apt upgrade -y -qq > '/dev/null' 2>&1
@@ -104,12 +105,9 @@ nym_release_url="https://github.com/nymtech/nym/releases/download/$nym_release"
 # Check for .nym folder
 nym_path=$(find / -type d -name ".nym" 2>/dev/null)
 
-echo $nym_path
 
 if [ -n "$nym_path" ]; then
     echo -e "\xE2\x9C\x93 NYM folder found."
-
-
 
 
 # Find config file
@@ -126,11 +124,11 @@ node_path="$nym_path/mixnodes"
 
 
 # variables from config
-nym_wallet_address=$(grep "wallet_address" "$config_file" | awk -F "'" '{print $2}')
-    nym_version=$(grep "version" "$config_file" | awk -F "'" '{print $2}')
+nym_wallet_address=$(grep "wallet_address" "$nym_config_file" | awk -F "'" '{print $2}')
+    nym_version=$(grep "version" "$nym_config_file" | awk -F "'" '{print $2}')
 
 # say current version
-
+echo
 echo "nym-mixnode current version $nym_version"
 
 
