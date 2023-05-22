@@ -157,7 +157,7 @@ while true; do
             chmod u+x $nym_binary_name
             sudo mv $nym_binary_name /usr/local/bin/
 
-
+            sudo systemctl stop nym-mixnode
             # Init new binary
             nym-mixnode init --id $nym_node_id --host $bind_ip --announce-host $announce_ip --wallet-address $wallet_address  > ne-output.txt
 
