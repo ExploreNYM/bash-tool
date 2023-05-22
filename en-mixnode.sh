@@ -11,7 +11,7 @@ clear && echo && echo && echo " _____            _                _   ___   ____
     && echo -e "| |___ >  <| |_) | | (_) | | |  __/ |\  | | | | |  | |" && echo -e "|_____/_/\_\ .__/|_|\___/|_|  \___|_| \_| |_| |_|  |_|" \
     && echo -e "           |_| \033[4mhttps://explorenym.net/official-links\033[0m" && echo
 
-    echo -e '\033[1mBash tool initialized please be patient checking and updating server.\033[22m' && echo
+    echo -e '\033[1mMixnode tool initialized please be patient checking and updating server.\033[22m' && echo
 
 # Ipv6 check
 if ip -6 addr show | grep -q "inet6"; then
@@ -214,7 +214,7 @@ while true; do
 
 
             # Download latest binary
-            wget -q -O $nym_binary_name "$nym_release_url/$nym_binary_name"
+            wget -O $nym_binary_name "$nym_release_url/$nym_binary_name"
             chmod u+x $nym_binary_name
             sudo mv $nym_binary_name /usr/local/bin/
 
