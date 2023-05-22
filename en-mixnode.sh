@@ -173,7 +173,7 @@ while true; do
                 grep -E 'Identity Key|Sphinx Key|Host|Version|Mix Port|Verloc port|Http Port|bonding to wallet address' ne-output.txt
                 echo
                 echo
-                echo -e "Server Restart Initiated everything updated and running cya next update :)"
+                echo -e "Server Restart Initiated, Mixnode updated and running cya next update :)"
                 sudo reboot
             else
             echo -e "nym-mixnode was not updated correctly, please re-update."
@@ -261,8 +261,7 @@ EOF
             sudo sh -c 'echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf'
             sudo systemctl daemon-reload && sudo systemctl enable nym-mixnode && sudo systemctl restart nym-mixnode
 
-            
-            sleep 5
+        
 
             if [[ `service nym-mixnode status | grep active` =~ "running" ]]; then
                             clear && echo && echo && echo " _____            _                _   ___   ____  __ " \
@@ -271,8 +270,12 @@ EOF
                             && echo -e "           |_| \033[4mhttps://explorenym.net/official-links\033[0m" && echo
 
                 echo -e '\033[1mMixnode Installed and running.\033[22m' && echo
+                sleep 1
                 echo
                 grep -E 'Identity Key|Sphinx Key|Host|Version|Mix Port|Verloc port|Http Port|bonding to wallet address' ne-output.txt
+                echo
+                sleep 1
+                sudo systemctl status nym-mixnode --no-pager
                 echo
                 echo -e "nym-mixnode installed version, remember to bond your node in your wallet details above!"
                 echo
