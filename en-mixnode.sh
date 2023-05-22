@@ -1,6 +1,6 @@
 function cleanup {
-    sudo rm "$HOME/en-mixnode.sh"
-    sudo rm "/root/en-mixnode.sh"
+    sudo rm "$HOME/en-mixnode.sh" > /dev/null 2>&1
+    sudo rm "/root/en-mixnode.sh" > /dev/null 2>&1
     unset variables
 }
 trap cleanup exit
@@ -46,6 +46,7 @@ fi
 # Set ip info
 bind_ip=$(hostname -I | awk '{print $1}')
 announce_ip=$(curl -s ifconfig.me)
+nym_binary_name="nym-mixnode"
 
 
 # Check user
