@@ -1,6 +1,6 @@
 function cleanup {
-    rm "$HOME/en-tool.sh"
-    rm "/root/en-tool.sh"
+    sudo rm "$HOME/en-mixnode.sh"
+    sudo rm "/root/en-mixnode.sh"
     unset variables
 }
 trap cleanup exit
@@ -108,8 +108,10 @@ if [ -n "$nym_path" ]; then
     echo -e "\xE2\x9C\x93 NYM folder found."
 
 
+
+
 # Find config file
-node_path="$nym_path/$nym_contents"
+node_path="$nym_path/mixnodes"
 
     nym_node_id=$(find "$node_path" -mindepth 1 -maxdepth 1 -type d -printf "%f\n" | head -n1)
 
