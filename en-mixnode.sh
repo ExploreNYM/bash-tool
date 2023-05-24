@@ -53,18 +53,14 @@ bind_ip=$(hostname -I | awk '{print $1}')
 announce_ip=$(curl -s ifconfig.me)
 
 
-# Retrieve the default gateway's IP address
-gateway_ip=$(ip route | awk '/default/ {print $3}')
-
 # Compare the server's IP address with the default gateway's IP address
-if [[ $bind_ip == $gateway_ip ]]; then
+if ! [[ $bind_ip == $announce_ip ]]; then
   echo 
   echo -e "\xE2\x9C\x93 The server is not behind a NAT."
 else
-  echo -e "\xE2\x9C\x97 The server is behind a NAT."
+  echo -e "\xE2\x9C\x97 The server is behind a NAT if you running on a home network please check the docs about port forwarding."
   echo
   echo 'https://nymtech.net/docs/nodes/troubleshooting.html#running-on-a-local-machine-behind-nat-with-no-fixed-ip-address'
-  bind_ip="0.0.0.0"
 
 fi
 
