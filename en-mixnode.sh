@@ -54,7 +54,7 @@ announce_ip=$(curl -s ifconfig.me)
 
 
 # Compare the server's IP address with the default gateway's IP address
-if ! [[ $bind_ip == $announce_ip ]]; then
+if [[ $bind_ip == $announce_ip ]]; then
   echo 
   echo -e "\xE2\x9C\x93 The server is not behind a NAT."
 else
@@ -166,13 +166,16 @@ while true; do
     case $old_nym_menu_choice in
         1)
             # UPDATE NODE
-            
-            # Download latest binary
-            wget -q -O $nym_binary_name "$nym_release_url/$nym_binary_name"
-            chmod u+x $nym_binary_name
-            sudo mv $nym_binary_name /usr/local/bin/
-
+            echo 'stop mix'
             sudo systemctl stop nym-mixnode
+            # Download latest binary
+            echo 'get bin'
+            wget -q -O $nym_binary_name "$nym_release_url/$nym_binary_name"
+            echo 'chmod bin'
+            chmod u+x $nym_binary_name
+            echo 'move bin'
+            sudo mv $nym_binary_name /usr/local/bin/
+            echo 'init mix'
             # Init new binary
             nym-mixnode init --id $nym_node_id --host $bind_ip --announce-host $announce_ip --wallet-address $wallet_address  > ne-output.txt
 
