@@ -9,6 +9,7 @@ function cleanup {
 trap cleanup exit
 
 
+
 clear && echo && echo && echo " _____            _                _   ___   ____  __ " \
     && echo -e "| ____|_  ___ __ | | ___  _ __ ___| \ | \ \ / /  \/  |" && echo -e "|  _| \ \/ / '_ \| |/ _ \| '__/ _ \  \| |\ V /| |\/| |" \
     && echo -e "| |___ >  <| |_) | | (_) | | |  __/ |\  | | | | |  | |" && echo -e "|_____/_/\_\ .__/|_|\___/|_|  \___|_| \_| |_| |_|  |_|" \
@@ -160,7 +161,9 @@ while true; do
     echo -e "\033[1m nym-mixnode menu:\033[22m" && echo
     echo "1. Update nym-mixnode"
     echo "2. Backup nym-mixnode"
-    echo "3. Quit"
+    echo "3. Change mixnode details (name/description/link/location)"
+    echo "4. Check nym-mixnode status"
+    echo "5. Quit"
     read -p "Enter your choice: " old_nym_menu_choice
 
     case $old_nym_menu_choice in
@@ -259,6 +262,34 @@ EOF
             exit
             ;;
         3)
+            clear && echo && echo && echo " _____            _                _   ___   ____  __ " \
+            && echo -e "| ____|_  ___ __ | | ___  _ __ ___| \ | \ \ / /  \/  |" && echo -e "|  _| \ \/ / '_ \| |/ _ \| '__/ _ \  \| |\ V /| |\/| |" \
+            && echo -e "| |___ >  <| |_) | | (_) | | |  __/ |\  | | | | |  | |" && echo -e "|_____/_/\_\ .__/|_|\___/|_|  \___|_| \_| |_| |_|  |_|" \
+            && echo -e "           |_| \033[4mhttps://explorenym.net/official-links\033[0m" && echo
+
+            echo -e '\033[1mUpdating description of your mixnode.\033[22m' && echo
+
+            nym-mixnode describe --id $nym_node_id
+
+            sudo systemctl restart nym-mixnode
+
+            if [[ `service nym-mixnode status | grep active` =~ "running" ]]; then
+            echo
+            echo "Description updated successfully"
+            else
+            echo
+            echo 'error: mixnode not running'
+            fi
+
+
+            ;;
+
+        4)
+            
+            sudo systemctl status nym-mixnode
+            ;;
+
+        5)
             exit
             ;;
         *)
