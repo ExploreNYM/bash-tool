@@ -172,7 +172,7 @@ while true; do
             echo 'get bin'
             wget -q -O $nym_binary_name "$nym_release_url/$nym_binary_name"
             echo 'chmod bin'
-            chmod u+x $nym_binary_name
+            sudo chmod u+x $nym_binary_name
             echo 'move bin'
             sudo mv $nym_binary_name /usr/local/bin/
             echo 'init mix'
@@ -291,7 +291,7 @@ while true; do
 
             # Download latest binary
             wget -q -O $nym_binary_name "$nym_release_url/$nym_binary_name"
-            chmod u+x $nym_binary_name
+            sudo chmod u+x $nym_binary_name
             sudo mv $nym_binary_name /usr/local/bin/
 
             read -p "Enter wallet Address: " wallet_address
