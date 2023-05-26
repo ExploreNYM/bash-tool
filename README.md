@@ -50,6 +50,8 @@ Simple bash scripts to support community with the technical side of NYM infrastu
 
 This is an attempt to make it a simple process as possible for anyone no matter there experience.
 
+If you have any issues contact details below.
+
   
 
 <p  align="right">(<a  href="#readme-top">back to top</a>)</p>
@@ -85,10 +87,10 @@ These scripts are only tested on ubuntu 20.04
 
 ### Mixnode Tool 
 
- 1. Open a terminal
+ 1. Open a terminal in your local computer. (mac terminal) (windows shell)
  2. Connect to your server via ssh using your username and i.p **example** below.
 ```sh
-ssh <username>@<i.p>
+ssh username@i.p
 ```
  3. Copy and paste the script below into the server.
 
@@ -97,11 +99,7 @@ wget -q -O en-mixnode.sh https://github.com/ExploreNYM/bash-tool/raw/main/en-mix
 ```
 if you are using this tool after already installing manually select migrate.
 
-### Gateway Tool
-coming soon
 
-### Net-requester Tool
-coming soon
 
 <p  align="right">(<a  href="#readme-top">back to top</a>)</p>
 
@@ -117,22 +115,22 @@ coming soon
 
 - [x] **Mixnode**
 
-	- [x] install/update   [x] backup/migrate
+	- [x] install/update/backup/migrate.
 
 
 - [ ] **Gateway**
 
-	- [ ] install/update   [ ] backup/migrate
+	- [ ] install/update/backup/migrate
 
   
 - [ ] **Net Requester**
 
-	- [ ] install/update   [ ] backup/migrate
+	- [ ] install/update/backup/migrate
 
   
 - [ ] **Validator**
 
-	- [ ] install/update   [ ] backup/migrate
+	- [ ] install/update/backup/migrate
 
   
 
