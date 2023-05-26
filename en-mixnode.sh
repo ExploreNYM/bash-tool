@@ -8,12 +8,16 @@ function cleanup {
 }
 trap cleanup exit
 
-
-
-clear && echo && echo && echo " _____            _                _   ___   ____  __ " \
+en_logo_display() {
+    clear && echo && echo && echo " _____            _                _   ___   ____  __ " \
     && echo -e "| ____|_  ___ __ | | ___  _ __ ___| \ | \ \ / /  \/  |" && echo -e "|  _| \ \/ / '_ \| |/ _ \| '__/ _ \  \| |\ V /| |\/| |" \
     && echo -e "| |___ >  <| |_) | | (_) | | |  __/ |\  | | | | |  | |" && echo -e "|_____/_/\_\ .__/|_|\___/|_|  \___|_| \_| |_| |_|  |_|" \
     && echo -e "           |_| \033[4mhttps://explorenym.net/official-links\033[0m" && echo
+
+}
+
+
+    en_logo_display
 
     echo -e '\033[1mMixnode tool initialized please be patient checking and updating server.\033[22m' && echo
 
@@ -168,17 +172,19 @@ while true; do
 
     case $old_nym_menu_choice in
         1)
-            # UPDATE NODE
-            echo 'stop mix'
+            en_logo_display
+    
+            echo -e '\033[1mMixnode Update Started.\033[22m' && echo
+
             sudo systemctl stop nym-mixnode
             # Download latest binary
-            echo 'get bin'
+            
             wget -q -O $nym_binary_name "$nym_release_url/$nym_binary_name"
-            echo 'chmod bin'
+            
             sudo chmod u+x $nym_binary_name
-            echo 'move bin'
+            
             sudo mv $nym_binary_name /usr/local/bin/
-            echo 'init mix'
+           
             # Init new binary
             nym-mixnode init --id $nym_node_id --host $bind_ip --announce-host $announce_ip --wallet-address $wallet_address  > ne-output.txt
 
@@ -229,20 +235,19 @@ EOF
 
             sudo systemctl restart nym-mixnode
 
+            
+
             nym_version=$(grep "version" "$nym_config_file" | awk -F "'" '{print $2}')
 
             if [[ `service nym-mixnode status | grep active` =~ "running" ]]; then
 
                 
-                clear && echo && echo && echo " _____            _                _   ___   ____  __ " \
-                && echo -e "| ____|_  ___ __ | | ___  _ __ ___| \ | \ \ / /  \/  |" && echo -e "|  _| \ \/ / '_ \| |/ _ \| '__/ _ \  \| |\ V /| |\/| |" \
-                && echo -e "| |___ >  <| |_) | | (_) | | |  __/ |\  | | | | |  | |" && echo -e "|_____/_/\_\ .__/|_|\___/|_|  \___|_| \_| |_| |_|  |_|" \
-                && echo -e "           |_| \033[4mhttps://explorenym.net/official-links\033[0m" && echo
-
+                en_logo_display
+                sleep 1
                 echo -e "\033[1mMixnode updated to version: $nym_version and running, remember update the version in your wallet!.\033[22m" && echo
                 echo
-                sleep 1
-                grep -E 'Identity Key|Sphinx Key|Host|Version|Mix Port|Verloc port|Http Port|bonding to wallet address' ne-output.txt
+                sleep 2
+                sudo systemctl status nym-mixnode --no-pager
                 echo
                 echo
                 echo -e "Server Restart Initiated, Mixnode updated and running cya next update :)"
@@ -255,17 +260,19 @@ EOF
             ;;
         2)
             # BACKUP SECTION
-            echo "Now copy this script and paste it in your local terminal to pull a backup of your mixnode."
+            en_logo_display
+    
+            echo -e '\033[1mMixnode Backup Started.\033[22m' && echo
+            echo "Copy this script and paste it in your local terminal(mac) shell(windows) to pull a backup of your mixnode."
             echo 
             echo "scp -r $USER@$announce_ip:$node_path/$nym_node_id/ ~/$nym_node_id"
             echo 
             exit
             ;;
         3)
-            clear && echo && echo && echo " _____            _                _   ___   ____  __ " \
-            && echo -e "| ____|_  ___ __ | | ___  _ __ ___| \ | \ \ / /  \/  |" && echo -e "|  _| \ \/ / '_ \| |/ _ \| '__/ _ \  \| |\ V /| |\/| |" \
-            && echo -e "| |___ >  <| |_) | | (_) | | |  __/ |\  | | | | |  | |" && echo -e "|_____/_/\_\ .__/|_|\___/|_|  \___|_| \_| |_| |_|  |_|" \
-            && echo -e "           |_| \033[4mhttps://explorenym.net/official-links\033[0m" && echo
+            en_logo_display
+    
+            
 
             echo -e '\033[1mUpdating description of your mixnode.\033[22m' && echo
 
@@ -285,7 +292,9 @@ EOF
             ;;
 
         4)
-            
+            en_logo_display
+    
+            echo -e '\033[1mMixnode current status Status press [q] to exit.\033[22m' && echo
             sudo systemctl status nym-mixnode
             ;;
 
@@ -318,7 +327,9 @@ while true; do
     case $new_nym_menu_choice in
         1)
             # INSTALL NODE
-
+            en_logo_display
+    
+            echo -e '\033[1mMixnode installation Started.\033[22m' && echo
 
             # Download latest binary
             wget -q -O $nym_binary_name "$nym_release_url/$nym_binary_name"
@@ -364,18 +375,12 @@ EOF
         
 
             if [[ `service nym-mixnode status | grep active` =~ "running" ]]; then
-                            clear && echo && echo && echo " _____            _                _   ___   ____  __ " \
-                            && echo -e "| ____|_  ___ __ | | ___  _ __ ___| \ | \ \ / /  \/  |" && echo -e "|  _| \ \/ / '_ \| |/ _ \| '__/ _ \  \| |\ V /| |\/| |" \
-                            && echo -e "| |___ >  <| |_) | | (_) | | |  __/ |\  | | | | |  | |" && echo -e "|_____/_/\_\ .__/|_|\___/|_|  \___|_| \_| |_| |_|  |_|" \
-                            && echo -e "           |_| \033[4mhttps://explorenym.net/official-links\033[0m" && echo
 
+                en_logo_display
                 echo -e '\033[1mMixnode Installed and running.\033[22m' && echo
                 sleep 1
                 echo
                 grep -E 'Identity Key|Sphinx Key|Host|Version|Mix Port|Verloc port|Http Port|bonding to wallet address' ne-output.txt
-                echo
-                sleep 1
-                sudo systemctl status nym-mixnode --no-pager
                 echo
                 echo -e "nym-mixnode installed, remember to bond your node in your wallet details above!"
                 echo
@@ -389,7 +394,9 @@ EOF
             ;;
         2)
             # MIGRATE SECTION
-            
+            en_logo_display
+    
+            echo -e '\033[1mMixnode Migration Started.\033[22m' && echo
             nym_path=$(sudo find / -type d -name ".nym" 2>/dev/null)
             if [ -n "$nym_path" ]; then
             sudo mv "$nym_path" "$HOME/"
