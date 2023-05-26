@@ -257,7 +257,7 @@ EOF
             # BACKUP SECTION
             echo "Now copy this script and paste it in your local terminal to pull a backup of your mixnode."
             echo 
-            echo "scp -r $USER@$announce_ip:$node_path/$nym_node_id/ ~/$folder_name"
+            echo "scp -r $USER@$announce_ip:$node_path/$nym_node_id/ ~/$nym_node_id"
             echo 
             exit
             ;;
