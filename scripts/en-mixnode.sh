@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#set mixnode
+nym_binary_name="nym-mixnode" #don't know what this is for yet
+
 function cleanup {
     sudo rm "$HOME/en-mixnode.sh" > /dev/null 2>&1
     sudo rm "/root/en-mixnode.sh" > /dev/null 2>&1
@@ -16,109 +19,8 @@ en_logo_display() {
 
 }
 
-
-    en_logo_display
-
-    echo -e '\033[1mMixnode tool initialized please be patient checking and updating server.\033[22m' && echo
-
-# Ipv6 check
-if ip -6 addr show | grep -q "inet6"; then
-    echo -e "\xE2\x9C\x93 IPv6 enabled"
-    echo
-else
-    echo -e "\xE2\x9C\x97 No IPv6 address found!"
-    echo
-    echo '! Force Exit !'
-    exit 0
-fi
-
-
-# Ubuntu check
-if ! [ "$(lsb_release -rs)" == "20.04" ]; then
-    echo -e "\xE2\x9C\x97 Ubuntu $(lsb_release -rs)."
-    echo
-    echo "! Warning script and nym binaries are tested on Ubuntu 20.04 !"
-    echo
-    read -p "Run script anyway (Y/n) " perm
-    if ! [[ "$perm" == "Y" || "$perm" == "y" || "$perm" == "" ]]; then
-    echo
-    echo '! Force Exit !'
-    exit 0
-    fi
-else
-  echo -e "\xE2\x9C\x93 Ubuntu 20.04 "
-  echo
-fi
-
-#set mixnode
-nym_binary_name="nym-mixnode"
-
-# Set ip info
-bind_ip=$(hostname -I | awk '{print $1}')
-announce_ip=$(curl -s ifconfig.me)
-
-
-# Compare the server's IP address with the default gateway's IP address
-if [[ $bind_ip == $announce_ip ]]; then
-  echo 
-  echo -e "\xE2\x9C\x93 The server is not behind a NAT."
-else
-  echo -e "\xE2\x9C\x97 The server is behind a NAT if you running on a home network please check the docs about port forwarding."
-  echo
-  echo 'https://nymtech.net/docs/nodes/troubleshooting.html#running-on-a-local-machine-behind-nat-with-no-fixed-ip-address'
-
-fi
-
-
-
-
-
-# Check user
-case "$(groups)" in
-  *sudo*)
-    sudo rm -f /root/en-tool.sh > /dev/null 2>&1
-    echo
-    echo -e "\xE2\x9C\x93 $USER has Sudo privileges."
-    echo
-    ;;
-  *root*)
-    echo -e "\xE2\x9C\x97 Root user."
-    echo
-    echo '! Warning you should create a sudo user for running nym !'
-    echo
-    read -p "Make a new sudo user (Y/n) " perm
-    if [[ "$perm" == "Y" || "$perm" == "y" || "$perm" == "" ]]; then
-    
-    while [[ -z "$new_user" ]]; do
-    read -p "Enter new username: " new_user
-    done
-    sudo adduser --gecos GECOS  $new_user
-    usermod -aG sudo $new_user
-    echo
-    echo "!Reconnecting as new user please re run script after connecting!"
-    echo
-    ssh -o StrictHostKeyChecking=no "$new_user@$announce_ip"
-    exit
-
-    fi
-    ;;
-  *)
-    echo -e "\xE2\x9C\x97 $USER has no priveleges"
-    echo
-    echo '! Force Exit !'
-    exit 0
-    ;;
-esac
-
-
-# Update server
-echo
-echo 'Updating server please be patient...'
-    sudo apt update -qq > '/dev/null' 2>&1
-    sudo apt upgrade -y -qq > '/dev/null' 2>&1
-    echo
-    echo -e "\xE2\x9C\x93 Server up to date."
-    echo
+en_logo_display
+./vps-checking.sh || exit $?
 
 # Latest release
 nym_release=$(curl -s "https://github.com/nymtech/nym/releases/" | grep -oEm 1 "nym-binaries-v[0-9]+\.[0-9]+\.[0-9]+")
