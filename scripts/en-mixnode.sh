@@ -1,7 +1,42 @@
 #!/bin/bash
 
-#set mixnode
-nym_binary_name="nym-mixnode" #don't know what this is for yet
+#Characters
+check_mark="\xE2\x9C\x93"
+fail_x="\xE2\x9C\x97"
+#Font formats
+set_bold="\033[1m"
+set_normal="\033[22m"
+
+###############
+## FUNCTIONS ##
+###############
+
+no_nym_folder_menu() {
+	while true
+	do
+		echo -e "\n$set_bold nym-mixnode menu:$set_normal\n"
+		echo "1. Install nym-mixnode"
+		echo "2. Migrate nym-mixnode"
+		echo "3. Quit"
+		read -p "Enter your choice: " choice
+
+		case $choice in
+			1)
+				./install-mixnode.sh && exit
+			    ;;
+			2)
+				./migrate-mixnode.sh && exit
+				;;
+			3)
+				exit
+				;;
+			*)
+				echo
+				echo -e "$fail_x Invalid option, please try again."
+				;;
+		esac
+	done
+}
 
 function cleanup {
     sudo rm "$HOME/en-mixnode.sh" > /dev/null 2>&1
@@ -11,16 +46,16 @@ function cleanup {
 }
 trap cleanup exit
 
-en_logo_display() {
-    clear && echo && echo && echo " _____            _                _   ___   ____  __ " \
-    && echo -e "| ____|_  ___ __ | | ___  _ __ ___| \ | \ \ / /  \/  |" && echo -e "|  _| \ \/ / '_ \| |/ _ \| '__/ _ \  \| |\ V /| |\/| |" \
-    && echo -e "| |___ >  <| |_) | | (_) | | |  __/ |\  | | | | |  | |" && echo -e "|_____/_/\_\ .__/|_|\___/|_|  \___|_| \_| |_| |_|  |_|" \
-    && echo -e "           |_|       \033[4mhttps://explorenym.net\033[0m" && echo
+##############################
+## MAIN EXECUTION OF SCRIPT ##
+##############################
 
-}
+./display-logo.sh
+./check-vps.sh || exit
 
-en_logo_display
-./vps-checking.sh || exit $?
+#set mixnode
+nym_binary_name="nym-mixnode" #don't know what this is for yet
+
 
 # Latest release
 nym_release=$(curl -s "https://github.com/nymtech/nym/releases/" | grep -oEm 1 "nym-binaries-v[0-9]+\.[0-9]+\.[0-9]+")
@@ -212,119 +247,9 @@ done
 
 #updated ended
 
-
 else
-
-
-# Install / migrate menu
-
-while true; do
-    echo
-    echo -e "\033[1m nym-mixnode menu:\033[22m" && echo
-    echo "1. Install nym-mixnode"
-    echo "2. Migrate nym-mixnode"
-    echo "3. Quit"
-    read -p "Enter your choice: " new_nym_menu_choice
-
-    case $new_nym_menu_choice in
-        1)
-            # INSTALL NODE
-            en_logo_display
-    
-            echo -e '\033[1mMixnode installation Started.\033[22m' && echo
-
-            # Download latest binary
-            wget -q -O $nym_binary_name "$nym_release_url/$nym_binary_name"
-            sudo chmod u+x $nym_binary_name
-            sudo mv $nym_binary_name /usr/local/bin/
-
-            read -p "Enter wallet Address: " wallet_address
-
-            nym_node_id="nym-mixnode"
-
-            # Init new binary
-            nym-mixnode init --id $nym_node_id --host $bind_ip --announce-host $announce_ip --wallet-address $wallet_address > ne-output.txt
-
-            sudo ufw allow 1789,1790,8000,22/tcp >/dev/null && yes | sudo ufw enable >/dev/null
-
-            sudo systemctl restart ufw
-
-            echo "Storage=persistent" | sudo tee /etc/systemd/journald.conf >/dev/null
-            sudo systemctl restart systemd-journald
-
-            sudo tee /etc/systemd/system/nym-mixnode.service >/dev/null <<EOF
-            [Unit]
-            Description=Nym Mixnode
-
-            [Service]
-            User=$USER
-            ExecStart=/usr/local/bin/nym-mixnode run --id $nym_node_id
-            KillSignal=SIGINT
-            Restart=on-failure
-            RestartSec=30
-            StartLimitInterval=350
-            StartLimitBurst=10
-            LimitNOFILE=65535
-
-            [Install]
-            WantedBy=multi-user.target
-EOF
-
-
-            sudo sh -c 'echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf'
-            sudo systemctl daemon-reload && sudo systemctl enable nym-mixnode && sudo systemctl restart nym-mixnode
-
-        
-
-            if [[ `service nym-mixnode status | grep active` =~ "running" ]]; then
-
-                en_logo_display
-                echo -e '\033[1mMixnode Installed and running.\033[22m' && echo
-                sleep 1
-                echo
-                grep -E 'Identity Key|Sphinx Key|Host|Version|Mix Port|Verloc port|Http Port|bonding to wallet address' ne-output.txt
-                echo
-                echo -e "nym-mixnode installed, remember to bond your node in your wallet details above!"
-                echo
-                echo -e "Server Restart Initiated"
-                sudo reboot
-            else
-            echo -e "nym-mixnode was not installed correctly, please re-install."
-            fi
-
-            exit
-            ;;
-        2)
-            # MIGRATE SECTION
-            en_logo_display
-    
-            echo -e '\033[1mMixnode Migration Started.\033[22m' && echo
-            nym_path=$(sudo find / -type d -name ".nym" 2>/dev/null)
-            if [ -n "$nym_path" ]; then
-            sudo mv "$nym_path" "$HOME/"
-            echo "Folder moved successfully to $HOME"
-            sudo chown -R $USER:$USER $HOME/.nym
-            
-            else
-            echo "Folder not found."
-            exit
-            fi
-
-            # now run updater
-
-
-            ;;
-        3)
-            exit
-            ;;
-        *)
-            echo
-            echo -e "\xE2\x9C\x97 Invalid option, please try again."
-            ;;
-    esac
-done
-
-
+	# Install / migrate menu
+	no_nym_folder_menu
 fi
 
 done
