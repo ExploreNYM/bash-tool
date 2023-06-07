@@ -15,9 +15,10 @@ move_nym_folder() {
 		sudo mv "$nym_path" "$HOME/"
 		echo "Folder moved successfully to $HOME"
 		sudo chown -R $USER:$USER $HOME/.nym
+		exit
 	else
 		echo "Folder not found."
-		exit
+		exit 1
 	fi
 }
 
