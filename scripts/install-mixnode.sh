@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#Characters
-check_mark="\xE2\x9C\x93"
-fail_x="\xE2\x9C\x97"
 #Font formats
 set_bold="\033[1m"
 set_normal="\033[22m"
@@ -76,8 +73,10 @@ display_mixnode_info() {
 			wallet details above!\n"
 		echo -e "Server Restart Initiated"
 		sudo reboot #why reboot?
+		#exit
 	else
 		echo -e "nym-mixnode was not installed correctly, please re-install."
+		#exit 1
 	fi
 	
 }
