@@ -30,7 +30,8 @@ check_ubuntu_version() {
 		echo -e "$check_mark Ubuntu $stable_version\n"
 	else
 		echo -e "$fail_x Ubuntu $vps_version.\n"
-		echo -e "! Warning script and nym binaries are tested on Ubuntu 20.04 !\n"
+		echo -e "! Warning script and nym binaries are tested on" \
+			"Ubuntu 20.04 !\n"
 		read -p "Run script anyway (Y/n) " perm
 		if ! [[ "$perm" == "Y" || "$perm" == "y" || "$perm" == "" ]]
 		then
@@ -71,16 +72,15 @@ check_user() {
 				done
 				adduser --gecos GECOS  $new_user
 				usermod -aG sudo $new_user
-				rm -f /root/en-mixnode.sh &>/dev/null
 				echo -e "\n!Reconnecting as new user please re run script"\
 				"after connecting!\n"
 				ssh -o StrictHostKeyChecking=no "$new_user@$announce_ip"
 				exit 1
-				fi
+			fi
 			;;
 		*)
 			echo -e "$fail_x $USER has no sudo priveleges\n"
-			echo '! Force Exit !'; exit 1
+			echo "! Force Exit !"; exit 1
 			;;
 	esac
 }
@@ -125,7 +125,7 @@ update_server() {
 	sudo apt upgrade -y -qq &>'/dev/null' &
 	upgrade_pid=$!
 	wait "$upgrade_pid" ; upgrade_pid=""
-	kill "$animation_pid"
+	kill "$animation_pid" ; animation_pid=""
 	echo -e "\n$check_mark Server up to date.\n"
 }
 

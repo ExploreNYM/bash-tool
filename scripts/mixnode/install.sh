@@ -16,7 +16,7 @@ setup_binary() {
 
 	wget -q -O $nym_binary_name "$nym_url/$nym_release/$nym_binary_name"
 	chmod u+x $nym_binary_name
-	sudo mv $nym_binary_name /usr/local/bin/ #move to user home to eliminate sudo usage?
+	sudo mv $nym_binary_name /usr/local/bin/
 }
 
 setup_mixnode() {
@@ -58,9 +58,9 @@ setup_daemon() {
 EOF
 
 	sudo sh -c "echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf"
-	sudo systemctl daemon-reload && \
-		sudo systemctl enable nym-mixnode && sudo systemctl restart nym-mixnode
-	
+	sudo systemctl daemon-reload
+	sudo systemctl enable nym-mixnode
+	sudo systemctl restart nym-mixnode
 }
 
 display_mixnode_info() {
@@ -74,12 +74,11 @@ display_mixnode_info() {
 		echo -e "\nnym-mixnode installed, remember to bond your node in your \
 			wallet details above!\n"
 		echo -e "Server Restart Initiated"
-		#sudo reboot #why reboot?
+		sudo reboot
 	else
 		echo -e "nym-mixnode was not installed correctly, please re-install."
 		exit 1
 	fi
-	
 }
 
 ##############################

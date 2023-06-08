@@ -29,7 +29,7 @@ setup_binary() {
 
 	wget -q -O $nym_binary_name "$nym_url/$nym_release/$nym_binary_name"
 	chmod u+x $nym_binary_name
-	sudo mv $nym_binary_name /usr/local/bin/ #move to user home to eliminate sudo usage?
+	sudo mv $nym_binary_name /usr/local/bin/ 
 }
 
 init_binary() {
@@ -96,8 +96,7 @@ display_status() {
 		sleep 2 ; sudo systemctl status nym-mixnode --no-pager
 		echo -e "\n\nServer Restart Initiated, Mixnode updated and running" \
 			"cya next update :)"
-		#sudo reboot
-		exit 0
+		sudo reboot
 	else
 		echo -e "nym-mixnode was not updated correctly, please re-update."
 		exit 1

@@ -69,7 +69,8 @@ no_nym_folder_menu() {
 
 has_nym_folder_menu() {
 	clear ; $EXPLORE_NYM_PATH/display-logo.sh
-	while true; do
+	while true
+	do
 		echo -e "$set_bold nym-mixnode menu:\n$set_normal"
 		echo "1. Update nym-mixnode"
 		echo "2. Backup nym-mixnode"
@@ -79,24 +80,24 @@ has_nym_folder_menu() {
 		read -p "Enter your choice: " choice
 		
 		case $choice in
-		1)
-			$EXPLORE_NYM_PATH/mixnode/update.sh $nym_path && exit
-			;;
-		2)
-			$EXPLORE_NYM_PATH/mixnode/backup.sh $nym_path && exit
-			;;
-		3)
-			$EXPLORE_NYM_PATH/mixnode/change-details.sh $nym_path && exit
-			;;
-		4)
-			$EXPLORE_NYM_PATH/mixnode/status.sh
-			;;
-		5)
-			exit
-			;;
-		*)
-			echo -e "\n$fail_x Invalid option, please try again."
-			;;
+			1)
+				$EXPLORE_NYM_PATH/mixnode/update.sh $nym_path && exit
+				;;
+			2)
+				$EXPLORE_NYM_PATH/mixnode/backup.sh $nym_path && exit
+				;;
+			3)
+				$EXPLORE_NYM_PATH/mixnode/change-details.sh $nym_path && exit
+				;;
+			4)
+				$EXPLORE_NYM_PATH/mixnode/status.sh
+				;;
+			5)
+				exit
+				;;
+			*)
+				echo -e "\n$fail_x Invalid option, please try again."
+				;;
 		esac
 	done
 }

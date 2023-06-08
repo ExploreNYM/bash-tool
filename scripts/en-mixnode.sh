@@ -36,9 +36,7 @@ main_menu() {
 }
 
 cleanup() {
-    #sudo rm "$HOME/en-mixnode.sh" > /dev/null 2>&1
-    #sudo rm "/root/en-mixnode.sh" > /dev/null 2>&1
-    #sudo rm "$HOME/ne-output.txt" > /dev/null 2>&1
+    rm -rf "$HOME/tool" > /dev/null 2>&1
 	unset EXPLORE_NYM_PATH
     unset variables
 }

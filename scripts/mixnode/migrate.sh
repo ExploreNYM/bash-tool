@@ -15,7 +15,6 @@ move_nym_folder() {
 		sudo mv "$nym_path" "$HOME/"
 		echo "Folder moved successfully to $HOME"
 		sudo chown -R $USER:$USER $HOME/.nym
-		exit
 	else
 		echo "Folder not found."
 		exit 1
@@ -29,6 +28,3 @@ move_nym_folder() {
 ../display-logo.sh
 echo -e "${set_bold}Mixnode Migration Started.$set_normal\n"
 move_nym_folder
-
-# now run updater
-# what's running updater?
