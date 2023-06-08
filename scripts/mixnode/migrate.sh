@@ -26,7 +26,7 @@ move_nym_folder() {
 ## MAIN EXECUTION OF SCRIPT ##
 ##############################
 
-./display-logo.sh
+../display-logo.sh
 echo -e "${set_bold}Mixnode Migration Started.$set_normal\n"
 move_nym_folder
 

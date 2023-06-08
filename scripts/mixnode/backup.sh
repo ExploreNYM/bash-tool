@@ -12,7 +12,7 @@ node_path="$1/mixnodes"
 nym_node_id=$(find "$node_path" -mindepth 1 -maxdepth 1 -type d \
 	-printf "%f\n" | head -n1)
 
-./display-logo.sh
+../display-logo.sh
 echo -e "${set_bold}Mixnode Backup Started.\n$set_normal"
 echo -e "Copy this script and paste it in your local terminal(mac)" \
 	"shell(windows) to pull a backup of your mixnode.\n"

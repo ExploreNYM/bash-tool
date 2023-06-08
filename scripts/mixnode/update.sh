@@ -14,7 +14,7 @@ node_path="$nym_path/mixnodes"
 nym_node_id=$(find "$node_path" -mindepth 1 -maxdepth 1 -type d \
 	-printf "%f\n" | head -n1)
 nym_config_file=$node_path/$nym_node_id/config/config.toml
-# vvv for script debuging vvv #
+# variable to use when debuging #
 #nym_path=$(find / -type d -name ".nym" 2>/dev/null)
 
 ###############
@@ -90,7 +90,7 @@ display_status() {
 	
 	if [[ `service nym-mixnode status | grep active` =~ "running" ]]
 	then
-		./display-logo.sh ; sleep 1
+		../display-logo.sh ; sleep 1
 		echo -e "${set_bold}Mixnode updated to version: $nym_version and" \
 			"running, remember update the version in your wallet!.\n$set_normal"
 		sleep 2 ; sudo systemctl status nym-mixnode --no-pager
@@ -108,7 +108,7 @@ display_status() {
 ## MAIN EXECUTION OF SCRIPT ##
 ##############################
 
-./display-logo.sh
+../display-logo.sh
 echo -e "${set_bold}Mixnode Update Started.\n$set_normal"
 sudo systemctl stop nym-mixnode
 setup_binary

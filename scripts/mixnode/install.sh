@@ -13,6 +13,7 @@ setup_binary() {
 	nym_release=$(curl -s "https://github.com/nymtech/nym/releases/" |\
 		grep -oEm 1 "nym-binaries-v[0-9]+\.[0-9]+\.[0-9]+")
 	nym_url="https://github.com/nymtech/nym/releases/download"
+
 	wget -q -O $nym_binary_name "$nym_url/$nym_release/$nym_binary_name"
 	chmod u+x $nym_binary_name
 	sudo mv $nym_binary_name /usr/local/bin/ #move to user home to eliminate sudo usage?
@@ -23,6 +24,7 @@ setup_mixnode() {
 	announce_ip=$(curl -s ifconfig.me)
 	read -p "Enter wallet Address: " wallet_address
 	nym_node_id="nym-mixnode" #give the user the option to choose?
+
 	nym-mixnode init --id $nym_node_id --host $bind_ip --announce-host \
 		$announce_ip --wallet-address $wallet_address > ne-output.txt
 }
@@ -64,7 +66,7 @@ EOF
 display_mixnode_info() {
 	if [[ `service nym-mixnode status | grep active` =~ "running" ]]
 	then
-		./display-logo.sh
+		../display-logo.sh
 		echo -e "${set_bold}Mixnode Installed and running.$set_normal\n\n"
 		sleep 1
 		grep -E "Identity Key|Sphinx Key|Host|Version|Mix Port|Verloc port\
@@ -85,7 +87,7 @@ display_mixnode_info() {
 ## MAIN EXECUTION OF SCRIPT ##
 ##############################
 
-./display-logo.sh
+../display-logo.sh
 echo -e "${set_bold}Mixnode installation Started.$set_normal\n"
 setup_binary
 setup_mixnode
