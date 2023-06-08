@@ -15,12 +15,14 @@ nym_config_file=""
 ###############
 
 find_nym_folder() {
-	echo -e "Searching for .nym folder on current user, please wait"
+	echo -e "\nSearching for .nym folder on current user, please wait\n"
 	nym_path=$(find $HOME -type d -name ".nym" 2>/dev/null)
 	if [ -n "$nym_path" ]
 	then
+		echo -e "$check_mark NYM folder found.\n"
 		return
 	else
+		echo -e "$fail_x NYM folder not found.\n"
 		return 1
 	fi
 }
@@ -33,12 +35,13 @@ find_config() {
 	
 	if ! [ -f "$nym_config_file" ]
 	then
-		echo "Cant find config.toml"
+		echo -e "Cant find config.toml\n"
 		return 1
 	fi
 }
 
 no_nym_folder_menu() {
+	clear ; $EXPLORE_NYM_PATH/display-logo.sh
 	while true
 	do
 		echo -e "\n$set_bold nym-mixnode menu:$set_normal\n"
@@ -49,10 +52,10 @@ no_nym_folder_menu() {
 
 		case $choice in
 			1)
-				./install.sh && exit
+				$EXPLORE_NYM_PATH/install.sh && exit
 			    ;;
 			2)
-				./migrate.sh && exit
+				$EXPLORE_NYM_PATH/migrate.sh && exit
 				;;
 			3)
 				exit
@@ -76,16 +79,16 @@ has_nym_folder_menu() {
 		
 		case $choice in
 		1)
-			./update.sh $nym_path && exit
+			$EXPLORE_NYM_PATH/update.sh $nym_path && exit
 			;;
 		2)
-			./backup.sh $nym_path && exit
+			$EXPLORE_NYM_PATH/backup.sh $nym_path && exit
 			;;
 		3)
-			./change-details.sh $nym_path && exit
+			$EXPLORE_NYM_PATH/change-details.sh $nym_path && exit
 			;;
 		4)
-			./status.sh
+			$EXPLORE_NYM_PATH/status.sh
 			;;
 		5)
 			exit
@@ -103,7 +106,6 @@ has_nym_folder_menu() {
 
 if find_nym_folder
 then
-    echo -e "$check_mark NYM folder found."
 	find_config || exit;
 
 	nym_version=$(grep "version" "$nym_config_file" | awk -F "'" '{print $2}')

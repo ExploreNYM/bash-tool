@@ -38,6 +38,7 @@ cleanup() {
     #sudo rm "$HOME/en-mixnode.sh" > /dev/null 2>&1
     #sudo rm "/root/en-mixnode.sh" > /dev/null 2>&1
     #sudo rm "$HOME/ne-output.txt" > /dev/null 2>&1
+	unset EXPLORE_NYM_PATH
     unset variables
 }
 
@@ -46,6 +47,7 @@ cleanup() {
 ##############################
 
 trap cleanup exit
+export EXPLORE_NYM_PATH=$(dirname "$0")
 ./display-logo.sh
 ./check-vps.sh || exit
 main_menu

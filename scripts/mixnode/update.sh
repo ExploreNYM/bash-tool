@@ -90,7 +90,7 @@ display_status() {
 	
 	if [[ `service nym-mixnode status | grep active` =~ "running" ]]
 	then
-		../display-logo.sh ; sleep 1
+		$EXPLORE_NYM_PATH/display-logo.sh ; sleep 1
 		echo -e "${set_bold}Mixnode updated to version: $nym_version and" \
 			"running, remember update the version in your wallet!.\n$set_normal"
 		sleep 2 ; sudo systemctl status nym-mixnode --no-pager
@@ -108,7 +108,7 @@ display_status() {
 ## MAIN EXECUTION OF SCRIPT ##
 ##############################
 
-../display-logo.sh
+$EXPLORE_NYM_PATH/display-logo.sh
 echo -e "${set_bold}Mixnode Update Started.\n$set_normal"
 sudo systemctl stop nym-mixnode
 setup_binary

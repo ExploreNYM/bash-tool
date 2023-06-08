@@ -66,7 +66,7 @@ EOF
 display_mixnode_info() {
 	if [[ `service nym-mixnode status | grep active` =~ "running" ]]
 	then
-		../display-logo.sh
+		$EXPLORE_NYM_PATH/display-logo.sh
 		echo -e "${set_bold}Mixnode Installed and running.$set_normal\n\n"
 		sleep 1
 		grep -E "Identity Key|Sphinx Key|Host|Version|Mix Port|Verloc port\
@@ -74,11 +74,10 @@ display_mixnode_info() {
 		echo -e "\nnym-mixnode installed, remember to bond your node in your \
 			wallet details above!\n"
 		echo -e "Server Restart Initiated"
-		sudo reboot #why reboot?
-		#exit
+		#sudo reboot #why reboot?
 	else
 		echo -e "nym-mixnode was not installed correctly, please re-install."
-		#exit 1
+		exit 1
 	fi
 	
 }
@@ -87,7 +86,7 @@ display_mixnode_info() {
 ## MAIN EXECUTION OF SCRIPT ##
 ##############################
 
-../display-logo.sh
+$EXPLORE_NYM_PATH/display-logo.sh
 echo -e "${set_bold}Mixnode installation Started.$set_normal\n"
 setup_binary
 setup_mixnode
