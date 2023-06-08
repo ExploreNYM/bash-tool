@@ -48,6 +48,6 @@ cleanup() {
 
 trap cleanup exit
 export EXPLORE_NYM_PATH=$(dirname "$0")
-./display-logo.sh
-./check-vps.sh || exit
+$EXPLORE_NYM_PATH/display-logo.sh
+$EXPLORE_NYM_PATH/check-vps.sh || exit
 main_menu
