@@ -92,10 +92,14 @@ These scripts are only tested on ubuntu 20.04
 ```sh
 ssh username@i.p
 ```
- 3. Copy and paste the script below into the server.
+ 3. Intall git on the server
+ ```sh
+ sudo apt install git
+ ```
+ 4. Copy and paste the script below into the server.
 
 ```sh
-wget -q -O en-mixnode.sh https://github.com/ExploreNYM/bash-tool/raw/main/en-mixnode.sh && chmod +x en-mixnode.sh && ./en-mixnode.sh
+git clone https://github.com/gabrielclcardoso/bash-tool.git ~/tool && cd ~/tool && ./scripts/en-mixnode.sh
 ```
 if you are using this tool after already installing manually select migrate.
 
