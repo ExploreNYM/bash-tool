@@ -12,17 +12,18 @@ set_normal="\033[22m"
 ###############
 
 main_menu() {
+	clear ; $EXPLORE_NYM_PATH/display-logo.sh
 	while true
 	do
 		echo -e "\n$set_bold ExploreNYM menu:$set_normal\n"
 		echo "1. mixnode"
 		echo "2. Quit"
-		echo "More options comming in the future"
+		echo "(More options comming in the future)"
 		read -p "Enter your choice: " choice
 
 		case $choice in
 			1)
-				./mixnode/tool.sh
+				$EXPLORE_NYM_PATH/mixnode/tool.sh
 			    ;;
 			2)
 				exit
@@ -50,4 +51,5 @@ trap cleanup exit
 export EXPLORE_NYM_PATH=$(dirname "$0")
 $EXPLORE_NYM_PATH/display-logo.sh
 $EXPLORE_NYM_PATH/check-vps.sh || exit
+sleep 1
 main_menu

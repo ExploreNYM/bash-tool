@@ -52,10 +52,10 @@ no_nym_folder_menu() {
 
 		case $choice in
 			1)
-				$EXPLORE_NYM_PATH/install.sh && exit
+				$EXPLORE_NYM_PATH/mixnode/install.sh && exit
 			    ;;
 			2)
-				$EXPLORE_NYM_PATH/migrate.sh && exit
+				$EXPLORE_NYM_PATH/mixnode/migrate.sh && exit
 				;;
 			3)
 				exit
@@ -68,6 +68,7 @@ no_nym_folder_menu() {
 }
 
 has_nym_folder_menu() {
+	clear ; $EXPLORE_NYM_PATH/display-logo.sh
 	while true; do
 		echo -e "$set_bold nym-mixnode menu:\n$set_normal"
 		echo "1. Update nym-mixnode"
@@ -79,16 +80,16 @@ has_nym_folder_menu() {
 		
 		case $choice in
 		1)
-			$EXPLORE_NYM_PATH/update.sh $nym_path && exit
+			$EXPLORE_NYM_PATH/mixnode/update.sh $nym_path && exit
 			;;
 		2)
-			$EXPLORE_NYM_PATH/backup.sh $nym_path && exit
+			$EXPLORE_NYM_PATH/mixnode/backup.sh $nym_path && exit
 			;;
 		3)
-			$EXPLORE_NYM_PATH/change-details.sh $nym_path && exit
+			$EXPLORE_NYM_PATH/mixnode/change-details.sh $nym_path && exit
 			;;
 		4)
-			$EXPLORE_NYM_PATH/status.sh
+			$EXPLORE_NYM_PATH/mixnode/status.sh
 			;;
 		5)
 			exit
@@ -107,9 +108,6 @@ has_nym_folder_menu() {
 if find_nym_folder
 then
 	find_config || exit;
-
-	nym_version=$(grep "version" "$nym_config_file" | awk -F "'" '{print $2}')
-	echo -e "\nnym-mixnode current version $nym_version"
 	has_nym_folder_menu
 else
 	no_nym_folder_menu

@@ -57,7 +57,7 @@ setup_daemon() {
 	WantedBy=multi-user.target
 EOF
 
-	sudo sh -c 'echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf'
+	sudo sh -c "echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf"
 	sudo systemctl daemon-reload && \
 		sudo systemctl enable nym-mixnode && sudo systemctl restart nym-mixnode
 	
