@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Characters
+check_mark="\xE2\x9C\x93"
+fail_x="\xE2\x9C\x97"
 #Font formats
 set_bold="\033[1m"
 set_normal="\033[22m"
@@ -13,10 +16,12 @@ move_nym_folder() {
 	if [[ -n "$nym_path" ]]
 	then
 		sudo mv "$nym_path" "$HOME/"
-		echo "Folder moved successfully to $HOME"
+		echo -e "$check_mark Folder moved successfully to $HOME\n"
 		sudo chown -R $USER:$USER $HOME/.nym
+		sleep 2
 	else
-		echo "Folder not found."
+		echo -e "$fail_x Nym Folder not found.\n"
+		sleep 2
 		exit 1
 	fi
 }

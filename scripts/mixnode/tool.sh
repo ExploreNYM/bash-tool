@@ -20,9 +20,11 @@ find_nym_folder() {
 	if [ -n "$nym_path" ]
 	then
 		echo -e "$check_mark NYM folder found.\n"
+		sleep 2
 		return
 	else
 		echo -e "$fail_x NYM folder not found.\n"
+		sleep 2
 		return 1
 	fi
 }
@@ -41,9 +43,9 @@ find_config() {
 }
 
 no_nym_folder_menu() {
-	clear ; $EXPLORE_NYM_PATH/display-logo.sh
 	while true
 	do
+		clear ; $EXPLORE_NYM_PATH/display-logo.sh
 		echo -e "\n$set_bold nym-mixnode menu:$set_normal\n"
 		echo "1. Install nym-mixnode"
 		echo "2. Migrate nym-mixnode"
@@ -62,15 +64,16 @@ no_nym_folder_menu() {
 				;;
 			*)
 				echo -e "\n$fail_x Invalid option, please try again."
+				sleep 1
 				;;
 		esac
 	done
 }
 
 has_nym_folder_menu() {
-	clear ; $EXPLORE_NYM_PATH/display-logo.sh
 	while true
 	do
+		clear ; $EXPLORE_NYM_PATH/display-logo.sh
 		echo -e "$set_bold nym-mixnode menu:\n$set_normal"
 		echo "1. Update nym-mixnode"
 		echo "2. Backup nym-mixnode"
@@ -81,13 +84,13 @@ has_nym_folder_menu() {
 		
 		case $choice in
 			1)
-				$EXPLORE_NYM_PATH/mixnode/update.sh $nym_path && exit
+				$EXPLORE_NYM_PATH/mixnode/update.sh $nym_path
 				;;
 			2)
 				$EXPLORE_NYM_PATH/mixnode/backup.sh $nym_path && exit
 				;;
 			3)
-				$EXPLORE_NYM_PATH/mixnode/change-details.sh $nym_path && exit
+				$EXPLORE_NYM_PATH/mixnode/change-details.sh $nym_path
 				;;
 			4)
 				$EXPLORE_NYM_PATH/mixnode/status.sh
@@ -97,6 +100,7 @@ has_nym_folder_menu() {
 				;;
 			*)
 				echo -e "\n$fail_x Invalid option, please try again."
+				sleep 1
 				;;
 		esac
 	done

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Characters
+check_mark="\xE2\x9C\x93"
+fail_x="\xE2\x9C\x97"
 #Font formats
 set_bold="\033[1m"
 set_normal="\033[22m"
@@ -18,7 +21,9 @@ nym-mixnode describe --id $nym_node_id
 sudo systemctl restart nym-mixnode
 if [[ `service nym-mixnode status | grep active` =~ "running" ]]
 then
-	echo "Description updated successfully"
+	echo -e "$check_mark Description updated successfully"
+	sleep 2
 else
-	echo "error: mixnode not running"
+	echo -e "$fail_x Error: mixnode not running\n"
+	sleep 2
 fi
