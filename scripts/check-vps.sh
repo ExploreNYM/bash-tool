@@ -74,6 +74,7 @@ check_user() {
 				usermod -aG sudo $new_user
 				echo -e "\n!Reconnecting as new user please re run script"\
 				"after connecting!\n"
+				$EXPLORE_NYM_PATH/cleanup.sh
 				ssh -o StrictHostKeyChecking=no "$new_user@$announce_ip"
 				exit 1
 			fi

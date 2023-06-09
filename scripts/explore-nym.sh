@@ -12,9 +12,9 @@ set_normal="\033[22m"
 ###############
 
 main_menu() {
-	clear ; $EXPLORE_NYM_PATH/display-logo.sh
 	while true
 	do
+		clear ; $EXPLORE_NYM_PATH/display-logo.sh
 		echo -e "\n$set_bold ExploreNYM menu:$set_normal\n"
 		echo "1. mixnode"
 		echo "2. Quit"
@@ -23,30 +23,26 @@ main_menu() {
 
 		case $choice in
 			1)
-				$EXPLORE_NYM_PATH/mixnode/tool.sh
+				$EXPLORE_NYM_PATH/mixnode/tool.sh && exit
 			    ;;
 			2)
 				exit
 				;;
 			*)
 				echo -e "\n$fail_x Invalid option, please try again."
+				sleep 1
 				;;
 		esac
 	done
 }
 
-cleanup() {
-    rm -rf "$HOME/tool" > /dev/null 2>&1
-	unset EXPLORE_NYM_PATH
-    unset variables
-}
 
 ##############################
 ## MAIN EXECUTION OF SCRIPT ##
 ##############################
 
-trap cleanup exit
 export EXPLORE_NYM_PATH=$(dirname "$0")
+trap $EXPLORE_NYM_PATH/cleanup.sh exit
 $EXPLORE_NYM_PATH/display-logo.sh
 $EXPLORE_NYM_PATH/check-vps.sh || exit
 sleep 1

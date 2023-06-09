@@ -71,12 +71,15 @@ display_mixnode_info() {
 		sleep 1
 		grep -E "Identity Key|Sphinx Key|Host|Version|Mix Port|Verloc port\
 			|Http Port|bonding to wallet address" ne-output.txt
-		echo -e "\nnym-mixnode installed, remember to bond your node in your \
-			wallet details above!\n"
+		echo -e "\nnym-mixnode installed, remember to bond your node in your"\
+			"wallet details above!\n"
 		echo -e "Server Restart Initiated"
+		$EXPLORE_NYM_PATH/cleanup.sh
 		sudo reboot
 	else
-		echo -e "nym-mixnode was not installed correctly, please re-install."
+		echo -e "$fail_x nym-mixnode was not installed correctly,"\
+			"please re-install."
+		sleep 2
 		exit 1
 	fi
 }

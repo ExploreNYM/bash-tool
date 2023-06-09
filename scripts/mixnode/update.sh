@@ -3,7 +3,6 @@
 #Characters
 check_mark="\xE2\x9C\x93"
 fail_x="\xE2\x9C\x97"
-
 #Font formats
 set_bold="\033[1m"
 set_normal="\033[22m"
@@ -96,9 +95,12 @@ display_status() {
 		sleep 2 ; sudo systemctl status nym-mixnode --no-pager
 		echo -e "\n\nServer Restart Initiated, Mixnode updated and running" \
 			"cya next update :)"
+		$EXPLORE_NYM_PATH/cleanup.sh
 		sudo reboot
 	else
-		echo -e "nym-mixnode was not updated correctly, please re-update."
+		echo -e "$fail_x nym-mixnode was not updated correctly,"\
+			"please re-update."
+		sleep 2
 		exit 1
 	fi
 }
