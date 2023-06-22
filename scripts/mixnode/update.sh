@@ -32,14 +32,18 @@ setup_binary() {
 }
 
 init_binary() {
-	wallet_address=$(grep "wallet_address" "$nym_config_file" |\
-		awk -F "'" '{print $2}')
-	nym_version=$(grep "version" "$nym_config_file" | awk -F "'" '{print $2}')
-	bind_ip=$(hostname -I | awk '{print $1}')
-	announce_ip=$(curl -s ifconfig.me)
+    wallet_address=$(grep "wallet_address" "$nym_config_file" | awk -F "'" '{print $2}')
+    nym_version=$(grep "version" "$nym_config_file" | awk -F "'" '{print $2}')
+    bind_ip=$(hostname -I | awk '{print $1}')
+    announce_ip=$(curl -s ifconfig.me)
 
-	nym-mixnode init --id $nym_node_id --host $bind_ip --announce-host \
-		$announce_ip --wallet-address $wallet_address  > ne-output.txt
+    if [ "$announce_ip" = "$bind_ip" ]; then
+        nym-mixnode init --id $nym_node_id --host $bind_ip \
+            --wallet-address $wallet_address > ne-output.txt
+    else
+        nym-mixnode init --id $nym_node_id --host $bind_ip --announce-host \
+            $announce_ip --wallet-address $wallet_address > ne-output.txt
+    fi
 }
 
 setup_daemon() {
