@@ -99,7 +99,7 @@ ssh username@i.p
  4. Copy and paste the script below into the server.
 
 ```sh
-git clone https://github.com/ExploreNYM/bash-tool ~/bash-tool && cd ~/bash-tool && ./scripts/explore-nym.sh && cd - &> /dev/null
+git clone https://github.com/ExploreNYM/bash-tool ~/bash-tool && ~/bash-tool/scripts/explore-nym.sh
 ```
 if you are using this tool after already installing manually select migrate.
 
