@@ -39,10 +39,10 @@ init_binary() {
 
     if [ "$announce_ip" = "$bind_ip" ]; then
         nym-mixnode init --id $nym_node_id --host $announce_ip \
-            --wallet-address $wallet_address > ne-output.txt
+             > ne-output.txt
     else
         nym-mixnode init --id $nym_node_id --host $bind_ip --announce-host \
-            $announce_ip --wallet-address $wallet_address > ne-output.txt
+            $announce_ip > ne-output.txt
     fi
 }
 
