@@ -8,6 +8,12 @@ set_bold="\033[1m"
 set_normal="\033[22m"
 
 ###############
+## VARIABLES ##
+###############
+
+announce_ip=$(curl -s ifconfig.me)
+
+###############
 ## FUNCTIONS ##
 ###############
 
@@ -42,7 +48,6 @@ check_ubuntu_version() {
 
 check_nat() {
 	bind_ip=$(hostname -I | awk '{print $1}')
-	announce_ip=$(curl -s ifconfig.me)
 	docs_link="https://nymtech.net/docs/nodes/troubleshooting.html#running-on-a\
 	-local-machine-behind-nat-with-no-fixed-ip-address"
 	
@@ -67,13 +72,24 @@ check_user() {
 			read -p "Make a new sudo user (Y/n) " perm
 			if [[ "$perm" == "Y" || "$perm" == "y" || "$perm" == "" ]]
 			then
-				while [[ -z "$new_user" ]]; do
-					read -p "Enter new username: " new_user
+				created="false"
+				while [[ "$created" == "false" ]]
+				do
+					while [[ -z "$new_user" ]]; do
+						read -p "Enter new username: " new_user
+					done
+					adduser --gecos GECOS  $new_user > /dev/null
+					if [ $? -eq 0 ]; then
+						created="true"
+						usermod -aG sudo $new_user
+					else
+					    echo -e "\n$fail_x Failed to create user $new_user,"\
+							"try a different username.\n"
+						new_user=""
+					fi
 				done
-				adduser --gecos GECOS  $new_user
-				usermod -aG sudo $new_user
-				echo -e "\n!Reconnecting as new user please re run script"\
-				"after connecting!\n"
+				echo -e "$set_bold\n!Reconnecting as new user please re run script"\
+				"after connecting!$set_normal\n"
 				$EXPLORE_NYM_PATH/cleanup.sh
 				ssh -o StrictHostKeyChecking=no "$new_user@$announce_ip"
 				exit 1
