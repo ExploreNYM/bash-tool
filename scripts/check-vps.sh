@@ -81,13 +81,12 @@ check_user() {
 					adduser --gecos GECOS  $new_user > /dev/null
 					if [ $? -eq 0 ]; then
 						created="true"
+						usermod -aG sudo $new_user
 					else
 					    echo -e "\n$fail_x Failed to create user $new_user,"\
 							"try a different username.\n"
 						new_user=""
-						continue
 					fi
-					usermod -aG sudo $new_user
 				done
 				echo -e "$set_bold\n!Reconnecting as new user please re run script"\
 				"after connecting!$set_normal\n"
