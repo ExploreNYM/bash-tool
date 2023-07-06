@@ -12,6 +12,21 @@ set_normal="\033[22m"
 ###############
 
 announce_ip=$(curl -s ifconfig.me)
+#Load text into associative array
+language="en-us"
+translations=$(jq -r ".\"$language\"" ../text/check-vps.json)
+if [[ "$translations" == "null" ]]; then
+	echo -e "No translation for $language available for this part of the" \
+		"script, If you're able to translate the text displayed on the script" \
+		"please contribute here https://github.com/ExploreNYM/bash-tool\n"
+	translations=$(jq -r ".\"en-us\"" ../text/check-vps.json)
+fi
+declare -A text
+while IFS=':' read -r key value; do
+	key=$(echo "${key//\"/}" | xargs)
+	value=$(echo "${value//\"/}" | xargs | sed 's/,$//')
+    text["$key"]="$value"
+done <<< "$translations"
 
 ###############
 ## FUNCTIONS ##
@@ -20,10 +35,10 @@ announce_ip=$(curl -s ifconfig.me)
 check_ipv6() {
 	if ip -6 addr show | grep -q "inet6";
 	then
-		echo -e "$check_mark IPv6 enabled\n"
+		echo -e "$check_mark ${text[enabled]}\n"
 	else
-		echo -e "$fail_x No IPv6 address found!\n"
-		echo "! Force Exit !"; exit 1
+		echo -e "$fail_x ${text[not_found]}\n"
+		echo "! ${text[force_exit]} !"; exit 1
 	fi
 }
 
@@ -36,12 +51,11 @@ check_ubuntu_version() {
 		echo -e "$check_mark Ubuntu $stable_version\n"
 	else
 		echo -e "$fail_x Ubuntu $vps_version.\n"
-		echo -e "! Warning script and nym binaries are tested on" \
-			"Ubuntu 20.04 !\n"
-		read -p "Run script anyway (Y/n) " perm
+		echo -e "! ${text[version_warning]} !\n"
+		read -p "${text[run_anyway]} " perm
 		if ! [[ "$perm" == "Y" || "$perm" == "y" || "$perm" == "" ]]
 		then
-			echo -e "\n! Force Exit !"; exit 1
+			echo -e "\n! ${text[force_exit]} !"; exit 1
 		fi
 	fi
 }
@@ -49,14 +63,13 @@ check_ubuntu_version() {
 check_nat() {
 	bind_ip=$(hostname -I | awk '{print $1}')
 	docs_link="https://nymtech.net/docs/nodes/troubleshooting.html#running-on-a\
-	-local-machine-behind-nat-with-no-fixed-ip-address"
+-local-machine-behind-nat-with-no-fixed-ip-address"
 	
 	if [[ $bind_ip == $announce_ip ]]
 	then
-		echo -e "$check_mark The server is not behind a NAT.\n"
+		echo -e "$check_mark ${text[nat_ok]}\n"
 	else
-		echo -e "$fail_x The server is behind a NAT if you running on"\
-			"a home network please check the docs about port forwarding.\n"
+		echo -e "$fail_x ${text[nat_fail]}\n"
 		echo "$docs_link"
 	fi
 }
@@ -64,40 +77,39 @@ check_nat() {
 check_user() {
 	case "$(groups)" in
 		*sudo*)
-			echo -e "$check_mark $USER has Sudo privileges.\n"
+			echo -e "$check_mark $USER ${text[has_sudo]}\n"
 			;;
 		*root*)
-			echo -e "$fail_x Root user.\n"
-			echo -e "! Warning you should create a sudo user for running nym !\n"
-			read -p "Make a new sudo user (Y/n) " perm
+			echo -e "$fail_x ${text[root]}\n"
+			echo -e "! ${text[root_warning]} !\n"
+			read -p "${text[make_user]} " perm
 			if [[ "$perm" == "Y" || "$perm" == "y" || "$perm" == "" ]]
 			then
 				created="false"
 				while [[ "$created" == "false" ]]
 				do
 					while [[ -z "$new_user" ]]; do
-						read -p "Enter new username: " new_user
+						read -p "${text[enter_user]} " new_user
 					done
-					adduser --gecos GECOS  $new_user > /dev/null
+					adduser --gecos GECOS  $new_user 
 					if [ $? -eq 0 ]; then
 						created="true"
 						usermod -aG sudo $new_user
 					else
-					    echo -e "\n$fail_x Failed to create user $new_user,"\
-							"try a different username.\n"
+					    echo -e "\n$fail_x ${text[user_fail]} $new_user,"\
+							"${text[diff_name]}\n"
 						new_user=""
 					fi
 				done
-				echo -e "$set_bold\n!Reconnecting as new user please re run script"\
-				"after connecting!$set_normal\n"
+				echo -e "$set_bold\n! ${text[reconecting]} !\n$set_normal"
 				$EXPLORE_NYM_PATH/cleanup.sh
 				ssh -o StrictHostKeyChecking=no "$new_user@$announce_ip"
 				exit 1
 			fi
 			;;
 		*)
-			echo -e "$fail_x $USER has no sudo priveleges\n"
-			echo "! Force Exit !"; exit 1
+			echo -e "$fail_x $USER ${text[no_sudo]}\n"
+			echo "! ${text[force_exit]} !"; exit 1
 			;;
 	esac
 }
@@ -108,7 +120,7 @@ update_server() {
 		then
 			kill "$animation_pid"
 		fi
-		echo -e "\n\nStopping update\n"
+		echo -e "\n\n${text[stopping]}\n"
 		if [[ -n "$update_pid" ]]
 		then
 			sudo kill "$update_pid"
@@ -117,11 +129,11 @@ update_server() {
 		then
 			sudo kill "$upgrade_pid"
 		fi
-		echo -e "Update stopped\n"
+		echo -e "${text[stopped]}\n"
 		exit 1
 	}
 	trap cleanup SIGINT
-	echo -e "Updating server please be patient..."
+	echo -e "${text[updating]}"
 	sudo sleep 0.01 #useless sudo command to get verification out of the way
 	{ #loading animation
 		while true; do
@@ -143,15 +155,14 @@ update_server() {
 	upgrade_pid=$!
 	wait "$upgrade_pid" ; upgrade_pid=""
 	kill "$animation_pid" ; animation_pid=""
-	echo -e "\n$check_mark Server up to date.\n"
+	echo -e "\n$check_mark ${text[updated]}\n"
 }
 
 ##############################
 ## MAIN EXECUTION OF SCRIPT ##
 ##############################
 
-echo -e "${set_bold}Mixnode tool initialized please be patient checking and"\
-	"updating server.\n${set_normal}"
+echo -e "${set_bold}${text[welcome_message]}\n${set_normal}"
 check_ipv6
 check_ubuntu_version
 check_nat
