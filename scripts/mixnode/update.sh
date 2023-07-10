@@ -26,66 +26,24 @@ setup_binary() {
 		grep -oEm 1 "nym-binaries-v[0-9]+\.[0-9]+\.[0-9]+")
 	nym_url="https://github.com/nymtech/nym/releases/download"
 
+	echo "Checking mixnode version"
 	wget -q -O $nym_binary_name "$nym_url/$nym_release/$nym_binary_name"
 	chmod u+x $nym_binary_name
+	installed_version=$(nym-mixnode --version 2> /dev/null | grep "Build Version" | awk '{print $3}')
+	remote_version=$(./nym-mixnode --version 2> /dev/null | grep "Build Version" | awk '{print $3}')
+	if [[ $installed_version == $remote_version ]]; then
+		echo "Mixnode already up to date" ; sleep 2
+		exit
+	else
+		echo "Mixnode outdated, updating" ; sleep 2
+	fi
 	sudo mv $nym_binary_name /usr/local/bin/ 
 }
 
 init_binary() {
-    wallet_address=$(grep "wallet_address" "$nym_config_file" | awk -F "'" '{print $2}')
-    nym_version=$(grep "version" "$nym_config_file" | awk -F "'" '{print $2}')
-    bind_ip=$(hostname -I | awk '{print $1}')
-    announce_ip=$(curl -s ifconfig.me)
+	host=$(curl -s ifconfig.me)
 
-    if [ "$announce_ip" = "$bind_ip" ]; then
-        nym-mixnode init --id $nym_node_id --host $announce_ip \
-             > ne-output.txt
-    else
-        nym-mixnode init --id $nym_node_id --host $bind_ip --announce-host \
-            $announce_ip > ne-output.txt
-    fi
-}
-
-setup_daemon() {
-	file_path="/etc/systemd/system/nym-mixnode.service"
-
-	if [ -f "$file_path" ]
-	then
-		usr_pattern="User="
-		usr_sub="User=$USER"
-		exec_pattern="ExecStart="
-		exec_sub="ExecStart=/usr/local/bin/nym-mixnode run --id $nym_node_id"
-
-		sudo chown -R $USER:$USER $file_path
-		sudo sed -i "/$usr_pattern/c $usr_sub" "$file_path"
-		sudo sed -i "/$exec_pattern/c $exec_sub" "$file_path"
-		echo "Line replaced successfully."
-	else
-		echo "File does not exist."
-		echo "Storage=persistent" |\
-			sudo tee /etc/systemd/journald.conf >/dev/null
-		sudo systemctl restart systemd-journald
-		sudo tee /etc/systemd/system/nym-mixnode.service >/dev/null <<EOF
-		[Unit]
-		Description=Nym Mixnode
-		
-		[Service]
-		User=$USER
-		ExecStart=/usr/local/bin/nym-mixnode run --id $nym_node_id
-		KillSignal=SIGINT
-		Restart=on-failure
-		RestartSec=30
-		StartLimitInterval=350
-		StartLimitBurst=10
-		LimitNOFILE=65535
-		
-		[Install]
-		WantedBy=multi-user.target
-EOF
-		sudo sh -c 'echo "DefaultLimitNOFILE=65535" >> /etc/systemd/system.conf'
-	fi
-	sudo systemctl daemon-reload
-	sudo systemctl restart nym-mixnode
+	nym-mixnode init --id $nym_node_id --host $host > ne-output.txt
 }
 
 display_status() {
@@ -115,8 +73,7 @@ display_status() {
 
 $EXPLORE_NYM_PATH/display-logo.sh
 echo -e "${set_bold}Mixnode Update Started.\n$set_normal"
-sudo systemctl stop nym-mixnode
 setup_binary
+sudo systemctl stop nym-mixnode
 init_binary
-setup_daemon
 display_status

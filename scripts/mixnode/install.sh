@@ -20,13 +20,10 @@ setup_binary() {
 }
 
 setup_mixnode() {
-	bind_ip=$(hostname -I | awk '{print $1}')
-	announce_ip=$(curl -s ifconfig.me)
-	read -p "Enter wallet Address: " wallet_address
-	nym_node_id="nym-mixnode" #give the user the option to choose?
+	host=$(curl ifconfig.me)
+	nym_node_id="nym-mixnode"
 
-	nym-mixnode init --id $nym_node_id --host $bind_ip --announce-host \
-		$announce_ip --wallet-address $wallet_address > ne-output.txt
+	nym-mixnode init --id $nym_node_id --host $host > $HOME/ne-output.txt
 }
 
 setup_firewall() {
