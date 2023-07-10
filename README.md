@@ -92,9 +92,9 @@ These scripts are only tested on ubuntu 20.04
 ```sh
 ssh username@i.p
 ```
- 3. Intall git on the server
+ 3. Intall git and jq on the server
  ```sh
- sudo apt install git
+ sudo apt install git jq
  ```
  4. Copy and paste the script below into the server.
 
