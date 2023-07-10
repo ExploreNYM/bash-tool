@@ -1,8 +1,27 @@
 #!/bin/bash
 
-#Font formats
+###############
+## VARIABLES ##
+###############
+
 set_bold="\033[1m"
 set_normal="\033[22m"
+fail_x="\xE2\x9C\x97"
+#Load text into associative array
+language="en-us"
+translations=$(jq -r ".\"$language\"" ../../text/install.json)
+if [[ "$translations" == "null" ]]; then
+	echo -e "No translation for $language available for this part of the" \
+		"script, If you're able to translate the text displayed on the script" \
+		"please contribute here https://github.com/ExploreNYM/bash-tool\n"
+	translations=$(jq -r ".\"en-us\"" ../text/check-vps.json)
+fi
+declare -A text
+while IFS=':' read -r key value; do
+	key=$(echo "${key//\"/}" | xargs)
+	value=$(echo "${value//\"/}" | xargs | sed 's/,$//')
+    text["$key"]="$value"
+done <<< "$translations"
 
 ###############
 ## FUNCTIONS ##
@@ -22,8 +41,8 @@ setup_binary() {
 setup_mixnode() {
 	bind_ip=$(hostname -I | awk '{print $1}')
 	announce_ip=$(curl -s ifconfig.me)
-	read -p "Enter wallet Address: " wallet_address
-	nym_node_id="nym-mixnode" #give the user the option to choose?
+	read -p "${text[wallet_prompt]}" wallet_address
+	nym_node_id="nym-mixnode"
 
 	nym-mixnode init --id $nym_node_id --host $bind_ip --announce-host \
 		$announce_ip --wallet-address $wallet_address > ne-output.txt
@@ -67,18 +86,16 @@ display_mixnode_info() {
 	if [[ `service nym-mixnode status | grep active` =~ "running" ]]
 	then
 		$EXPLORE_NYM_PATH/display-logo.sh
-		echo -e "${set_bold}Mixnode Installed and running.$set_normal\n\n"
+   	echo -e "$set_bold${text[success]}\n\n$set_normal"
 		sleep 1
 		grep -E "Identity Key|Sphinx Key|Host|Version|Mix Port|Verloc port\
 			|Http Port|bonding to wallet address" ne-output.txt
-		echo -e "\nnym-mixnode installed, remember to bond your node in your"\
-			"wallet details above!\n"
-		echo -e "Server Restart Initiated"
+   	echo -e "\n${text[instructions]}\n"
+   	echo -e "${text[restart]}"
 		$EXPLORE_NYM_PATH/cleanup.sh
 		sudo reboot
 	else
-		echo -e "$fail_x nym-mixnode was not installed correctly,"\
-			"please re-install."
+   	echo -e "$fail_x ${text[fail]}"
 		sleep 2
 		exit 1
 	fi
@@ -89,7 +106,7 @@ display_mixnode_info() {
 ##############################
 
 $EXPLORE_NYM_PATH/display-logo.sh
-echo -e "${set_bold}Mixnode installation Started.$set_normal\n"
+echo -e "$set_bold${text[welcome_message]}\n$set_normal"
 setup_binary
 setup_mixnode
 setup_firewall
