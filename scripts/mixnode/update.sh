@@ -15,10 +15,9 @@ set_bold="\033[1m"
 set_normal="\033[22m"
 announce_ip=$(curl -s ifconfig.me)
 #Load text into associative array
-language="en-us"
 translations=$(jq -r ".\"$EXPLORE_NYM_LANG\"" $EXPLORE_NYM_PATH/../text/update.json)
 if [[ "$translations" == "null" ]]; then
-	echo -e "No translation for $language available for this part of the" \
+	echo -e "No translation for $EXPLORE_NYM_LANG available for this part of the" \
 		"script, If you're able to translate the text displayed on the script" \
 		"please contribute here https://github.com/ExploreNYM/bash-tool\n"
 	translations=$(jq -r ".\"en-us\"" ../text/check-vps.json)
