@@ -11,7 +11,7 @@ set_normal="\033[22m"
 announce_ip=$(curl -s ifconfig.me)
 #Load text into associative array
 language="en-us"
-translations=$(jq -r ".\"$language\"" $EXPLORE_NYM_PATH/../text/check-vps.json)
+translations=$(jq -r ".\"$EXPLORE_NYM_LANG\"" $EXPLORE_NYM_PATH/../text/check-vps.json)
 if [[ "$translations" == "null" ]]; then
 	echo -e "No translation for $language available for this part of the" \
 		"script, If you're able to translate the text displayed on the script" \
@@ -68,6 +68,7 @@ check_nat() {
 	else
 		echo -e "$fail_x ${text[nat_fail]}\n"
 		echo "$docs_link"
+		exit 1;
 	fi
 }
 

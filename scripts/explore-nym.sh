@@ -11,19 +11,19 @@ set_normal="\033[22m"
 ## FUNCTIONS ##
 ###############
 
-main_menu() {
+language_menu() {
 	while true
 	do
 		clear ; $EXPLORE_NYM_PATH/display-logo.sh
-		echo -e "\n$set_bold ExploreNYM menu:$set_normal\n"
-		echo "1. mixnode"
+		echo -e "\n$set_bold ExploreNYM language menu:$set_normal\n"
+		echo "1. english (US)"
 		echo "2. Quit"
-		echo "(More options comming in the future)"
+		echo "(Add your language through https://github.com/ExploreNYM/bash-tool)"
 		read -p "Enter your choice: " choice
 
 		case $choice in
 			1)
-				$EXPLORE_NYM_PATH/mixnode/tool.sh && exit
+				export EXPLORE_NYM_LANG="en-us" ; return
 			    ;;
 			2)
 				exit
@@ -44,6 +44,6 @@ main_menu() {
 export EXPLORE_NYM_PATH=$(dirname "$0")
 trap $EXPLORE_NYM_PATH/cleanup.sh exit
 $EXPLORE_NYM_PATH/display-logo.sh
+language_menu
 $EXPLORE_NYM_PATH/check-vps.sh || exit
-sleep 1
-main_menu
+$EXPLORE_NYM_PATH/mixnode/tool.sh
