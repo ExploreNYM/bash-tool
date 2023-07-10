@@ -1,0 +1,7 @@
+{
+  "en-us": {
+    "welcome_message": "Updating description of your mixnode",
+    "success": "Description updated successfully",
+    "fail": "Error: mixnode not running"
+  }
+}
