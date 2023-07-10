@@ -1,0 +1,12 @@
+{
+  "en-us": {
+    "welcome_message": "Mixnode Update Started",
+    "checking": "Checking mixnode version",
+    "up_to_date": "Mixnode already up to date",
+    "outdated": "Mixnode outdated, updating",
+    "updated": "Mixnode updated to version:",
+    "and": "and running, remember update the version in your wallet!",
+    "restart": "Server Restart Initiated, Mixnode updated and running cya next update :)",
+    "fail": "nym-mixnode was not updated correctly, please re-update."
+  }
+}
