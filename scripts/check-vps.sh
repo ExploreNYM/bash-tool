@@ -1,20 +1,17 @@
 #!/bin/bash
 
-#Characters
-check_mark="\xE2\x9C\x93"
-fail_x="\xE2\x9C\x97"
-#Font formats
-set_bold="\033[1m"
-set_normal="\033[22m"
-
 ###############
 ## VARIABLES ##
 ###############
 
+check_mark="\xE2\x9C\x93"
+fail_x="\xE2\x9C\x97"
+set_bold="\033[1m"
+set_normal="\033[22m"
 announce_ip=$(curl -s ifconfig.me)
 #Load text into associative array
 language="en-us"
-translations=$(jq -r ".\"$language\"" ../text/check-vps.json)
+translations=$(jq -r ".\"$language\"" $EXPLORE_NYM_PATH/../text/check-vps.json)
 if [[ "$translations" == "null" ]]; then
 	echo -e "No translation for $language available for this part of the" \
 		"script, If you're able to translate the text displayed on the script" \
