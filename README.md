@@ -154,6 +154,7 @@ if you are using this tool after already installing manually select migrate.
 
 1. Indonesia:  `4sxonGjdD4vNxWUvk8x8gCB7VpZgUBV4YDLg98oB4PUP`
 2. Thailand:  `B9PJBmkT1gVNM4JSmhCa59Dj5aJ7vjk5uvuN5nbJKJW7`
+3. Brazil: `2KuFi7CjKVh1mQrNKhdwLjhXBhVLRktvWMg5k4WXKdrX`
 
  
  We only accept donations to our nym wallet address below.
@@ -191,6 +192,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 Twitter - @Pawnflake
 
 Discord - Pawnflake#3519
+
+Discord - supermeia
 
 Website - explorenym.net
   
