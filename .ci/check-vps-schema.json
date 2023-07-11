@@ -25,7 +25,29 @@
       "updating": { "type": "string" },
       "updated": { "type": "string" }
     },
-    "required": [],
+    "required": [
+      "welcome_message",
+      "enabled",
+      "not_found",
+      "force_exit",
+      "version_warning",
+      "run_anyway",
+      "nat_ok",
+      "nat_fail",
+      "has_sudo",
+      "no_sudo",
+      "root",
+      "root_warning",
+      "make_user",
+      "enter_user",
+      "user_fail",
+      "diff_name",
+      "reconnecting",
+      "stopping",
+      "stopped",
+      "updating",
+      "updated"
+		],
     "additionalProperties": false
   }
 }

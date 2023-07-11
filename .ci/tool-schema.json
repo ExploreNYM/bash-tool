@@ -18,7 +18,22 @@
       "details": { "type": "string" },
       "status": { "type": "string" }
     },
-    "required": [],
+    "required": [
+      "searching",
+      "found",
+      "not_found",
+      "no_cfg",
+      "menu",
+      "quit",
+      "prompt",
+      "invalid",
+      "install",
+      "migrate",
+      "update",
+      "backup",
+      "details",
+      "status"
+		],
     "additionalProperties": false
   }
 }

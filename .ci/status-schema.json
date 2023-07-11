@@ -5,7 +5,7 @@
     "properties": {
       "instructions": { "type": "string" }
     },
-    "required": [],
+    "required": [ "instructions" ],
     "additionalProperties": false
   }
 }

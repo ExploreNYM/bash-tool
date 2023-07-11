@@ -12,7 +12,16 @@
       "restart": { "type": "string" },
       "fail": { "type": "string" }
     },
-    "required": [],
+    "required": [
+				"welcome_message",
+				"checking",
+				"up_to_date",
+				"outdated",
+				"updated",
+				"and",
+				"restart",
+				"fail"
+		],
     "additionalProperties": false
   }
 }

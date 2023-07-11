@@ -7,7 +7,11 @@
       "success": { "type": "string" },
       "fail": { "type": "string" }
     },
-    "required": [],
+    "required": [
+      "welcome_message",
+      "success",
+      "fail"
+		],
     "additionalProperties": false
   }
 }

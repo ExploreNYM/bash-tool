@@ -15,7 +15,7 @@ def validate_json_file(json_file, schema_file):
         json_data = read_json_file(json_file)
     except ValueError as e:
         print(str(e))
-        exit()
+        exit(1)
     with open(schema_file, 'r') as file:
         schema = json.load(file)
 
@@ -25,6 +25,7 @@ def validate_json_file(json_file, schema_file):
     except ValidationError as e:
         print(f"Validation failed: {json_file} does not match the schema {schema_file}.")
         print("Validation error details:", e)
+        exit(1)
 
 def main():
     parser = argparse.ArgumentParser(description='Validate JSON files against schemas.')

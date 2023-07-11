@@ -6,7 +6,10 @@
       "welcome_message": { "type": "string" },
       "instructions": { "type": "string" }
     },
-    "required": [],
+    "required": [
+      "welcome_message",
+      "instructions" 
+		],
     "additionalProperties": false
   }
 }

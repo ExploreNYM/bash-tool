@@ -10,7 +10,14 @@
       "restart": { "type": "string" },
       "fail": { "type": "string" }
     },
-    "required": [],
+    "required": [
+      "welcome_message",
+      "wallet_prompt",
+      "success",
+      "instructions",
+      "restart",
+      "fail"
+		],
     "additionalProperties": false
   }
 }
