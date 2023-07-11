@@ -1,0 +1,18 @@
+{
+  "en-us": {
+    "searching": "Searching for .nym folder on current user, please wait",
+    "found": "NYM folder found",
+    "not_found": "NYM folder not found",
+    "no_cfg": "Cant find config.toml",
+    "menu": "nym-mixnode menu:",
+    "quit": "Quit",
+    "prompt": "Enter your choice: ",
+    "invalid": "Invalid option, please try again",
+    "install": "Install nym-mixnode",
+    "migrate": "Migrate nym-mixnode",
+    "update": "Update nym-mixnode",
+    "backup": "Backup nym-mixnode",
+    "details": "Change mixnode details (name/description/link/location)",
+    "status": "Check nym-mixnode status"
+  }
+}

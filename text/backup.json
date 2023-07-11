@@ -1,0 +1,6 @@
+{
+  "en-us": {
+    "welcome_message": "Mixnode Backup Started",
+		"instructions": "Copy this script and paste it in your local terminal(mac) or shell(windows) to pull a backup of your mixnode"
+  }
+}

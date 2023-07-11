@@ -1,29 +1,44 @@
 #!/bin/bash
 
-#Characters
-check_mark="\xE2\x9C\x93"
-fail_x="\xE2\x9C\x97"
-#Font formats
-set_bold="\033[1m"
-set_normal="\033[22m"
-# nym variables
+###############
+## VARIABLES ##
+###############
+
 nym_path=""
 nym_config_file=""
+check_mark="\xE2\x9C\x93"
+fail_x="\xE2\x9C\x97"
+set_bold="\033[1m"
+set_normal="\033[22m"
+#Load text into associative array
+translations=$(jq -r ".\"$EXPLORE_NYM_LANG\"" $EXPLORE_NYM_PATH/../text/tool.json)
+if [[ "$translations" == "null" ]]; then
+	echo -e "No translation for $EXPLORE_NYM_LANG available for this part of the" \
+		"script, If you're able to translate the text displayed on the script" \
+		"please contribute here https://github.com/ExploreNYM/bash-tool\n"
+	translations=$(jq -r ".\"en-us\"" ../text/check-vps.json)
+fi
+declare -A text
+while IFS=':' read -r key value; do
+	key=$(echo "${key//\"/}" | xargs)
+	value=$(echo "${value//\"/}" | xargs | sed 's/,$//')
+    text["$key"]="$value"
+done <<< "$translations"
 
 ###############
 ## FUNCTIONS ##
 ###############
 
 find_nym_folder() {
-	echo -e "\nSearching for .nym folder on current user, please wait\n"
+	echo -e "\n${text[searching]}\n"
 	nym_path=$(find $HOME -type d -name ".nym" 2>/dev/null)
 	if [ -n "$nym_path" ]
 	then
-		echo -e "$check_mark NYM folder found.\n"
+		echo -e "$check_mark ${text[found]}\n"
 		sleep 2
 		return
 	else
-		echo -e "$fail_x NYM folder not found.\n"
+		echo -e "$fail_x ${text[not_found]}\n"
 		sleep 2
 		return 1
 	fi
@@ -37,7 +52,7 @@ find_config() {
 	
 	if ! [ -f "$nym_config_file" ]
 	then
-		echo -e "Cant find config.toml\n"
+		echo -e "${text[no_cfg]}\n"
 		return 1
 	fi
 }
@@ -46,11 +61,11 @@ no_nym_folder_menu() {
 	while true
 	do
 		clear ; $EXPLORE_NYM_PATH/display-logo.sh
-		echo -e "\n$set_bold nym-mixnode menu:$set_normal\n"
-		echo "1. Install nym-mixnode"
-		echo "2. Migrate nym-mixnode"
-		echo "3. Quit"
-		read -p "Enter your choice: " choice
+		echo -e "\n$set_bold${text[menu]}\n$set_normal"
+		echo "1. ${text[install]}"
+		echo "2. ${text[migrate]}"
+		echo "3. ${text[quit]}"
+		read -p "${text[prompt]}" choice
 
 		case $choice in
 			1)
@@ -63,7 +78,7 @@ no_nym_folder_menu() {
 				exit
 				;;
 			*)
-				echo -e "\n$fail_x Invalid option, please try again."
+				echo -e "\n$fail_x ${text[invalid]}"
 				sleep 1
 				;;
 		esac
@@ -74,13 +89,13 @@ has_nym_folder_menu() {
 	while true
 	do
 		clear ; $EXPLORE_NYM_PATH/display-logo.sh
-		echo -e "$set_bold nym-mixnode menu:\n$set_normal"
-		echo "1. Update nym-mixnode"
-		echo "2. Backup nym-mixnode"
-		echo "3. Change mixnode details (name/description/link/location)"
-		echo "4. Check nym-mixnode status"
-		echo "5. Quit"
-		read -p "Enter your choice: " choice
+		echo -e "$set_bold${text[menu]}\n$set_normal"
+		echo "1. ${text[update]}"
+		echo "2. ${text[backup]}"
+		echo "3. ${text[details]}"
+		echo "4. ${text[status]}"
+		echo "5. ${text[quit]}"
+		read -p "${text[prompt]}" choice
 		
 		case $choice in
 			1)
@@ -99,16 +114,16 @@ has_nym_folder_menu() {
 				exit
 				;;
 			*)
-				echo -e "\n$fail_x Invalid option, please try again."
+				echo -e "\n$fail_x ${text[invalid]}"
 				sleep 1
 				;;
 		esac
 	done
 }
 
-##############################
-## MAIN EXECUTION OF SCRIPT ##
-##############################
+###############################
+### MAIN EXECUTION OF SCRIPT ##
+###############################
 
 if find_nym_folder
 then

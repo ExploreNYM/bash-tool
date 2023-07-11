@@ -1,0 +1,10 @@
+{
+  "en-us": {
+    "welcome_message": "Mixnode installation Started",
+    "wallet_prompt": "Enter wallet Address: ",
+		"success": "Mixnode Installed and running",
+		"instructions": "nym-mixnode installed, remember to bond your node in your wallet details above!",
+		"restart": "Server Restart Initialized",
+		"fail": "nym-mixnode was not installed correctly, please re-install"
+  }
+}

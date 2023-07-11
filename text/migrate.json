@@ -1,0 +1,7 @@
+{
+  "en-us": {
+    "welcome_message": "Mixnode Migration Started",
+    "success": "Folder moved successfully to",
+    "fail": "Nym Folder not found"
+  }
+}
