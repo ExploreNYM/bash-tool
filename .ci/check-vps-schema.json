@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "properties": {
+      "welcome_message": { "type": "string" },
+      "enabled": { "type": "string" },
+      "not_found": { "type": "string" },
+      "force_exit": { "type": "string" },
+      "version_warning": { "type": "string" },
+      "run_anyway": { "type": "string" },
+      "nat_ok": { "type": "string" },
+      "nat_fail": { "type": "string" },
+      "has_sudo": { "type": "string" },
+      "no_sudo": { "type": "string" },
+      "root": { "type": "string" },
+      "root_warning": { "type": "string" },
+      "make_user": { "type": "string" },
+      "enter_user": { "type": "string" },
+      "user_fail": { "type": "string" },
+      "diff_name": { "type": "string" },
+      "reconnecting": { "type": "string" },
+      "stopping": { "type": "string" },
+      "stopped": { "type": "string" },
+      "updating": { "type": "string" },
+      "updated": { "type": "string" }
+    },
+    "required": [],
+    "additionalProperties": false
+  }
+}

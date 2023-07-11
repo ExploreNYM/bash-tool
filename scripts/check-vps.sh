@@ -98,7 +98,7 @@ check_user() {
 						new_user=""
 					fi
 				done
-				echo -e "$set_bold\n! ${text[reconecting]} !\n$set_normal"
+				echo -e "$set_bold\n! ${text[reconnecting]} !\n$set_normal"
 				$EXPLORE_NYM_PATH/cleanup.sh
 				ssh -o StrictHostKeyChecking=no "$new_user@$announce_ip"
 				exit 1
