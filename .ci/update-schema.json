@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "properties": {
+      "welcome_message": { "type": "string" },
+      "checking": { "type": "string" },
+      "up_to_date": { "type": "string" },
+      "outdated": { "type": "string" },
+      "updated": { "type": "string" },
+      "and": { "type": "string" },
+      "restart": { "type": "string" },
+      "fail": { "type": "string" }
+    },
+    "required": [
+				"welcome_message",
+				"checking",
+				"up_to_date",
+				"outdated",
+				"updated",
+				"and",
+				"restart",
+				"fail"
+		],
+    "additionalProperties": false
+  }
+}

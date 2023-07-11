@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "properties": {
+      "welcome_message": { "type": "string" },
+      "instructions": { "type": "string" }
+    },
+    "required": [
+      "welcome_message",
+      "instructions" 
+		],
+    "additionalProperties": false
+  }
+}

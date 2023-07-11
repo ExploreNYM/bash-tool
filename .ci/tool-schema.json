@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "properties": {
+      "searching": { "type": "string" },
+      "found": { "type": "string" },
+      "not_found": { "type": "string" },
+      "no_cfg": { "type": "string" },
+      "menu": { "type": "string" },
+      "quit": { "type": "string" },
+      "prompt": { "type": "string" },
+      "invalid": { "type": "string" },
+      "install": { "type": "string" },
+      "migrate": { "type": "string" },
+      "update": { "type": "string" },
+      "backup": { "type": "string" },
+      "details": { "type": "string" },
+      "status": { "type": "string" }
+    },
+    "required": [
+      "searching",
+      "found",
+      "not_found",
+      "no_cfg",
+      "menu",
+      "quit",
+      "prompt",
+      "invalid",
+      "install",
+      "migrate",
+      "update",
+      "backup",
+      "details",
+      "status"
+		],
+    "additionalProperties": false
+  }
+}

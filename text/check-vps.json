@@ -16,7 +16,7 @@
 		"enter_user": "Enter new username:",
 		"user_fail": "Failed to create user",
 		"diff_name": "try a different username",
-		"reconecting": "Reconnecting as new user please re run script after connecting",
+		"reconnecting": "Reconnecting as new user please re run script after connecting",
 		"stopping": "Stopping update",
 		"stopped": "Update stoped",
 		"updating": "Updating server please be patient...",

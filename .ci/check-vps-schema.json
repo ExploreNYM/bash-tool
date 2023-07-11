@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "properties": {
+      "welcome_message": { "type": "string" },
+      "enabled": { "type": "string" },
+      "not_found": { "type": "string" },
+      "force_exit": { "type": "string" },
+      "version_warning": { "type": "string" },
+      "run_anyway": { "type": "string" },
+      "nat_ok": { "type": "string" },
+      "nat_fail": { "type": "string" },
+      "has_sudo": { "type": "string" },
+      "no_sudo": { "type": "string" },
+      "root": { "type": "string" },
+      "root_warning": { "type": "string" },
+      "make_user": { "type": "string" },
+      "enter_user": { "type": "string" },
+      "user_fail": { "type": "string" },
+      "diff_name": { "type": "string" },
+      "reconnecting": { "type": "string" },
+      "stopping": { "type": "string" },
+      "stopped": { "type": "string" },
+      "updating": { "type": "string" },
+      "updated": { "type": "string" }
+    },
+    "required": [
+      "welcome_message",
+      "enabled",
+      "not_found",
+      "force_exit",
+      "version_warning",
+      "run_anyway",
+      "nat_ok",
+      "nat_fail",
+      "has_sudo",
+      "no_sudo",
+      "root",
+      "root_warning",
+      "make_user",
+      "enter_user",
+      "user_fail",
+      "diff_name",
+      "reconnecting",
+      "stopping",
+      "stopped",
+      "updating",
+      "updated"
+		],
+    "additionalProperties": false
+  }
+}
