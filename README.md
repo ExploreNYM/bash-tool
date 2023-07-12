@@ -13,13 +13,13 @@
   </p>
 </div>
 
-### Languages available on the script
-- English
-- Português
+
 
 ### Table of Contents
 
 <ol>
+	
+<li><a  href="#languages-available-on-the-script">Languages</a></li>
 
 <li><a  href="#about-the-project">About The Project</a></li>
 
@@ -37,6 +37,9 @@
 
 </ol>
 
+## Languages available on the script
+- English
+- Português
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
