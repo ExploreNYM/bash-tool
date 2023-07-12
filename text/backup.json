@@ -5,7 +5,6 @@
   },
   "pt-br": {
     "welcome_message": "Backup do mixnode inicializado",
-		"instructions": "Copie esse comando e cole ele no seu terminal local(mac/linux) ou powershell(windows) para puxar um backup do seu mixnode",
-		"extra": "extra"
+		"instructions": "Copie esse comando e cole ele no seu terminal(mac/linux) ou powershell(windows) local para puxar um backup do seu mixnode"
   }
 }

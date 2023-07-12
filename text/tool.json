@@ -1,8 +1,8 @@
 {
   "en-us": {
     "searching": "Searching for .nym folder on current user, please wait",
-    "found": "NYM folder found",
-    "not_found": "NYM folder not found",
+    "found": ".nym folder found",
+    "not_found": ".nym folder not found",
     "no_cfg": "Cant find config.toml",
     "menu": "nym-mixnode menu:",
     "quit": "Quit",
@@ -12,7 +12,23 @@
     "migrate": "Migrate nym-mixnode",
     "update": "Update nym-mixnode",
     "backup": "Backup nym-mixnode",
-    "details": "Change mixnode details (name/description/link/location)",
+    "details": "Change nym-mixnode details (name/description/link/location)",
     "status": "Check nym-mixnode status"
+  },
+  "pt-br": {
+    "searching": "Procurando pela pasta .nym no atual usuário, espere por favor",
+    "found": "Pasta .nym encontrada",
+    "not_found": "Pasta .nym não encontrada",
+    "no_cfg": "Não foi possível encontrar o arquivo config.toml",
+    "menu": "menu nym-mixnode:",
+    "quit": "Sair",
+    "prompt": "Insira uma opção: ",
+    "invalid": "Opção inválida, tente novamente",
+    "install": "Instalar nym-mixnode",
+    "migrate": "Migrar nym-mixnode",
+    "update": "Atualizar nym-mixnode",
+    "backup": "Fazer backup do nym-mixnode",
+    "details": "Mudar dedscrição do nym-mixnode (nome/descrição/link/localização)",
+    "status": "Checar estado do nym-mixnode"
   }
 }

@@ -17,7 +17,8 @@ language_menu() {
 		clear ; $EXPLORE_NYM_PATH/display-logo.sh
 		echo -e "\n$set_bold ExploreNYM language menu:$set_normal\n"
 		echo "1. english (US)"
-		echo "2. Quit"
+		echo "2. português (BR)"
+		echo "3. Quit"
 		echo "(Add your language through https://github.com/ExploreNYM/bash-tool)"
 		read -p "Enter your choice: " choice
 
@@ -26,6 +27,9 @@ language_menu() {
 				export EXPLORE_NYM_LANG="en-us" ; return
 			    ;;
 			2)
+				export EXPLORE_NYM_LANG="pt-br" ; return
+			    ;;
+			3)
 				exit
 				;;
 			*)

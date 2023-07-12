@@ -15,12 +15,35 @@
 		"make_user": "Make a new sudo user? (Y/n)",
 		"enter_user": "Enter new username:",
 		"user_fail": "Failed to create user",
-		"diff_name": "try a different username",
+		"diff_name": "try a different username or certify that you typed the password correctly",
 		"reconnecting": "Reconnecting as new user please re run script after connecting",
 		"stopping": "Stopping update",
 		"stopped": "Update stoped",
 		"updating": "Updating server please be patient...",
 		"updated": "Server up to date"
+  },
+  "pt-br": {
+    "welcome_message": "Ferramenta para mixnode inicializada, por favor seja paciente enquanto checamos e atualizamos o servidor",
+    "enabled": "IPv6 habilitado",
+    "not_found": "Nenhum endereço IPv6 encontrado!",
+		"force_exit": "Saída Forçada",
+		"version_warning": "Aviso, o script e os binários nym são testados no Ubuntu 20.04",
+		"run_anyway": "Rodar o script mesmo assim? (Y/n)[Y para sim e n para não]",
+		"nat_ok": "O servidor não está atrás de um NAT",
+		"nat_fail": "O servidor está atrás de um NAT, se você está rodando em uma rede caseira cheque os docs sobre port forwarding",
+		"has_sudo": "possui privilégios sudo",
+		"no_sudo": "não possui privilégios sudo",
+		"root": "usuário root",
+		"root_warning": "Aviso, você deve criar um usuário com privilégios sudo para rodar nym",
+		"make_user": "Criar novo usuário com privilégios sudo? (Y/n)[Y para sim e n para não]",
+		"enter_user": "Insira o nome do usuário:",
+		"user_fail": "Falha ao criar usuário",
+		"diff_name": "Tente outro nome de usuário ou certifique-se que inseriu a senha corretamente",
+		"reconnecting": "Reconectando com o novo usuário, rode o script novamente após se conectar",
+		"stopping": "Interrompendo atualização",
+		"stopped": "Atualização interrompida",
+		"updating": "Atualizando o servidor, por favor seja paciente...",
+		"updated": "Servidor atualizado"
   }
 }
 
