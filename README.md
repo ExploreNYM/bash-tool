@@ -13,13 +13,13 @@
   </p>
 </div>
 
-  
-  
-  
+
 
 ### Table of Contents
 
 <ol>
+	
+<li><a  href="#languages-available-on-the-script">Languages</a></li>
 
 <li><a  href="#about-the-project">About The Project</a></li>
 
@@ -37,13 +37,10 @@
 
 </ol>
 
-  
-  
-  
-  
-
+## Languages available on the script
+- English
+- Português
 <!-- ABOUT THE PROJECT -->
-
 ## About The Project
 
 Simple bash scripts to support community with the technical side of NYM infrastucture.
@@ -51,37 +48,18 @@ Simple bash scripts to support community with the technical side of NYM infrastu
 This is an attempt to make it a simple process as possible for anyone no matter there experience.
 
 If you have any issues contact details below.
-
-  
-
 <p  align="right">(<a  href="#readme-top">back to top</a>)</p>
 
-  
-  
-  
-
 <!-- GETTING STARTED -->
-
 ## Getting Started
-
-  
-
 These scripts are only tested on ubuntu 20.04
-
-  
 
 #### Hardware Requirements
 
 * 1 cpu core
-
 * 0.5gb ram
-
 * 8gb storage space
-
 * ipv4 & ipv6 connection
-
-  
-  
 
 ## Usage
 
@@ -103,91 +81,47 @@ git clone https://github.com/ExploreNYM/bash-tool ~/bash-tool && ~/bash-tool/scr
 ```
 if you are using this tool after already installing manually select migrate.
 
-
-
-<p  align="right">(<a  href="#readme-top">back to top</a>)</p>
-
-  
-  
-  
+<p  align="right">(<a  href="#readme-top">back to top</a>)</p> 
 
 <!-- ROADMAP -->
-
 ## Roadmap
-
-  
-
 - [x] **Mixnode**
-
 	- [x] install/update/backup/migrate.
-
-
 - [ ] **Gateway**
-
 	- [ ] install/update/backup/migrate
-
-  
 - [ ] **Net Requester**
-
 	- [ ] install/update/backup/migrate
-
-  
 - [ ] **Validator**
-
 	- [ ] install/update/backup/migrate
-
-  
 
 <p  align="right">(<a  href="#readme-top">back to top</a>)</p>
 
-  
-  
-
 <!-- CONTRIBUTING -->
-
 ## Contributing
 
  We greatly appreciate any and all contributions to this project.
  
  If coding is not your thing you can support by delegating to our nodes.
 
-
 1. Indonesia:  `4sxonGjdD4vNxWUvk8x8gCB7VpZgUBV4YDLg98oB4PUP`
 2. Thailand:  `B9PJBmkT1gVNM4JSmhCa59Dj5aJ7vjk5uvuN5nbJKJW7`
 3. Brazil: `2KuFi7CjKVh1mQrNKhdwLjhXBhVLRktvWMg5k4WXKdrX`
 
- 
  We only accept donations to our nym wallet address below.
  
 `n1cvcmxmdgw39np3ft9duxj8vdfp9ktny6jtfc0r`
 
 <p  align="right">(<a  href="#readme-top">back to top</a>)</p>
 
-  
-  
-  
-
 <!-- LICENSE -->
-
 ## License
-
-  
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-  
-
 <p  align="right">(<a  href="#readme-top">back to top</a>)</p>
 
-  
-  
-  
-
 <!-- CONTACT -->
-
 ## Contact
-
-  
 
 Twitter - @Pawnflake
 
@@ -196,8 +130,3 @@ Discord - Pawnflake#3519
 Discord - supermeia
 
 Website - explorenym.net
-  
-
-<p  align="right">(<a  href="#readme-top">back to top</a>)</p>
-
-##
