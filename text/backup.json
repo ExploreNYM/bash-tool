@@ -4,7 +4,8 @@
 		"instructions": "Copy this script and paste it in your local terminal(mac/linux) or powershell(windows) to pull a backup of your mixnode"
   },
   "pt-br": {
-    "welcome_message": "Backup do mixnode inicializado"
-		"instructions": "Copie esse comando e cole ele no seu terminal local(mac/linux) ou powershell(windows) para puxar um backup do seu mixnode"
+    "welcome_message": "Backup do mixnode inicializado",
+		"instructions": "Copie esse comando e cole ele no seu terminal local(mac/linux) ou powershell(windows) para puxar um backup do seu mixnode",
+		"extra": "extra"
   }
 }
