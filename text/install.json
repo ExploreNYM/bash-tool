@@ -11,6 +11,7 @@
 		"success": "Mixnode instalado e rodando",
 		"instructions": "nym-mixnode instalado, lembre-se de dar bond no seu mixnode pela wallet com os detalhes acima!",
 		"restart": "Servidor reiniciado",
-		"fail": "nym-mixnode não foi instalado corretamente, por favor reinstale
+		"extra-key": "This shouldn't be here",
+		"fail": "nym-mixnode não foi instalado corretamente, por favor reinstale"
 	}
 }
