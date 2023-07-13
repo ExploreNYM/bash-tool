@@ -100,7 +100,10 @@ if you are using this tool after already installing manually select migrate.
 ## Contributing
 
  We greatly appreciate any and all contributions to this project.
- 
+ - [Contributing with NYM](#contributing-with-nym)
+ - [Contributing with translations](#contributing-with-translations)
+
+ ### Contributing with NYM
  If coding is not your thing you can support by delegating to our nodes.
 
 1. Indonesia:  `4sxonGjdD4vNxWUvk8x8gCB7VpZgUBV4YDLg98oB4PUP`
@@ -110,6 +113,39 @@ if you are using this tool after already installing manually select migrate.
  We only accept donations to our nym wallet address below.
  
 `n1cvcmxmdgw39np3ft9duxj8vdfp9ktny6jtfc0r`
+
+### Contributing with translations
+**Steps to translate the script to your language:**
+1. Create your own Fork of the project.
+
+![image](https://github.com/ExploreNYM/bash-tool/assets/69059969/62993136-a439-4572-b0e6-5fea1518d734)
+
+2. On your own Fork, edit the `.json` files inside the text folder. Add the json object with your language and **only translate the values, not the keys**. Follow the example below where pt-br was added:
+
+![image](https://github.com/ExploreNYM/bash-tool/assets/69059969/b5b5e2da-206c-43b8-9344-f0c1800c9ea4)
+
+3. After you have added your translations create a pull request to add it to the script:
+
+![image](https://github.com/ExploreNYM/bash-tool/assets/69059969/4f9eecef-3aa9-4412-bd3a-e78c87fadd73)
+
+4. After you create the pull request an automated validation script will check the integrity of the files you edited. If the test passes you're all good and your language will soon be added, If you didn't pass the automated test check the details to see what happened at which file and then correct it in order to pass the test.
+
+#### Examples of pull requests failing:
+![image](https://github.com/ExploreNYM/bash-tool/assets/69059969/c44da60d-651c-411c-84d3-66f05a3889bf)
+
+1. Details output when there's invalid syntax on one of the json files (invalid syntax on install.json in this case):
+
+![image](https://github.com/ExploreNYM/bash-tool/assets/69059969/4d0fe097-0968-4e5d-9223-df20b246328e)
+
+2. Details output when there's extra or missing keys on one of the json files (extra key on install.json in this case):
+
+![image](https://github.com/ExploreNYM/bash-tool/assets/69059969/7ab0f6c9-23b9-40c6-8ac7-f3b4d9d45b28)
+
+3. If you have **conflicts with the base branch** you should sync your fork similar to the way you created the pull request:
+![image](https://github.com/ExploreNYM/bash-tool/assets/69059969/652e8830-c325-4222-b275-dc07dcf6ec87)
+
+4. This is what it looks like if you pass the automated tests:
+![image](https://github.com/ExploreNYM/bash-tool/assets/69059969/fedae5da-fc6c-43b2-b1f4-d997b93c4215)
 
 <p  align="right">(<a  href="#readme-top">back to top</a>)</p>
 
