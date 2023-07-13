@@ -100,7 +100,8 @@ if you are using this tool after already installing manually select migrate.
 ## Contributing
 
  We greatly appreciate any and all contributions to this project.
- 
+
+ ### Contributing with NYM
  If coding is not your thing you can support by delegating to our nodes.
 
 1. Indonesia:  `4sxonGjdD4vNxWUvk8x8gCB7VpZgUBV4YDLg98oB4PUP`
@@ -110,6 +111,15 @@ if you are using this tool after already installing manually select migrate.
  We only accept donations to our nym wallet address below.
  
 `n1cvcmxmdgw39np3ft9duxj8vdfp9ktny6jtfc0r`
+
+### Contributing with translations
+Steps to translate the script to your language:
+1. Create your own Fork of the project.
+![image](https://github.com/ExploreNYM/bash-tool/assets/69059969/62993136-a439-4572-b0e6-5fea1518d734)
+2. On your own Fork, edit the `.json` files inside the text folder. Add the json object with your language and **only translate the values, not the keys**. Follow the example below where pt-br was added:
+![image](https://github.com/ExploreNYM/bash-tool/assets/69059969/b5b5e2da-206c-43b8-9344-f0c1800c9ea4)
+3. After you have added your translations create a pull request to add it to the script
+
 
 <p  align="right">(<a  href="#readme-top">back to top</a>)</p>
 
