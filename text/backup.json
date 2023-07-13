@@ -1,10 +1,10 @@
 {
-  "en-us": {
-    "welcome_message": "Mixnode backup started",
+	"en-us": {
+		"welcome_message": "Mixnode backup started",
 		"instructions": "Copy this script and paste it in your local terminal(mac/linux) or powershell(windows) to pull a backup of your mixnode"
-  },
-  "pt-br": {
-    "welcome_message": "Backup do mixnode inicializado",
+	},
+	"pt-br": {
+		"welcome_message": "Backup do mixnode inicializado",
 		"instructions": "Copie esse comando e cole ele no seu terminal(mac/linux) ou powershell(windows) local para puxar um backup do seu mixnode"
-  }
+	}
 }

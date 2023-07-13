@@ -1,16 +1,16 @@
 {
-  "en-us": {
-    "welcome_message": "Mixnode installation started",
+	"en-us": {
+		"welcome_message": "Mixnode installation started",
 		"success": "Mixnode installed and running",
 		"instructions": "nym-mixnode installed, remember to bond your node in your wallet details above!",
 		"restart": "Server Restart Initialized",
 		"fail": "nym-mixnode was not installed correctly, please re-install"
-  },
-  "pt-br": {
-    "welcome_message": "Instalação do mixnode inicializada",
+	},
+	"pt-br": {
+		"welcome_message": "Instalação do mixnode inicializada",
 		"success": "Mixnode instalado e rodando",
 		"instructions": "nym-mixnode instalado, lembre-se de dar bond no seu mixnode pela wallet com os detalhes acima!",
 		"restart": "Servidor reiniciado",
-		"fail": "nym-mixnode não foi instalado corretamente, por favor reinstale"
-  }
+		"fail": "nym-mixnode não foi instalado corretamente, por favor reinstale
+	}
 }

@@ -1,12 +1,12 @@
 {
-  "en-us": {
-    "welcome_message": "Updating description of your mixnode",
-    "success": "Description updated successfully",
-    "fail": "Error: mixnode not running"
-  },
-  "pt-br": {
-    "welcome_message": "Atualizando descrição do seu mixnode",
-    "success": "Descrição atualizada com sucesso",
-    "fail": "Erro: mixnode não está rodando"
-  }
+	"en-us": {
+		"welcome_message": "Updating description of your mixnode",
+		"success": "Description updated successfully",
+		"fail": "Error: mixnode not running"
+	},
+	"pt-br": {
+		"welcome_message": "Atualizando descrição do seu mixnode",
+		"success": "Descrição atualizada com sucesso",
+		"fail": "Erro: mixnode não está rodando"
+	}
 }
