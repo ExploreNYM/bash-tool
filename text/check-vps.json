@@ -1,8 +1,8 @@
 {
-  "en-us": {
-    "welcome_message": "Mixnode tool initialized please be patient checking and updating server",
-    "enabled": "IPv6 enabled",
-    "not_found": "No IPv6 addess found!",
+	"en-us": {
+		"welcome_message": "Mixnode tool initialized please be patient checking and updating server",
+		"enabled": "IPv6 enabled",
+		"not_found": "No IPv6 addess found!",
 		"force_exit": "Force Exit",
 		"version_warning": "Warning script and nym binaries are tested on Ubuntu 20.04",
 		"run_anyway": "Run script anyway? (Y/n)",
@@ -21,11 +21,11 @@
 		"stopped": "Update stoped",
 		"updating": "Updating server please be patient...",
 		"updated": "Server up to date"
-  },
-  "pt-br": {
-    "welcome_message": "Ferramenta para mixnode inicializada, por favor seja paciente enquanto checamos e atualizamos o servidor",
-    "enabled": "IPv6 habilitado",
-    "not_found": "Nenhum endereço IPv6 encontrado!",
+	},
+	"pt-br": {
+		"welcome_message": "Ferramenta para mixnode inicializada, por favor seja paciente enquanto checamos e atualizamos o servidor",
+		"enabled": "IPv6 habilitado",
+		"not_found": "Nenhum endereço IPv6 encontrado!",
 		"force_exit": "Saída Forçada",
 		"version_warning": "Aviso, o script e os binários nym são testados no Ubuntu 20.04",
 		"run_anyway": "Rodar o script mesmo assim? (Y/n)[Y para sim e n para não]",
@@ -44,6 +44,5 @@
 		"stopped": "Atualização interrompida",
 		"updating": "Atualizando o servidor, por favor seja paciente...",
 		"updated": "Servidor atualizado"
-  }
+	}
 }
-

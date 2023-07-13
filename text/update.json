@@ -1,22 +1,22 @@
 {
-  "en-us": {
-    "welcome_message": "Mixnode update started",
-    "checking": "Checking mixnode version",
-    "up_to_date": "Mixnode already up to date",
-    "outdated": "Mixnode outdated, updating",
-    "updated": "Mixnode updated to version:",
-    "and": "and running, remember update the version in your wallet!",
-    "restart": "Server restart initiated, Mixnode updated and running cya next update :)",
-    "fail": "nym-mixnode was not updated correctly, please re-update."
-  },
-  "pt-br": {
-    "welcome_message": "Atualização do mixnode inicializada",
-    "checking": "Checando a versão do mixnode",
-    "up_to_date": "Mixnode já está atualizado",
-    "outdated": "Mixnode desatualizado, atualizando",
-    "updated": "Mixnode atualizado para a versão:",
-    "and": "e rodando, lembre-se de atualizar a versão na sua wallet!",
-    "restart": "Reiniciando servidor, Mixnode atualizado e rodando até o próximo update :)",
-    "fail": "nym-mixnode não foi atualizado corretamente, por favor atualize novamente"
-  }
+	"en-us": {
+		"welcome_message": "Mixnode update started",
+		"checking": "Checking mixnode version",
+		"up_to_date": "Mixnode already up to date",
+		"outdated": "Mixnode outdated, updating",
+		"updated": "Mixnode updated to version:",
+		"and": "and running, remember update the version in your wallet!",
+		"restart": "Server restart initiated, Mixnode updated and running cya next update :)",
+		"fail": "nym-mixnode was not updated correctly, please re-update."
+	},
+	"pt-br": {
+		"welcome_message": "Atualização do mixnode inicializada",
+		"checking": "Checando a versão do mixnode",
+		"up_to_date": "Mixnode já está atualizado",
+		"outdated": "Mixnode desatualizado, atualizando",
+		"updated": "Mixnode atualizado para a versão:",
+		"and": "e rodando, lembre-se de atualizar a versão na sua wallet!",
+		"restart": "Reiniciando servidor, Mixnode atualizado e rodando até o próximo update :)",
+		"fail": "nym-mixnode não foi atualizado corretamente, por favor atualize novamente"
+	}
 }

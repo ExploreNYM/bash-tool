@@ -1,8 +1,8 @@
 {
-  "en-us": {
-    "instructions": "Mixnode current status Status press [q] to exit"
-  },
-  "pt-br": {
-    "instructions": "Estado atual do mixnode, pressione [q] para sair"
-  }
+	"en-us": {
+		"instructions": "Mixnode current status Status press [q] to exit"
+	},
+	"pt-br": {
+		"instructions": "Estado atual do mixnode, pressione [q] para sair"
+	}
 }

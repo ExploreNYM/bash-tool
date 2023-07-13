@@ -1,12 +1,12 @@
 {
-  "en-us": {
-    "welcome_message": "Mixnode migration started",
-    "success": "Folder moved successfully to",
-    "fail": ".nym folder not found"
-  },
-  "pt-br": {
-    "welcome_message": "Migração do mixnode inicializada",
-    "success": "Pasta movida com suesso para ",
-    "fail": "Pasta .nym não encontrada"
-  }
+	"en-us": {
+		"welcome_message": "Mixnode migration started",
+		"success": "Folder moved successfully to",
+		"fail": ".nym folder not found"
+	},
+	"pt-br": {
+		"welcome_message": "Migração do mixnode inicializada",
+		"success": "Pasta movida com suesso para ",
+		"fail": "Pasta .nym não encontrada"
+	}
 }
