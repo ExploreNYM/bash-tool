@@ -12,7 +12,7 @@
 		"instructions": "nym-mixnode instalado, lembre-se de dar bond no seu mixnode pela wallet com os detalhes acima!",
 		"restart": "Servidor reiniciado",
 		"fail": "nym-mixnode não foi instalado corretamente, por favor reinstale"
-	}
+	},
 	"ua-укр": {
 		"welcome_message": "Розпочато встановлення мікс-ноди",
 		"success": "Мікс-нода встановлена та працює",
