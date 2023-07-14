@@ -40,6 +40,7 @@
 ## Languages available on the script
 - English
 - Português
+- Yкраїнська
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
