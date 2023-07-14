@@ -44,7 +44,7 @@
 		"stopped": "Atualização interrompida",
 		"updating": "Atualizando o servidor, por favor seja paciente...",
 		"updated": "Servidor atualizado"
-	}
+	},
 	"ua-укр": {
 		"welcome_message": "Мікс-ноду ініціалізовано. Перевіряємо та оновлюємо сервер, будь ласка, зачекайте",
 		"enabled": "IPv6 ввімкнено",
