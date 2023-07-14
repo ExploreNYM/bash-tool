@@ -6,7 +6,7 @@
 	"pt-br": {
 		"welcome_message": "Backup do mixnode inicializado",
 		"instructions": "Copie esse comando e cole ele no seu terminal(mac/linux) ou powershell(windows) local para puxar um backup do seu mixnode"
-	}
+	},
 	"ua-укр": {
 		"welcome_message": "Розпочато резервне копіювання мікс-ноди",
 		"instructions": "Щоб створити резервну копію вашої мікс-ноди, скопіюйте цей скрипт і вставте у свій локальний термінал, якщо користуєтесь mac/linux або powershell, якщо користуєтесь windows."
