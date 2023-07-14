@@ -5,4 +5,7 @@
 	"pt-br": {
 		"instructions": "Estado atual do mixnode, pressione [q] para sair"
 	}
+	"ua-укр": {
+		"instructions": "Поточний статус мікс-ноди Status. Натисніть [q] для виходу"
+	},
 }
