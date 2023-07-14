@@ -9,4 +9,9 @@
 		"success": "Descrição atualizada com sucesso",
 		"fail": "Erro: mixnode não está rodando"
 	}
+	"ua-укр": {
+		"welcome_message": "Оновлюємо опис вашої мікс-ноди",
+		"success": "Опис успішно оновлено",
+		"fail": "Помилка: мікс-нода не запущена"
+	},
 }
