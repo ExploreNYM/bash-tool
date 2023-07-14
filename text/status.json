@@ -4,8 +4,8 @@
 	},
 	"pt-br": {
 		"instructions": "Estado atual do mixnode, pressione [q] para sair"
-	}
+	},
 	"ua-укр": {
 		"instructions": "Поточний статус мікс-ноди. Натисніть [q] для виходу"
-	},
+	}
 }
