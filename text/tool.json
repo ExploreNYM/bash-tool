@@ -30,7 +30,7 @@
 		"backup": "Fazer backup do nym-mixnode",
 		"details": "Mudar dedscrição do nym-mixnode (nome/descrição/link/localização)",
 		"status": "Checar estado do nym-mixnode"
-	}
+	},
 	"ua-укр": {
 		"searching": "Шукаю папку .nym для поточного користувача. Будь ласка, зачекайте",
 		"found": "Папка .nym знайдена",
@@ -46,5 +46,5 @@
 		"backup": "Резервне копіювання мікс-ноди Nym",
 		"details": "Змінити деталі мікс-ноди Nym (назва/опис/посилання/розташування)",
 		"status": "Перевірити статус мікс-ноди Nym"
-	},
+	}
 }
