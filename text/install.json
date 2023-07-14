@@ -13,4 +13,11 @@
 		"restart": "Servidor reiniciado",
 		"fail": "nym-mixnode não foi instalado corretamente, por favor reinstale"
 	}
+	"ua-укр": {
+		"welcome_message": "Розпочато встановлення мікс-ноди",
+		"success": "Мікс-нода встановлена та працює",
+		"instructions": "Мікс-нода Ny, встановлена. Не забудьте привʼязати свою ноду до свого гаманця!",
+		"restart": "Перезапуск сервера ініціалізовано",
+		"fail": "Мікс-ноду Nym не було встановлено належним чином, будь-ласка перевстановіть її"
+	},
 }
