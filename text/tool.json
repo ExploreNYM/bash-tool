@@ -31,4 +31,20 @@
 		"details": "Mudar dedscrição do nym-mixnode (nome/descrição/link/localização)",
 		"status": "Checar estado do nym-mixnode"
 	}
+	"ua-укр": {
+		"searching": "Шукаю папку .nym для поточного користувача. Будь ласка, зачекайте",
+		"found": "Папка .nym знайдена",
+		"not_found": "Папка .nym не знайдена",
+		"no_cfg": "Не можу знайти config.toml",
+		"menu": "Меню мікс-ноди Nym:",
+		"quit": "Вихід",
+		"prompt": "Введіть свій вибір: ",
+		"invalid": "Недійсний параметр, спробуйте ще раз",
+		"install": "Встановити мікс-ноду Nym",
+		"migrate": "Перемістити мікс-ноду Nym",
+		"update": "Оновити мікс-ноду Nym",
+		"backup": "Резервне копіювання мікс-ноди Nym",
+		"details": "Змінити деталі мікс-ноди Nym (назва/опис/посилання/розташування)",
+		"status": "Перевірити статус мікс-ноди Nym"
+	},
 }
