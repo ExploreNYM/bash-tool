@@ -19,4 +19,14 @@
 		"restart": "Reiniciando servidor, Mixnode atualizado e rodando até o próximo update :)",
 		"fail": "nym-mixnode não foi atualizado corretamente, por favor atualize novamente"
 	}
+	"ua-укр": {
+		"welcome_message": "Розпочато оновлення мікс-ноди",
+		"checking": "Перевіряю версію мікс-ноди",
+		"up_to_date": "Встановлена актуальна версія мікс-ноди",
+		"outdated": "Мікс-нода застаріла, оновлюю",
+		"updated": "Мікс-нода оновлена до версії:",
+		"and": "і працює. Не забудьте оновити версію у своєму гаманці!",
+		"restart": "Розпочато перезапуск сервера. Мікс-нода оновлена та працює. Побачимось на наступному оновленні :)",
+		"fail": "Мікс-ноду Nym не було оновлено належним чином. Будь ласка, оновіть ще раз."
+	}
 }
