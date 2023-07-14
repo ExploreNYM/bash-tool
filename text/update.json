@@ -18,7 +18,7 @@
 		"and": "e rodando, lembre-se de atualizar a versão na sua wallet!",
 		"restart": "Reiniciando servidor, Mixnode atualizado e rodando até o próximo update :)",
 		"fail": "nym-mixnode não foi atualizado corretamente, por favor atualize novamente"
-	}
+	},
 	"ua-укр": {
 		"welcome_message": "Розпочато оновлення мікс-ноди",
 		"checking": "Перевіряю версію мікс-ноди",
