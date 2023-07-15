@@ -41,6 +41,7 @@
 - English
 - Português
 - Yкраїнська
+- Русский
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
