@@ -69,7 +69,7 @@
 		"not_found": "Dossier .nym introuvable",
 		"no_cfg": "Impossible de trouver le fichier config.toml",
 		"menu": "menu nym-mixnode :",
-		"quitter": "Quitter",
+		"quit": "Quitter",
 		"prompt": "Entrez votre choix : ",
 		"invalid": "Option invalide, veuillez réessayer",
 		"install": "Installer nym-mixnode",
