@@ -20,7 +20,8 @@ language_menu() {
 		echo "2. Português (BR)"
 		echo "3. Yкраїнська (UA)"
 		echo "4. Русский (RU)"
-		echo "5. Quit"
+		echo "5. Français (FR)"
+		echo "6. Quit"
 		echo "(Add your language through https://github.com/ExploreNYM/bash-tool)"
 		read -p "Enter your choice: " choice
 
@@ -38,6 +39,9 @@ language_menu() {
 				export EXPLORE_NYM_LANG="ru-рф" ; return
 				;;
 			5)
+				export EXPLORE_NYM_LANG="fr-fr" ; return
+				;;
+			6)
 				exit
 				;;
 			*)
