@@ -62,5 +62,21 @@
 		"backup": "Резервное копирование nym-mixnode",
 		"details": "Изменение сведений о nym-mixnode (имя/описание/ссылка/местоположение)",
 		"status": "Проверка статуса nym-mixnode"
-}
+	},
+	"fr-fr": {
+		"searching": "Recherche du dossier .nym pour l'utilisateur actuel, veuillez patienter",
+		"found": "dossier .nym trouvé",
+		"not_found": "Dossier .nym introuvable",
+		"no_cfg": "Impossible de trouver le fichier config.toml",
+		"menu": "menu nym-mixnode :",
+		"quitter": "Quitter",
+		"prompt": "Entrez votre choix : ",
+		"invalid": "Option invalide, veuillez réessayer",
+		"install": "Installer nym-mixnode",
+		"migrate": "Migrer nym-mixnode",
+		"update": "Mettre à jour nym-mixnode",
+		"backup": "Sauvegarder nym-mixnode",
+		"details": "Modifier les détails de nym-mixnode (nom/description/lien/emplacement)",
+		"status": "Vérifier l'état de nym-mixnode"
+	}
 }
