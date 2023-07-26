@@ -90,5 +90,28 @@
 		"stopped": "Обновление остановлено",
 		"updating": "Обновление сервера, пожалуйста, подождите...",
 		"updated": "Сервер обновлён"
-}
+	},
+	"fr-fr": {
+		"welcome_message": "Outil initialisé, veuillez patienter en vérifiant et en mettant à jour le serveur",
+		"enabled": "IPv6 activé",
+		"not_found": "Aucune adresse IPv6 trouvée !",
+		"force_exit": "Forcer l'arrêt",
+		"version_warning": "Le script d'avertissement et les exécutables nym sont testés sur Ubuntu 20.04",
+		"run_anyway": "Exécuter le script quand même ? (O/n)",
+		"nat_ok": "Le serveur n'est pas derrière un NAT",
+		"nat_fail": "Le serveur est derrière un NAT si vous utilisez un réseau local, veuillez consulter la documentation sur la redirection de port",
+		"has_sudo": "a des privilèges sudo",
+		"no_sudo": "n'a pas de privilèges sudo",
+		"root": "utilisateur root",
+		"root_warning": "Attention, vous devez créer un utilisateur sudo pour exécuter nym",
+		"make_user": "Créer un nouvel utilisateur sudo ? (O/n)",
+		"enter_user": "Entrez un nouveau nom d'utilisateur :",
+		"user_fail": "Échec de la création de l'utilisateur",
+		"diff_name": "essayez un autre nom d'utilisateur ou certifiez que vous avez correctement tapé le mot de passe",
+		"reconnecting": "Reconnexion en tant que nouvel utilisateur, veuillez relancer le script après la connexion",
+		"stopping": "Arrêt de la mise à jour",
+		"stopped": "Mise à jour arrêtée",
+		"updating": "Mise à jour du serveur, veuillez patienter...",
+		"updated": "Serveur à jour"
+	}
 }
