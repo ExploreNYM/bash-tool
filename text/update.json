@@ -38,5 +38,15 @@
 		"and": "Работает, не забудьте обновить версию в своем кошельке!",
 		"restart": "Начата перезагрузка сервера, Mixnode обновлена и работает, до следующего обновления :)",
 		"fail": "nym-mixnode была обновлена некорректно, пожалуйста, выполните повторное обновление."
-}
+	},
+	"fr-fr": {
+		"welcome_message": "La mise à jour du mixnode a commencé",
+		"checking": "Vérification de la version du mixnode",
+		"up_to_date": "Mixnode déjà à jour",
+		"outdated": "Mixnode obsolète, mise à jour",
+		"updated": "Mixnode mis à jour vers la version :",
+		"and": "et en cours d'exécution, n'oubliez pas de mettre à jour la version dans votre portefeuille !",
+		"restart": "Redémarrage du serveur lancé,Mixnode mis à jour et en cours d'exécution jusqu'à la prochaine mise à jour :)",
+		"fail": "nym-mixnode n'a pas été mis à jour correctement, veuillez re-mettre à jour."
+	}
 }
