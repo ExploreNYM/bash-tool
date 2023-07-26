@@ -18,5 +18,10 @@
 		"welcome_message": "Начат перенос Mixnode",
 		"success": "Папка успешно перемещена в",
 		"fail": "Папка .nym не найдена"
-}
+	},
+	"fr-fr": {
+	"welcome_message": "La migration du mixnode a commencé",
+	"success": "Dossier déplacé vers",
+	"fail": "Dossier .nym introuvable"
+	}
 }
