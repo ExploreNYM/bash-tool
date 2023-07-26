@@ -1,6 +1,6 @@
 {
 	"en-us": {
-		"instructions": "Mixnode current status Status press [q] to exit"
+		"instructions": "Mixnode current status, press [q] to exit"
 	},
 	"pt-br": {
 		"instructions": "Estado atual do mixnode, pressione [q] para sair"
@@ -10,5 +10,8 @@
 	},
 	"ru-рф": {
 		"instructions": "Текущий статус Mixnode. Нажмите [q] для выхода"
-}
+	},
+	"fr-fr": {
+		"instructions": "État actuel du mixnode, appuyez sur [q] pour quitter"
+	}
 }
