@@ -20,7 +20,7 @@ fi
 declare -A text
 while IFS=':' read -r key value; do
 	key=$(echo "${key//\"/}" | xargs)
-	value=$(echo "${value//\"/}" | xargs | sed 's/,$//')
+	value=$(echo "${value//\"/}" | xargs -0 | sed 's/,$//')
     text["$key"]="$value"
 done <<< "$translations"
 
