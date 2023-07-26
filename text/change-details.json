@@ -18,5 +18,10 @@
 		"welcome_message": "Обновление описания вашего mixnode",
 		"success": "Описание успешно обновлено",
 		"fail": "Ошибка: mixnode не запущен"
-}
+	},
+	"fr-fr": {
+		"welcome_message": "Mise à jour de la description de votre mixnode",
+		"success": "Description mise à jour avec succès",
+		"fail": "Erreur: le mixnode n'est pas démarré"
+	}
 }

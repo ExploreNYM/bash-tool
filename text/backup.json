@@ -14,5 +14,9 @@
 	"ru-рф": {
 		"welcome_message": "Началось резервное копирование Mixnode",
 		"instructions": "Скопируйте этот скрипт и вставьте его в локальный терминал (mac/linux) или powershell (windows) для создания резервной копии mixnode"
+	},
+	"fr-fr": {
+		"welcome_message": "Démarrage de la sauvegarde du mixnode",
+		"instructions": "Copiez le script et collez le sur votre terminal(mac/linux) ou powershell(windows) pour récupérer la sauvegarde de votre mixnode"
 	}
 }
