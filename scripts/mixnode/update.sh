@@ -73,7 +73,7 @@ display_status() {
 		sudo reboot
 	else
 		echo -e "$fail_x ${text[fail]}"
-		sleep 2
+		sleep 10
 		exit 1
 	fi
 }
@@ -87,4 +87,5 @@ echo -e "${set_bold}${text[welcome_message]}\n$set_normal"
 setup_binary
 sudo systemctl stop nym-mixnode
 init_binary
+sudo systemctl start nym-mixnode
 display_status
