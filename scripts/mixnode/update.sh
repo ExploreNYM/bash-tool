@@ -14,6 +14,7 @@ fail_x="\xE2\x9C\x97"
 set_bold="\033[1m"
 set_normal="\033[22m"
 announce_ip=$(curl -s ifconfig.me)
+[ -z "$announce_ip" ] && announce_ip=$(curl ipinfo.io/ip)
 #Load text into associative array
 translations=$(jq -r ".\"$EXPLORE_NYM_LANG\"" $EXPLORE_NYM_PATH/../text/update.json)
 if [[ "$translations" == "null" ]]; then
@@ -55,9 +56,7 @@ setup_binary() {
 }
 
 init_binary() {
-	host=$(curl -s ifconfig.me)
-
-	nym-mixnode init --id $nym_node_id --host $host > ne-output.txt
+	nym-mixnode init --id $nym_node_id --host $announce_ip > ne-output.txt
 }
 
 display_status() {

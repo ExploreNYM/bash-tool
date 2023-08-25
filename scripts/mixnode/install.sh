@@ -39,6 +39,7 @@ setup_binary() {
 
 setup_mixnode() {
 	host=$(curl ifconfig.me)
+	[ -z "$host" ] && host=$(curl ipinfo.io/ip)
 	nym_node_id="nym-mixnode"
 
 	nym-mixnode init --id $nym_node_id --host $host > $HOME/ne-output.txt
