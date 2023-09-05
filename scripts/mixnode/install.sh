@@ -27,14 +27,12 @@ done <<< "$translations"
 ###############
 
 setup_binary() {
-	nym_binary_name="nym-mixnode"
-	nym_release=$(curl -s "https://github.com/nymtech/nym/releases/" |\
-		grep -oEm 1 "nym-binaries-v[0-9]+\.[0-9]+\.[0-9]+")
-	nym_url="https://github.com/nymtech/nym/releases/download"
+	binary_name="nym-mixnode"
+	nym_url="https://github.com/nymtech/nym/releases/latest/download/$binary_name"
 
-	wget -q -O $nym_binary_name "$nym_url/$nym_release/$nym_binary_name"
-	chmod u+x $nym_binary_name
-	sudo mv $nym_binary_name /usr/local/bin/
+	wget -q -O $binary_name "$nym_url"
+	chmod u+x $binary_name
+	sudo mv $binary_name /usr/local/bin/
 }
 
 setup_mixnode() {

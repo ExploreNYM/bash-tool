@@ -35,14 +35,12 @@ done <<< "$translations"
 ###############
 
 setup_binary() {
-	nym_binary_name="nym-mixnode"
-	nym_release=$(curl -s "https://github.com/nymtech/nym/releases/" |\
-		grep -oEm 1 "nym-binaries-v[0-9]+\.[0-9]+\.[0-9]+")
-	nym_url="https://github.com/nymtech/nym/releases/download"
+	binary_name="nym-mixnode"
+	nym_url="https://github.com/nymtech/nym/releases/latest/download/$binary_name"
 
 	echo "${text[checking]}"
-	wget -q -O $nym_binary_name "$nym_url/$nym_release/$nym_binary_name"
-	chmod u+x $nym_binary_name
+	wget -q -O $binary_name "$nym_url"
+	chmod u+x $binary_name
 	installed_version=$(nym-mixnode --version 2> /dev/null | grep "Build Version" | awk '{print $3}')
 	remote_version=$(./nym-mixnode --version 2> /dev/null | grep "Build Version" | awk '{print $3}')
 	if [[ $installed_version == $remote_version ]]; then
@@ -52,7 +50,7 @@ setup_binary() {
 	else
 		echo "${text[outdated]}" ; sleep 2
 	fi
-	sudo mv $nym_binary_name /usr/local/bin/ 
+	sudo mv $binary_name /usr/local/bin/
 }
 
 init_binary() {
