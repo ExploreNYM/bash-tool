@@ -38,7 +38,7 @@ setup_binary() {
 }
 
 setup_mixnode() {
-	host=$(curl ifconfig.me)
+	host=$(curl -4 ifconfig.me)
 	nym_node_id="nym-mixnode"
 
 	nym-mixnode init --id $nym_node_id --host $host > $HOME/ne-output.txt
