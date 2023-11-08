@@ -8,7 +8,7 @@ check_mark="\xE2\x9C\x93"
 fail_x="\xE2\x9C\x97"
 set_bold="\033[1m"
 set_normal="\033[22m"
-announce_ip=$(curl -s ifconfig.me)
+announce_ip=$(curl -4 ifconfig.me)
 [ -z "$announce_ip" ] && announce_ip=$(curl ipinfo.io/ip)
 #Load text into associative array
 translations=$(jq -r ".\"$EXPLORE_NYM_LANG\"" $EXPLORE_NYM_PATH/../text/check-vps.json)
