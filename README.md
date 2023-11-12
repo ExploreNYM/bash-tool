@@ -86,19 +86,6 @@ if you are using this tool after already installing manually select migrate.
 
 <p  align="right">(<a  href="#readme-top">back to top</a>)</p> 
 
-<!-- ROADMAP -->
-## Roadmap
-- [x] **Mixnode**
-	- [x] install/update/backup/migrate.
-- [ ] **Gateway**
-	- [ ] install/update/backup/migrate
-- [ ] **Net Requester**
-	- [ ] install/update/backup/migrate
-- [ ] **Validator**
-	- [ ] install/update/backup/migrate
-
-<p  align="right">(<a  href="#readme-top">back to top</a>)</p>
-
 <!-- CONTRIBUTING -->
 ## Contributing
 
@@ -164,7 +151,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Twitter - @Pawnflake
 
-Discord - Pawnflake#3519
+Discord - Pawnflake
 
 Discord - supermeia
 
