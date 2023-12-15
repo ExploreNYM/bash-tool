@@ -23,5 +23,10 @@
 	"welcome_message": "La migration du mixnode a commencé",
 	"success": "Dossier déplacé vers",
 	"fail": "Dossier .nym introuvable"
-	}
+	}, 
+	"es-es": {
+		"welcome_message": "Migración de Mixnode iniciada",
+		"success": "Carpeta movida con éxito a",
+		"fail": "Carpeta .nym no encontrada"
+	  }
 }

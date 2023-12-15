@@ -13,5 +13,8 @@
 	},
 	"fr-fr": {
 		"instructions": "État actuel du mixnode, appuyez sur [q] pour quitter"
+	}, 
+	"es-es":{
+		"instructions": "Estado actual del Mixnode, pulse [q] para salir"
 	}
 }
