@@ -78,5 +78,21 @@
 		"backup": "Sauvegarder nym-mixnode",
 		"details": "Modifier les détails de nym-mixnode (nom/description/lien/emplacement)",
 		"status": "Vérifier l'état de nym-mixnode"
-	}
+	}, 
+	"es-es": {
+		"searching": "Buscando la carpeta .nym del usuario actual, por favor espera",
+		"found": "Carpeta .nym encontrada",
+		"not_found": "Carpeta .nym no encontrada",
+		"no_cfg": "No se encuentra el archivo config.toml",
+		"menu": "Menú de nym-mixnode:",
+		"quit": "Salir",
+		"prompt": "Ingresa tu opción: ",
+		"invalid": "Opción inválida, intenta de nuevo",
+		"install": "Instalar nym-mixnode",
+		"migrate": "Migrar nym-mixnode",
+		"update": "Actualizar nym-mixnode",
+		"backup": "Respaldar nym-mixnode",
+		"details": "Cambiar detalles de nym-mixnode (nombre/descripción/enlace/ubicación)",
+		"status": "Verificar estado de nym-mixnode"
+	  }
 }

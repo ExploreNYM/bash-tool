@@ -113,5 +113,29 @@
 		"stopped": "Mise à jour arrêtée",
 		"updating": "Mise à jour du serveur, veuillez patienter...",
 		"updated": "Serveur à jour"
+	},
+
+	"es-es": {
+		"welcome_message": "La herramienta Mixnode se ha inicializado. Por favor, ten paciencia mientras se revisa y actualiza el servidor.",
+		"enabled": "IPv6 habilitado",
+		"not_found": "¡No se encontró ninguna dirección IPv6!",
+		"force_exit": "Forzar salida",
+		"version_warning": "Advertencia: el script y los binarios nym se han probado en Ubuntu 20.04",
+		"run_anyway": "¿Ejecutar el script de todos modos? (S/n)",
+		"nat_ok": "El servidor no está detrás de un NAT",
+		"nat_fail": "El servidor está detrás de un NAT. Si estás en una red doméstica, consulta las instrucciones sobre reenvío de puertos.",
+		"has_sudo": "Tiene privilegios sudo",
+		"no_sudo": "No tiene privilegios sudo",
+		"root": "Usuario root",
+		"root_warning": "Advertencia: debes crear un usuario sudo para ejecutar nym",
+		"make_user": "¿Crear un nuevo usuario sudo? (S/n)",
+		"enter_user": "Introduce un nuevo nombre de usuario:",
+		"user_fail": "Error al crear el usuario",
+		"diff_name": "Prueba con un nombre de usuario diferente o verifica que escribiste la contraseña correctamente",
+		"reconnecting": "Reconectando como nuevo usuario. Por favor, vuelve a ejecutar el script después de conectarte",
+		"stopping": "Deteniendo la actualización",
+		"stopped": "Actualización detenida",
+		"updating": "Actualizando el servidor, por favor ten paciencia...",
+		"updated": "Servidor actualizado"
 	}
 }

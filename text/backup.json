@@ -1,22 +1,26 @@
 {
-	"en-us": {
-		"welcome_message": "Mixnode backup started",
-		"instructions": "Copy this script and paste it in your local terminal(mac/linux) or powershell(windows) to pull a backup of your mixnode"
-	},
-	"pt-br": {
-		"welcome_message": "Backup do mixnode inicializado",
-		"instructions": "Copie esse comando e cole ele no seu terminal(mac/linux) ou powershell(windows) local para puxar um backup do seu mixnode"
-	},
-	"ua-укр": {
-		"welcome_message": "Розпочато резервне копіювання мікс-ноди",
-		"instructions": "Щоб створити резервну копію вашої мікс-ноди, скопіюйте цей скрипт і вставте у свій локальний термінал, якщо користуєтесь mac/linux або powershell, якщо користуєтесь windows."
-	},
-	"ru-рф": {
-		"welcome_message": "Началось резервное копирование Mixnode",
-		"instructions": "Скопируйте этот скрипт и вставьте его в локальный терминал (mac/linux) или powershell (windows) для создания резервной копии mixnode"
-	},
-	"fr-fr": {
-		"welcome_message": "Démarrage de la sauvegarde du mixnode",
-		"instructions": "Copiez le script et collez le sur votre terminal(mac/linux) ou powershell(windows) pour récupérer la sauvegarde de votre mixnode"
-	}
+  "en-us": {
+    "welcome_message": "Mixnode backup started",
+    "instructions": "Copy this script and paste it in your local terminal(mac/linux) or powershell(windows) to pull a backup of your mixnode"
+  },
+  "pt-br": {
+    "welcome_message": "Backup do mixnode inicializado",
+    "instructions": "Copie esse comando e cole ele no seu terminal(mac/linux) ou powershell(windows) local para puxar um backup do seu mixnode"
+  },
+  "ua-укр": {
+    "welcome_message": "Розпочато резервне копіювання мікс-ноди",
+    "instructions": "Щоб створити резервну копію вашої мікс-ноди, скопіюйте цей скрипт і вставте у свій локальний термінал, якщо користуєтесь mac/linux або powershell, якщо користуєтесь windows."
+  },
+  "ru-рф": {
+    "welcome_message": "Началось резервное копирование Mixnode",
+    "instructions": "Скопируйте этот скрипт и вставьте его в локальный терминал (mac/linux) или powershell (windows) для создания резервной копии mixnode"
+  },
+  "fr-fr": {
+    "welcome_message": "Démarrage de la sauvegarde du mixnode",
+    "instructions": "Copiez le script et collez le sur votre terminal(mac/linux) ou powershell(windows) pour récupérer la sauvegarde de votre mixnode"
+  },
+  "es-es": {
+    "welcome_message": "Copia de seguridad de Mixnode iniciada",
+    "instructions": "Copia este script y pégalo en tu terminal local(mac/linux) o powershell(windows) para sacar una copia de seguridad de tu mixnode"
+  }
 }

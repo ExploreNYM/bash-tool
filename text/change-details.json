@@ -23,5 +23,10 @@
 		"welcome_message": "Mise à jour de la description de votre mixnode",
 		"success": "Description mise à jour avec succès",
 		"fail": "Erreur: le mixnode n'est pas démarré"
+	},
+	"es-es": {
+		"welcome_message": "Actualizando descripción de tu mixnode",
+		"success": "Descripción actualizada con éxito",
+		"fail": "Error: mixnode no se está ejecutando"
 	}
 }

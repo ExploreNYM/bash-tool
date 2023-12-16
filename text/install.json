@@ -33,5 +33,12 @@
 		"instructions": "nym-mixnode installé, n'oubliez pas de lier votre nœud avec les détails via votre portefeuille ci-dessus !",
 		"restart": "Redémarrage du serveur initialisé",
 		"fail": "nym-mixnode n'a pas été installé correctement, veuillez réinstaller"
+	},
+	"es-es": {
+		"welcome_message": "La instalación del Mixnode ha comenzado",
+		"success": "Mixnode instalado y funcionando",
+		"instructions": "¡nym-mixnode instalado, recuerda vincular tu nodo en los detalles de tu cartera!",
+		"restart": "Reinicio del servidor inicializado",
+		"fail": "nym-mixnode no se instaló correctamente, por favor vuelve a instalarlo"
 	}
 }
