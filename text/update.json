@@ -58,5 +58,24 @@
 		"and": "y en funcionamiento, ¡recuerda actualizar la versión en tu cartera!",
 		"restart": "Reinicio del servidor iniciado, Mixnode actualizado y en funcionamiento, ¡hasta la próxima actualización! :)",
 		"fail": "nym-mixnode no se actualizó correctamente, por favor vuelve a actualizarlo."
-	  }
+	  },
+	"zh-hans": {
+		"welcome_message": "Mixnode升级已开始",
+		"checking": "检查Mixnode版本",
+		"up_to_date": "Mixnode已是最新版",
+		"outdated": "Mixnode检测到最新版，正在升级",
+		"updated": "Mixnode已升级至：",
+		"and": "并运行，请确保更新钱包版本！",
+		"restart": "服务器重新启动，Mixnode已更新并正在运行，下次更新再见 :)",
+		"fail": "nym-mixnode没有更新成功，请重试。"
+	  },
+	"zh-hant": {
+		"welcome_message": "Mixnode升級已開始",
+		"checking": "檢查Mixnode版本",
+		"up_to_date": "Mixnode已是最新版",
+		"outdated": "Mixnode檢測到最新版，正在升級",
+		"updated": "Mixnode已升級至：",
+		"and": "並運行，請確保更新錢包版本！",
+		"restart": "伺服器重新啟動，Mixnode已更新並正在運行，下次更新再見 :)",
+		"fail": "nym-mixnode沒有更新成功，請重試。"
 }
