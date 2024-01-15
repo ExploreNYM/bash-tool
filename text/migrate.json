@@ -28,5 +28,14 @@
 		"welcome_message": "Migración de Mixnode iniciada",
 		"success": "Carpeta movida con éxito a",
 		"fail": "Carpeta .nym no encontrada"
-	  }
+	},
+	"zh-hans": {
+		"welcome_message": "Mixnode迁移已开始",
+		"success": "文件夹已成功移动至",
+		"fail": ".nym文件夹未找到"
+	},
+	"zh-hant": {
+		"welcome_message": "Mixnode遷移已開始",
+		"success": "資料夾已成功移動至",
+		"fail": ".nym資料夾未找到"
 }
