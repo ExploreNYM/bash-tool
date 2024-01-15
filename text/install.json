@@ -40,5 +40,19 @@
 		"instructions": "¡nym-mixnode instalado, recuerda vincular tu nodo en los detalles de tu cartera!",
 		"restart": "Reinicio del servidor inicializado",
 		"fail": "nym-mixnode no se instaló correctamente, por favor vuelve a instalarlo"
+	},
+	"zh-hans": {
+		"welcome_message": "Mixnode 已开始安装",
+		"success": "Mixnode 已安装并运行",
+		"instructions": "nym-mixnode 已安装，请记得在上方的钱包详情中绑定您的节点！",
+		"restart": "服务器重启已初始化",
+		"fail": "nym-mixnode 安装不正确，请重新安装"
+	},
+	"zh-hant": {
+		"welcome_message": "Mixnode 安裝已開始",
+		"success": "Mixnode 已安裝並運行",
+		"instructions": "nym-mixnode 已安裝，請記得在上方的錢包詳情中綁定您的節點！",
+		"restart": "伺服器重啟已初始化",
+		"fail": "nym-mixnode 安裝不正確，請重新安裝"
 	}
 }

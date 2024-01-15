@@ -94,5 +94,37 @@
 		"backup": "Respaldar nym-mixnode",
 		"details": "Cambiar detalles de nym-mixnode (nombre/descripción/enlace/ubicación)",
 		"status": "Verificar estado de nym-mixnode"
-	  }
+	},
+	"zh-hans": {
+		"searching": "正在搜索当前用户的 .nym 文件夹，请稍候",
+		"found": ".nym 文件夹已找到",
+		"not_found": "未找到 .nym 文件夹",
+		"no_cfg": "找不到 config.toml 文件",
+		"menu": "nym-mixnode 菜单：",
+		"quit": "退出",
+		"prompt": "请输入您的选择：",
+		"invalid": "无效选项，请重试",
+		"install": "安装 nym-mixnode",
+		"migrate": "迁移 nym-mixnode",
+		"update": "更新 nym-mixnode",
+		"backup": "备份 nym-mixnode",
+		"details": "更改 nym-mixnode 详细信息（名称/描述/链接/位置）",
+		"status": "检查 nym-mixnode 状态"
+	},
+	"zh-hant": {
+		"searching": "正在搜尋當前用戶的 .nym 資料夾，請稍候",
+		"found": "找到 .nym 資料夾",
+		"not_found": "未找到 .nym 資料夾",
+		"no_cfg": "找不到 config.toml 檔案",
+		"menu": "nym-mixnode 選單：",
+		"quit": "退出",
+		"prompt": "請輸入您的選擇：",
+		"invalid": "無效選項，請重試",
+		"install": "安裝 nym-mixnode",
+		"migrate": "遷移 nym-mixnode",
+		"update": "更新 nym-mixnode",
+		"backup": "備份 nym-mixnode",
+		"details": "更改 nym-mixnode 詳細資訊（名稱/描述/連結/位置）",
+		"status": "檢查 nym-mixnode 狀態"
+	}
 }

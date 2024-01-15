@@ -22,5 +22,13 @@
   "es-es": {
     "welcome_message": "Copia de seguridad de Mixnode iniciada",
     "instructions": "Copia este script y pégalo en tu terminal local(mac/linux) o powershell(windows) para sacar una copia de seguridad de tu mixnode"
+  },
+  "zh-hans": {
+    "welcome_message": "Mixnode备份已开始",
+    "instructions": "将此脚本复制并粘贴到您的本地终端（Mac/Linux）或Powershell（Windows）中，以备份您的Mixnode。"
+  },
+  "zh-hant": {
+    "welcome_message": "Mixnode備份已經開始",
+    "instructions": "將此指令複製並貼上至您的本地終端（Mac/Linux）或Powershell（Windows），以備份您的Mixnode。"
   }
 }

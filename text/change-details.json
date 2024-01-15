@@ -28,5 +28,15 @@
 		"welcome_message": "Actualizando descripción de tu mixnode",
 		"success": "Descripción actualizada con éxito",
 		"fail": "Error: mixnode no se está ejecutando"
+	},
+	"zh-hans": {
+		"welcome_message": "正在更新您的 Mixnode 描述",
+		"success": "描述更新成功",
+		"fail": "错误： Mixnode 未运行"
+	},
+	"zh-hant": {
+		"welcome_message": "更新您的 Mixnode 描述中",
+		"success": "描述更新成功",
+		"fail": "錯誤： Mixnode 未運行"
 	}
 }

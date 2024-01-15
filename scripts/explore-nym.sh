@@ -22,7 +22,9 @@ language_menu() {
 		echo "4. Русский (RU)"
 		echo "5. Français (FR)"
 		echo "6. Español (ES)"
-		echo "7. Quit"
+  		echo "7. 简体中文 (HANS)"
+    		echo "8. 繁體中文 (HANT)"
+		echo "0. Quit"
 		echo "(Add your language through https://github.com/ExploreNYM/bash-tool)"
 		read -p "Enter your choice: " choice
 
@@ -45,7 +47,13 @@ language_menu() {
 			6)
 				export EXPLORE_NYM_LANG="es-es" ; return
 				;;
-			7)
+    			7)
+				export EXPLORE_NYM_LANG="zh-hans" ; return
+				;;
+        		8)
+				export EXPLORE_NYM_LANG="zh-hant" ; return
+				;;
+			0)
 				exit
 				;;
 			*)

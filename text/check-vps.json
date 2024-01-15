@@ -114,7 +114,6 @@
 		"updating": "Mise à jour du serveur, veuillez patienter...",
 		"updated": "Serveur à jour"
 	},
-
 	"es-es": {
 		"welcome_message": "La herramienta Mixnode se ha inicializado. Por favor, ten paciencia mientras se revisa y actualiza el servidor.",
 		"enabled": "IPv6 habilitado",
@@ -137,5 +136,51 @@
 		"stopped": "Actualización detenida",
 		"updating": "Actualizando el servidor, por favor ten paciencia...",
 		"updated": "Servidor actualizado"
+	},
+	"zh-hans": {
+		"welcome_message": "Mixnode 工具已初始化，请耐心等待服务器检查和更新",
+		"enabled": "IPv6 已启用",
+		"not_found": "未找到 IPv6 地址！",
+		"force_exit": "强制退出",
+		"version_warning": "警告：脚本和 nym 二进制文件仅在 Ubuntu 20.04上经过测试",
+		"run_anyway": "仍要运行脚本吗？ (Y/n)",
+		"nat_ok": "服务器未处于 NAT 环境",
+		"nat_fail": "服务器处于 NAT 环境，如果您在家庭网络上运行，请查阅文档了解端口转发",
+		"has_sudo": "具有 sudo 权限",
+		"no_sudo": "没有 sudo 权限",
+		"root": "root 用户",
+		"root_warning": "警告：您应该为运行 nym 创建一个 sudo 用户",
+		"make_user": "创建一个新的sudo用户？ (Y/n)",
+		"enter_user": "输入新用户名：",
+		"user_fail": "无法创建用户",
+		"diff_name": "尝试使用不同的用户名，或确保您正确输入了密码",
+		"reconnecting": "重新连接为新用户，请在连接后重新运行脚本",
+		"stopping": "停止更新",
+		"stopped": "更新已停止",
+		"updating": "正在更新服务器，请耐心等待...",
+		"updated": "服务器已更新"
+	},
+	"zh-hant": {
+		"welcome_message": "Mixnode 工具已初始化，請耐心等待檢查和更新伺服器",
+		"enabled": "IPv6 已啟用",
+		"not_found": "未找到 IPv6 位址！",
+		"force_exit": "強制退出",
+		"version_warning": "警告：腳本和 nym 二進位文件僅在 Ubuntu 20.04 上經過測試",
+		"run_anyway": "仍要執行腳本嗎？ (Y/n)",
+		"nat_ok": "伺服器未處於 NAT 環境中",
+		"nat_fail": "伺服器處於 NAT 環境中，如果您在家庭網路上執行，請查閱文件了解埠轉發",
+		"has_sudo": "具有 sudo 權限",
+		"no_sudo": "沒有 sudo 權限",
+		"root": "root 使用者",
+		"root_warning": "警告：您應該為執行 nym 創建一個 sudo 使用者",
+		"make_user": "創建一個新的 sudo 使用者？ (Y/n)",
+		"enter_user": "輸入新使用者名稱：",
+		"user_fail": "無法創建使用者",
+		"diff_name": "嘗試使用不同的使用者名稱，或確保您正確輸入了密碼",
+		"reconnecting": "重新連接為新使用者，請在連接後重新執行腳本",
+		"stopping": "停止更新",
+		"stopped": "更新已停止",
+		"updating": "正在更新伺服器，請耐心等待...",
+		"updated": "伺服器已更新"
 	}
 }

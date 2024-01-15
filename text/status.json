@@ -16,5 +16,11 @@
 	}, 
 	"es-es":{
 		"instructions": "Estado actual del Mixnode, pulse [q] para salir"
+	},
+	"zh-hans": {
+		"instructions": "Mixnode 目前状态, 按 [q] 退出"
+	},
+	"zh-hant": {
+		"instructions": "Mixnode 目前狀態，按下 [q] 退出"
 	}
 }
