@@ -38,4 +38,5 @@
 		"welcome_message": "Mixnode 遷移已開始",
 		"success": "資料夾已成功移動至",
 		"fail": ".nym 資料夾未找到"
+	}
 }
