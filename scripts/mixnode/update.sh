@@ -40,12 +40,12 @@ setup_binary() {
 
 	echo "${text[checking]}"
 	wget -q -O $binary_name "$nym_url"
-	chmod u+x $binary_name
+	sudo chmod u+x $binary_name
 	installed_version=$(nym-mixnode --version 2> /dev/null | grep "Build Version" | awk '{print $3}')
 	remote_version=$(./nym-mixnode --version 2> /dev/null | grep "Build Version" | awk '{print $3}')
 	if [[ $installed_version == $remote_version ]]; then
 		echo "${text[up_to_date]}"
-		rm nym-mixnode
+		sudo rm nym-mixnode
 		sleep 2 ; exit
 	else
 		echo "${text[outdated]}" ; sleep 2
