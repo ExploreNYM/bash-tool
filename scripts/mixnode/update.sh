@@ -39,7 +39,7 @@ setup_binary() {
 	nym_url="https://github.com/nymtech/nym/releases/latest/download/$binary_name"
 
 	echo "${text[checking]}"
-	wget -q -O $binary_name "$nym_url"
+	sudo wget -q -O $binary_name "$nym_url"
 	sudo chmod u+x $binary_name
 	installed_version=$(nym-mixnode --version 2> /dev/null | grep "Build Version" | awk '{print $3}')
 	remote_version=$(./nym-mixnode --version 2> /dev/null | grep "Build Version" | awk '{print $3}')
@@ -54,7 +54,7 @@ setup_binary() {
 }
 
 init_binary() {
-	nym-mixnode init --id $nym_node_id --host $announce_ip > ne-output.txt
+	sudo nym-mixnode init --id $nym_node_id --host $announce_ip > ne-output.txt
 }
 
 display_status() {
